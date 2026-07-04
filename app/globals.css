@@ -1,26 +1,233 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-instrument);
+  --font-heading: var(--font-bricolage);
+  --font-mono: var(--font-jetbrains);
+  --font-hand: var(--font-caveat);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  /* Notebook-world tokens (PLAN.md §2A) */
+  --color-rule: var(--rule);
+  --color-margin: var(--margin);
+  --color-ballpoint: var(--ballpoint);
+  --color-verdict: var(--verdict);
+  --color-code-surface: var(--code-surface);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/*
+ * Light — "Notebook". One accent (ballpoint blue). Margin red is reserved
+ * for the structural margin rule and red-pen moments (wrong answers, real
+ * warnings). No gradients, no glassmorphism.
+ */
+:root {
+  --background: #fcfbf7; /* page */
+  --foreground: #1c1e26; /* text ink */
+  --card: #ffffff;
+  --card-foreground: #1c1e26;
+  --popover: #ffffff;
+  --popover-foreground: #1c1e26;
+  --primary: #2547c9; /* ballpoint blue — the one accent */
+  --primary-foreground: #fcfbf7;
+  --secondary: #f2f0e9;
+  --secondary-foreground: #1c1e26;
+  --muted: #f2f0e9;
+  --muted-foreground: #5c6070;
+  --accent: #eef1fb; /* faint blue-ink wash for hover states */
+  --accent-foreground: #2547c9;
+  --destructive: #d64545; /* margin red — red-pen moments only */
+  --border: #e3e7ef; /* ruled line */
+  --input: #e3e7ef;
+  --ring: #2547c9;
+  --chart-1: #2547c9;
+  --chart-2: #2e9e5b;
+  --chart-3: #d64545;
+  --chart-4: #5c6070;
+  --chart-5: #1c1e26;
+  --radius: 0.5rem;
+  --sidebar: #fcfbf7;
+  --sidebar-foreground: #1c1e26;
+  --sidebar-primary: #2547c9;
+  --sidebar-primary-foreground: #fcfbf7;
+  --sidebar-accent: #eef1fb;
+  --sidebar-accent-foreground: #2547c9;
+  --sidebar-border: #e3e7ef;
+  --sidebar-ring: #2547c9;
+  --rule: #e3e7ef;
+  --margin: #d64545;
+  --ballpoint: #2547c9;
+  --verdict: #2e9e5b;
+  --code-surface: #14161c; /* code always feels like an IDE, both themes */
+}
+
+/* Dark — "Night study" */
+.dark {
+  --background: #101319;
+  --foreground: #e8eaf2;
+  --card: #161a22;
+  --card-foreground: #e8eaf2;
+  --popover: #161a22;
+  --popover-foreground: #e8eaf2;
+  --primary: #7a9bff;
+  --primary-foreground: #101319;
+  --secondary: #1a1f2a;
+  --secondary-foreground: #e8eaf2;
+  --muted: #1a1f2a;
+  --muted-foreground: #9aa1b5;
+  --accent: #182036;
+  --accent-foreground: #7a9bff;
+  --destructive: #ff7a7a;
+  --border: #1d2330;
+  --input: #1d2330;
+  --ring: #7a9bff;
+  --chart-1: #7a9bff;
+  --chart-2: #4ade80;
+  --chart-3: #ff7a7a;
+  --chart-4: #9aa1b5;
+  --chart-5: #e8eaf2;
+  --sidebar: #101319;
+  --sidebar-foreground: #e8eaf2;
+  --sidebar-primary: #7a9bff;
+  --sidebar-primary-foreground: #101319;
+  --sidebar-accent: #182036;
+  --sidebar-accent-foreground: #7a9bff;
+  --sidebar-border: #1d2330;
+  --sidebar-ring: #7a9bff;
+  --rule: #1d2330;
+  --margin: #ff7a7a;
+  --ballpoint: #7a9bff;
+  --verdict: #4ade80;
+  --code-surface: #14161c;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Faint ruled lines, like a notebook page. Line every 2rem. */
+  .bg-ruled {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(2rem - 1px),
+      var(--rule) calc(2rem - 1px),
+      var(--rule) 2rem
+    );
+  }
+  /* The red double margin on the left of a content page. */
+  .margin-rule {
+    position: relative;
+  }
+  .margin-rule::before {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    left: 0;
+    width: 1px;
+    background: color-mix(in srgb, var(--margin) 55%, transparent);
+  }
+  .margin-rule::after {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    left: 4px;
+    width: 1px;
+    background: color-mix(in srgb, var(--margin) 35%, transparent);
+  }
+}
+
+/* Wordmark trail: draws itself once on first paint, left → right. */
+@keyframes trail-reveal {
+  from {
+    clip-path: inset(-20% 100% -20% 0);
+  }
+  to {
+    clip-path: inset(-20% -20% -20% 0);
+  }
+}
+@keyframes plane-liftoff {
+  from {
+    opacity: 0;
+    transform: translate(-3px, 3px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+.wordmark-trail {
+  animation: trail-reveal 600ms ease-out both;
+}
+.wordmark-plane {
+  animation: plane-liftoff 300ms ease-out 450ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wordmark-trail,
+  .wordmark-plane {
+    animation: none;
+  }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
