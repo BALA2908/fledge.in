@@ -1,0 +1,24 @@
+{
+  "slug": "maven-build-basics-local-repository",
+  "title": "Where do downloaded dependencies live?",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "You add a dependency and build. Maven downloads the jar once — and your next build, even in a *different* project needing the same jar, downloads nothing. Where did Maven put it?",
+    "options": [
+      "Inside each project's target/ folder",
+      "In the local repository (the .m2 folder in your home directory), shared by all your projects",
+      "Inside src/main/resources of the project that asked for it",
+      "Nowhere — Maven streams dependencies from Maven Central on every build"
+    ],
+    "correct_index": 1,
+    "explanation_md": "Maven caches every downloaded artifact in your **local repository** — `~/.m2/repository` — organised by its coordinates. Every project on your machine shares that one cache, which is why the second project's build was instant. The tempting wrong answer is `target/`: that folder holds *your* build output (compiled classes, your jar) and is wiped by `mvn clean` — if dependencies lived there, every clean would mean re-downloading the internet. Streaming on every build would make offline work impossible; the cache is exactly what lets Maven work on hostel wifi."
+  },
+  "hints": [],
+  "tags": ["maven", "local-repository", "dependencies"],
+  "topic_slugs": ["maven-pom-and-dependencies"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "maven-build-basics",
+  "diagnostic": false,
+  "is_published": true
+}

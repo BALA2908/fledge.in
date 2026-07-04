@@ -1,0 +1,24 @@
+{
+  "slug": "core-java-oop-string-equality-check",
+  "title": "Two chai strings walk into a comparison",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "```java\nString a = new String(\"chai\");\nString b = new String(\"chai\");\n```\n\nWhich statement is true?",
+    "options": [
+      "a == b is true and a.equals(b) is true",
+      "a == b is false but a.equals(b) is true",
+      "a == b is true but a.equals(b) is false",
+      "Both are false — they're different objects"
+    ],
+    "correct_index": 1,
+    "explanation_md": "`new String(...)` forces Java to create a **separate object** each time, so `a` and `b` are two different objects holding the same text. `==` compares references — same object or not? — so it's `false`. `.equals()` compares the actual characters, so it's `true`. The tempting answer is \"both true\": that's what you'd see with plain literals (`String a = \"chai\";`), because identical literals share one pooled object — which is exactly why this trap works. The rule that never fails: compare String *content* with `.equals()`, always."
+  },
+  "hints": [],
+  "tags": ["strings", "equals", "string-pool"],
+  "topic_slugs": ["java-strings-immutability"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "core-java-oop",
+  "diagnostic": true,
+  "is_published": true
+}

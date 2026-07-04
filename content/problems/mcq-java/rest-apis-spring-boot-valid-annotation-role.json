@@ -1,0 +1,24 @@
+{
+  "slug": "rest-apis-spring-boot-valid-annotation-role",
+  "title": "Constraints that never fire",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "Your DTO has `@NotBlank` on `name` and `@Email` on `email`, but the API still happily accepts `{\"name\": \"\", \"email\": \"not-an-email\"}`. The controller method looks like this:\n\n```java\n@PostMapping\npublic Student create(@RequestBody StudentSignupRequest req) { ... }\n```\n\nWhat's missing?",
+    "options": [
+      "`@Valid` before `@RequestBody` — constraints only run when the parameter asks for validation",
+      "Nothing — constraint annotations on a DTO always run automatically",
+      "A manual `if (req.getName().isEmpty())` check — annotations are only documentation",
+      "`@NotBlank` belongs on the controller method, not on the DTO field"
+    ],
+    "correct_index": 0,
+    "explanation_md": "Constraint annotations describe the rules, but Spring only *enforces* them when the controller parameter is marked `@Valid` (or `@Validated`). Without it, the DTO deserializes and sails through — the exact bug in this question, and one of the most common real-world validation mistakes. The 'always automatic' option is tempting because the annotations *look* self-activating, but they're passive metadata until something triggers the validator. Manual `if` checks work but throw away the whole declarative system, and moving `@NotBlank` to the controller method isn't how field constraints are placed — rules live on the fields they guard."
+  },
+  "hints": [],
+  "tags": ["rest", "validation", "spring-boot"],
+  "topic_slugs": ["rest-request-body-dto-validation"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "rest-apis-spring-boot",
+  "diagnostic": false,
+  "is_published": true
+}

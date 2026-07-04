@@ -1,0 +1,24 @@
+{
+  "slug": "exceptions-file-io-filewriter-append",
+  "title": "The vanishing attendance log",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "Every day your program runs `new FileWriter(\"attendance.csv\")` and writes one line. After a week, the file contains only **today's** line. Why?",
+    "options": [
+      "The file system limits each file to one line per program",
+      "FileWriter without the append flag overwrites the file each time it opens",
+      "You must call flush() once per line or earlier lines are dropped",
+      "CSV files can only be extended using the Files class"
+    ],
+    "correct_index": 1,
+    "explanation_md": "`new FileWriter(\"attendance.csv\")` truncates the file to empty the moment it opens — so each run erases the previous six days. To add to the end, pass the append flag: `new FileWriter(\"attendance.csv\", true)`. The tempting wrong answer is `flush()`: forgetting to flush/close can lose the *current* run's unwritten bytes, but it doesn't erase data already saved on disk — the overwrite-on-open behaviour does that. This one mistake has eaten more beginner log files than any other line of Java."
+  },
+  "hints": [],
+  "tags": ["file-io", "filewriter", "java"],
+  "topic_slugs": ["java-file-read-write-basics"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "exceptions-file-io",
+  "diagnostic": false,
+  "is_published": true
+}

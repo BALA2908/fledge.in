@@ -1,0 +1,24 @@
+{
+  "slug": "rest-apis-spring-boot-pathvar-vs-param",
+  "title": "Grabbing 17 and includeMarks from a URL",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "A client calls:\n\n```\nGET /api/students/17?includeMarks=true\n```\n\nIn your Spring controller method, which annotations capture `17` and `includeMarks`?",
+    "options": [
+      "`@PathVariable` for 17, `@RequestParam` for includeMarks",
+      "`@RequestParam` for 17, `@PathVariable` for includeMarks",
+      "`@RequestBody` for both — they're both data sent by the client",
+      "`@PathVariable` for both — everything after the domain is the path"
+    ],
+    "correct_index": 0,
+    "explanation_md": "`17` sits inside the path itself and identifies *which* student — that's a path variable, matched by `@GetMapping(\"/{id}\")` plus `@PathVariable`. `includeMarks=true` comes after the `?`, tweaking *how* the response looks — a query param, captured with `@RequestParam`. The swapped option catches people who match annotations by habit instead of by URL anatomy: everything before `?` is path, everything after is query string. `@RequestBody` is the other trap — it reads the request *body*, and a GET request carries its data in the URL, not a body."
+  },
+  "hints": [],
+  "tags": ["rest", "spring-boot", "controllers"],
+  "topic_slugs": ["rest-path-variables-query-params"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "rest-apis-spring-boot",
+  "diagnostic": false,
+  "is_published": true
+}

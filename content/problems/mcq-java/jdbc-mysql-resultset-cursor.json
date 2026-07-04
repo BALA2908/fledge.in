@@ -1,0 +1,24 @@
+{
+  "slug": "jdbc-mysql-resultset-cursor",
+  "title": "Where does the ResultSet cursor start?",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "You run a `SELECT` that definitely returns rows, then immediately call `rs.getString(\"name\")` on the `ResultSet` — and get an exception. What did you forget?",
+    "options": [
+      "Calling rs.next() first — the cursor starts before the first row",
+      "Calling rs.open() to activate the result set",
+      "Nothing — getString only works with column numbers, not names",
+      "Sorting the results — an unsorted ResultSet can't be read"
+    ],
+    "correct_index": 0,
+    "explanation_md": "A fresh `ResultSet` cursor sits **above** row one. You must call `rs.next()` to step onto the first row; that's why the standard pattern is `while (rs.next()) { ... }`. Reading before the first `next()` throws, because the cursor isn't on any row yet. The tempting wrong answer is `rs.open()` — no such method exists; the ResultSet is already 'live' when `executeQuery` returns. And `getString` happily accepts either a column name or a column index, so that's not the problem."
+  },
+  "hints": [],
+  "tags": ["jdbc", "resultset"],
+  "topic_slugs": ["jdbc-crud-resultset"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "jdbc-mysql",
+  "diagnostic": true,
+  "is_published": true
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "java-programming-basics-assignment-in-condition",
+  "title": "One equals sign in an if",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "A friend wants to check attendance eligibility but typed one `=` instead of two:\n\n```java\nint attendance = 80;\nif (attendance = 75) {\n    System.out.println(\"Eligible for exams\");\n}\n```\n\nWhat happens?",
+    "options": [
+      "Prints \"Eligible for exams\" because 80 ≥ 75",
+      "Prints nothing, since 80 is not equal to 75",
+      "It doesn't compile — the condition isn't a boolean",
+      "It always prints, because assignment succeeds"
+    ],
+    "correct_index": 2,
+    "explanation_md": "`attendance = 75` is an **assignment**, and in Java its result is the assigned value — an `int`. An `if` demands a `boolean`, so the compiler rejects this line outright. The tempting answer is \"it always prints\" — that's what happens in C, where any non-zero number counts as true. Java deliberately closed that trap: mixing up `=` (assign) and `==` (compare) becomes a compile error instead of a silent bug. One exception worth knowing: with a `boolean` variable, `if (flag = true)` *does* compile — and always runs."
+  },
+  "hints": [],
+  "tags": ["java-basics", "conditionals", "operators"],
+  "topic_slugs": ["java-scanner-input-conditionals"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "java-programming-basics",
+  "diagnostic": false,
+  "is_published": true
+}

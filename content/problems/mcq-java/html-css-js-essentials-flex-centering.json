@@ -1,0 +1,24 @@
+{
+  "slug": "html-css-js-essentials-flex-centering",
+  "title": "Centering along the row",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "You have a flex container in the default row direction and want its items centered **horizontally**. Which property does the job?\n\n```css\n.toolbar {\n  display: flex;\n  /* ??? */\n}\n```",
+    "options": [
+      "`align-items: center;`",
+      "`justify-content: center;`",
+      "`text-align: center;` on each item",
+      "`margin: auto;` on the container"
+    ],
+    "correct_index": 1,
+    "explanation_md": "In a row-direction flex container, the **main axis** runs horizontally, and `justify-content` distributes items along the main axis — so `justify-content: center` centers them left-to-right. `align-items: center` is the tempting twin: it works on the **cross axis**, which in a row means *vertical* centering. The pair only makes sense together with direction: flip to `flex-direction: column` and their roles swap. `text-align` centers inline text inside an element, not flex items, and `margin: auto` on the container centers the container itself, not its children."
+  },
+  "hints": [],
+  "tags": ["css", "flexbox", "layout"],
+  "topic_slugs": ["css-flexbox-page-layouts"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "html-css-js-essentials",
+  "diagnostic": false,
+  "is_published": true
+}

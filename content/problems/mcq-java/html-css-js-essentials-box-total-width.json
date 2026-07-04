@@ -1,0 +1,24 @@
+{
+  "slug": "html-css-js-essentials-box-total-width",
+  "title": "How wide is this box, really?",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "With the browser default `box-sizing: content-box`, how wide does this element appear on screen?\n\n```css\n.card {\n  width: 200px;\n  padding: 20px;\n  border: 5px solid black;\n  margin: 10px;\n}\n```",
+    "options": [
+      "200px — width sets the full visible size",
+      "250px — content 200 + padding 20×2 + border 5×2",
+      "270px — content 200 + padding 40 + border 10 + margin 20",
+      "240px — content 200 + padding 20×2, borders don't take space"
+    ],
+    "correct_index": 1,
+    "explanation_md": "Under the default `content-box`, `width` sets only the **content** area. Padding and border stack on the outside: 200 + 20 + 20 + 5 + 5 = **250px** of visible box. The 270px option is the classic trap — margin *does* push neighbours away, but it's transparent space *around* the box, not part of the box you see, so it doesn't count toward the element's visible width. This surprise is exactly why real stylesheets set `* { box-sizing: border-box; }`, which makes `width: 200px` mean the full 200px including padding and border."
+  },
+  "hints": [],
+  "tags": ["css", "box-model"],
+  "topic_slugs": ["css-selectors-box-model"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "html-css-js-essentials",
+  "diagnostic": false,
+  "is_published": true
+}

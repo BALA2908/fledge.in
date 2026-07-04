@@ -1,0 +1,24 @@
+{
+  "slug": "html-css-js-essentials-semantic-why",
+  "title": "Why bother with <nav>?",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "A page built entirely with `<div>` tags looks pixel-for-pixel identical to one using `<header>`, `<nav>`, and `<main>`. So why do experienced developers still insist on the semantic version?",
+    "options": [
+      "Semantic tags come with built-in styling, so the page needs less CSS",
+      "Browsers render semantic tags faster than divs",
+      "They carry meaning — screen readers, search engines, and other developers understand the page's structure",
+      "Divs are deprecated and will stop working in future browsers"
+    ],
+    "correct_index": 2,
+    "explanation_md": "Semantic tags are about *meaning*, not looks: a screen reader can jump a blind user straight to `<main>`, search engines weigh content by its structural role, and a teammate reading `<nav>` knows instantly what they're looking at. The built-in-styling option is the tempting one — a few semantic tags do have minor default styles — but that's incidental, never the reason, and you override defaults anyway. Rendering speed is identical, and `<div>` is not deprecated; it's still the right tool for purely visual grouping that has no meaning to convey."
+  },
+  "hints": [],
+  "tags": ["html", "semantics", "accessibility"],
+  "topic_slugs": ["html-structure-semantic-tags"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "html-css-js-essentials",
+  "diagnostic": true,
+  "is_published": true
+}

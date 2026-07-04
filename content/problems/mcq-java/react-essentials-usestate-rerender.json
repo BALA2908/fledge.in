@@ -1,0 +1,24 @@
+{
+  "slug": "react-essentials-usestate-rerender",
+  "title": "The counter that refuses to count",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "Inside a component, a beginner writes:\n\n```jsx\nlet count = 0;\nfunction handleClick() {\n  count = count + 1;\n}\n```\n\nClicking the button runs `handleClick`, but the number on screen never changes. Why?",
+    "options": [
+      "JavaScript variables can't be changed inside a function",
+      "The button needs an `onSubmit` handler instead of `onClick`",
+      "React only re-renders when state is updated through a setter like `setCount`",
+      "The variable must be declared with `const` for React to track it"
+    ],
+    "correct_index": 2,
+    "explanation_md": "The variable *does* change in memory — but React has no way of knowing it happened, so it never redraws the screen. React re-renders a component only when you update state through the setter from `useState` (or when props change). That's the whole point of `const [count, setCount] = useState(0)`: calling `setCount` both stores the new value and tells React \"something changed, render again.\" Option A is the tempting trap — the click handler runs fine and `count` really becomes 1; the bug isn't that the variable can't change, it's that changing it silently updates nothing on screen."
+  },
+  "hints": [],
+  "tags": ["react", "usestate", "rendering"],
+  "topic_slugs": ["react-state-usestate"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "react-essentials",
+  "diagnostic": true,
+  "is_published": true
+}

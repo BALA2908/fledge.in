@@ -1,0 +1,24 @@
+{
+  "slug": "collections-generics-comparator-sort-order",
+  "title": "Which way does b minus a sort?",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "```java\nList<Integer> marks = new ArrayList<>(List.of(40, 85, 60));\nmarks.sort((a, b) -> b - a);\nSystem.out.println(marks);\n```\n\nWhat gets printed?",
+    "options": [
+      "[40, 60, 85]",
+      "[85, 60, 40]",
+      "[40, 85, 60] — the list is unchanged",
+      "It won't compile — sort needs a Comparator object"
+    ],
+    "correct_index": 1,
+    "explanation_md": "The comparator contract: return **negative** and the first argument (`a`) is placed first; **positive** and the second (`b`) goes first. With `b - a`, whenever `b` is larger the result is positive, so the larger value wins the front spot — **descending** order: `[85, 60, 40]`. The tempting answer is ascending, because `sort` usually means \"smallest first\" — but that's `a - b` (natural order), and swapping the operands reverses it. And it compiles fine: a lambda *is* a Comparator here. One caution for real code: `b - a` can overflow with extreme ints — `Comparator.reverseOrder()` or `Integer.compare(b, a)` is the safe spelling."
+  },
+  "hints": [],
+  "tags": ["collections", "comparator", "sorting", "lambda"],
+  "topic_slugs": ["java-sorting-comparable-comparator"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "collections-generics",
+  "diagnostic": false,
+  "is_published": true
+}

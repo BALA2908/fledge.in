@@ -1,0 +1,24 @@
+{
+  "slug": "html-css-js-essentials-null-selector",
+  "title": "The button that was never found",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "This script sits in `<head>`, and the console shows *\"Cannot read properties of null (reading 'addEventListener')\"*:\n\n```html\n<head>\n  <script>\n    const btn = document.querySelector(\"#markBtn\");\n    btn.addEventListener(\"click\", markPresent);\n  </script>\n</head>\n<body>\n  <button id=\"markBtn\">Mark present</button>\n</body>\n```\n\nWhat's actually wrong?",
+    "options": [
+      "The script ran before the button existed in the DOM, so querySelector returned null",
+      "querySelector can't find elements by id — only getElementById can",
+      "addEventListener doesn't work on button elements",
+      "The function markPresent must be defined inside the button's onclick attribute"
+    ],
+    "correct_index": 0,
+    "explanation_md": "The browser reads the page top to bottom. A script in `<head>` runs *before* `<body>` is parsed, so at that moment `#markBtn` doesn't exist and `querySelector` returns `null` — and calling anything on `null` throws. Fix: move the script to the end of `<body>` or add `defer` to the script tag. The `getElementById` option is the tempting distractor — `querySelector(\"#markBtn\")` handles id selectors perfectly well; the selector isn't the problem, the *timing* is. Buttons absolutely support `addEventListener`, and `onclick` attributes are the older style, not a requirement."
+  },
+  "hints": [],
+  "tags": ["javascript", "dom", "events", "debugging"],
+  "topic_slugs": ["js-dom-events-essentials"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "html-css-js-essentials",
+  "diagnostic": false,
+  "is_published": true
+}

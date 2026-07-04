@@ -1,0 +1,24 @@
+{
+  "slug": "spring-boot-fundamentals-who-creates-beans",
+  "title": "Who builds the object you injected?",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "`StudentService` is marked `@Service` and takes a `StudentRepository` as a constructor parameter. When the app starts, who creates the `StudentRepository` object and passes it in?\n\n```java\n@Service\npublic class StudentService {\n  private final StudentRepository repo;\n  public StudentService(StudentRepository repo) {\n    this.repo = repo;\n  }\n}\n```",
+    "options": [
+      "You do — by calling `new StudentService(new StudentRepository())` in the main method",
+      "The JVM creates it automatically the moment the class is loaded",
+      "The Spring container creates both beans and injects the repository into the constructor",
+      "The repository creates itself using a static initializer block"
+    ],
+    "correct_index": 2,
+    "explanation_md": "This is dependency injection in one picture: the Spring container builds both objects and hands the repository into the constructor — your code never calls `new` for either. The first option is tempting because that *is* how plain Java works, and it would even compile and run — but then Spring manages nothing, and every Spring feature (injection inside the repository, transactions, configuration) silently stops working. The JVM loading a class doesn't construct instances, and static blocks run code but don't wire dependencies."
+  },
+  "hints": [],
+  "tags": ["spring-boot", "dependency-injection", "ioc"],
+  "topic_slugs": ["spring-ioc-dependency-injection"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "spring-boot-fundamentals",
+  "diagnostic": true,
+  "is_published": true
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "exceptions-file-io-finally-vs-return",
+  "title": "Does finally run after a return?",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "```java\nstatic String check() {\n    try {\n        return \"from try\";\n    } finally {\n        System.out.println(\"cleanup\");\n    }\n}\n```\n\nWhat does calling `check()` do?",
+    "options": [
+      "Returns \"from try\" without printing — return exits the method immediately",
+      "Prints \"cleanup\", then returns \"from try\"",
+      "Compile error — you can't return from inside a try block",
+      "Prints \"cleanup\" and returns null, because finally cancels the return"
+    ],
+    "correct_index": 1,
+    "explanation_md": "`finally` runs no matter *how* the try block exits — normal completion, an exception, or a `return`. Java notes the return value, runs the `finally` block, then completes the return. So you see \"cleanup\" printed and get \"from try\" back. The tempting wrong answer is the first: `return` feels instant, but the guarantee that cleanup always happens is exactly why `finally` exists — if a return could skip it, it would be useless for closing files. And `finally` doesn't *cancel* a return; it only overrides it in the bad practice of putting a `return` inside `finally` itself (don't)."
+  },
+  "hints": [],
+  "tags": ["exceptions", "finally", "java"],
+  "topic_slugs": ["java-try-with-resources"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "exceptions-file-io",
+  "diagnostic": false,
+  "is_published": true
+}

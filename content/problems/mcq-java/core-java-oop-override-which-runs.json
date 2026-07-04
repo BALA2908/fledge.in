@@ -1,0 +1,24 @@
+{
+  "slug": "core-java-oop-override-which-runs",
+  "title": "Parent reference, child object — whose method runs?",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "```java\nclass CollegeMember {\n    void showId() { System.out.println(\"Member ID\"); }\n}\nclass Student extends CollegeMember {\n    @Override\n    void showId() { System.out.println(\"Student ID with CGPA\"); }\n}\n\nCollegeMember m = new Student();\nm.showId();\n```\n\nWhat gets printed?",
+    "options": [
+      "Member ID",
+      "Student ID with CGPA",
+      "Both lines, parent first",
+      "It won't compile — the types don't match"
+    ],
+    "correct_index": 1,
+    "explanation_md": "For overridden methods, Java looks at the **object's actual type at runtime** — here a `Student` — so the Student's version runs. This is runtime polymorphism (dynamic dispatch). The tempting answer is \"Member ID\", reasoning from the reference type `CollegeMember` — but the reference type only decides which methods you're *allowed to call*, not which version executes. And the assignment compiles fine: a Student *is a* CollegeMember, so a parent reference can always hold a child object. If you got this right without running it, you already understand the heart of OOP in Java."
+  },
+  "hints": [],
+  "tags": ["oop", "polymorphism", "overriding"],
+  "topic_slugs": ["java-inheritance-method-overriding", "java-polymorphism-abstraction-interfaces"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "core-java-oop",
+  "diagnostic": true,
+  "is_published": true
+}

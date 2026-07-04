@@ -1,0 +1,24 @@
+{
+  "slug": "fullstack-mini-project-api-contract-first",
+  "title": "Why write the API contract before any code?",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "Before building the notice board, you write down: `GET /api/notices` returns a JSON array of notices; `POST /api/notices` accepts `{title, body, postedBy}`. What's the main practical benefit of fixing this contract first?",
+    "options": [
+      "It makes the API respond faster at runtime",
+      "Frontend and backend can be built and tested separately, and they'll still fit together",
+      "It removes the need to test the API endpoints later",
+      "Spring Boot requires a written contract before it can start"
+    ],
+    "correct_index": 1,
+    "explanation_md": "The contract is an agreement about the meeting point. Once it's fixed, the backend can be built and verified with curl against the contract, while the frontend builds against hardcoded data shaped exactly like it — neither side waits for the other, and integration day is boring instead of painful. This is also how real teams split work between people. Option C is the tempting one: a contract tells you *what to test*, it doesn't replace testing — you still hit every endpoint, including the failure cases. And nothing about a written contract changes runtime speed or Spring's startup (options A and D)."
+  },
+  "hints": [],
+  "tags": ["rest", "api-design", "planning"],
+  "topic_slugs": ["miniproject-scope-and-plan"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "fullstack-mini-project",
+  "diagnostic": false,
+  "is_published": true
+}

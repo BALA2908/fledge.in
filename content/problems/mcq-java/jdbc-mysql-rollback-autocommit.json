@@ -1,0 +1,24 @@
+{
+  "slug": "jdbc-mysql-rollback-autocommit",
+  "title": "The rollback that rolled nothing back",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "A ticket-booking method runs two updates — subtract a seat, insert a payment. The second one throws, and the catch block calls `con.rollback()` — yet the seat count in the database still went down. What's the most likely cause?",
+    "options": [
+      "rollback() only works on SELECT statements",
+      "Auto-commit was still on, so the first update was permanently saved the moment it ran",
+      "MySQL doesn't support transactions at all",
+      "The rollback needed to be called before the exception, not after"
+    ],
+    "correct_index": 1,
+    "explanation_md": "By default JDBC runs with **auto-commit on**: every statement commits permanently the instant it executes. So the seat update was already carved in stone before the payment insert failed — there was nothing pending for `rollback()` to undo. The fix: `con.setAutoCommit(false)` first, then both updates, then `commit()` at the end of the try, with `rollback()` in the catch. The tempting wrong answer blames MySQL — its default InnoDB tables support transactions fine; the setting in *your code* was the problem. And rolling back 'before the exception' makes no sense — you can't undo a failure you haven't seen."
+  },
+  "hints": [],
+  "tags": ["jdbc", "transactions", "autocommit"],
+  "topic_slugs": ["jdbc-transactions-pooling"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "jdbc-mysql",
+  "diagnostic": false,
+  "is_published": true
+}

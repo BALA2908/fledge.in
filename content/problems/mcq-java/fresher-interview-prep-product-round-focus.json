@@ -1,0 +1,24 @@
+{
+  "slug": "fresher-interview-prep-product-round-focus",
+  "title": "Two offers to chase, two different first rounds",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "Priya has a TCS campus drive on Monday and a Zoho off-campus test on Friday. Based on how these companies typically filter freshers in the first round, what should her week look like?",
+    "options": [
+      "Same prep for both — all companies start with system design questions",
+      "Timed aptitude mocks for TCS; DSA problem practice for Zoho",
+      "DSA grinding for TCS; aptitude mocks for Zoho",
+      "Skip prep for both — first rounds are only resume shortlisting"
+    ],
+    "correct_index": 1,
+    "explanation_md": "Service companies like TCS filter the bulk of candidates with a timed **aptitude and verbal test** — speed under a clock eliminates more students there than anything technical, so timed mocks are the right prep. Product companies like Zoho filter with **coding rounds** — easy-to-medium DSA problems, often on an online judge. Option C is the tempting reversal; students who prepare the wrong game for each door lose winnable rounds. Option A fails because system design is a mid-level topic, rarely asked of freshers anywhere. And first rounds are almost never resume-only for freshers — both pipelines make you earn the interview with a test."
+  },
+  "hints": [],
+  "tags": ["placement", "interview", "strategy"],
+  "topic_slugs": ["service-vs-product-interviews"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "fresher-interview-prep",
+  "diagnostic": false,
+  "is_published": true
+}

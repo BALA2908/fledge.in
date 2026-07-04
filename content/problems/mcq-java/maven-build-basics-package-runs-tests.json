@@ -1,0 +1,24 @@
+{
+  "slug": "maven-build-basics-package-runs-tests",
+  "title": "You asked for package — why did tests run?",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "A teammate runs `mvn package` to build the demo jar. The build fails on a broken unit test, and no jar appears in `target/`. Why did tests run when only `package` was asked for?",
+    "options": [
+      "Maven has a bug — package should never touch tests",
+      "Lifecycle phases run in order, and test comes before package, so asking for package runs everything up to it",
+      "The teammate must have typed mvn test package by mistake",
+      "pom.xml had tests explicitly attached to the package phase"
+    ],
+    "correct_index": 1,
+    "explanation_md": "Maven's build lifecycle is a fixed sequence — `validate → compile → test → package → ...` — and requesting any phase runs **every phase before it**. So `mvn package` compiles, runs tests, and only packages if they pass. That's a feature: a jar built by Maven has, by definition, passed its tests. The tempting wrong answer is the pom-configuration one — no special wiring is needed; this ordering is built into Maven itself, identical in every project. If you truly must skip tests in an emergency, that's what `-DskipTests` is for — but the default protects you."
+  },
+  "hints": [],
+  "tags": ["maven", "lifecycle", "build"],
+  "topic_slugs": ["maven-lifecycle-commands"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "maven-build-basics",
+  "diagnostic": true,
+  "is_published": true
+}

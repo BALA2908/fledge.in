@@ -1,0 +1,24 @@
+{
+  "slug": "collections-generics-why-type-parameter",
+  "title": "What do the angle brackets actually buy you?",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "Compared to a raw `ArrayList`, what's the main benefit of declaring `ArrayList<String>`?",
+    "options": [
+      "The list runs faster because Java knows the element type",
+      "Wrong-type elements are rejected at compile time, and get() needs no cast",
+      "The list uses less memory per element",
+      "It allows storing primitives like int directly"
+    ],
+    "correct_index": 1,
+    "explanation_md": "Generics exist for **compile-time type safety**: `list.add(42)` on an `ArrayList<String>` fails before the program ever runs, and `get()` hands back a `String` with no cast. The tempting answer is speed — surely telling Java the type helps performance? It doesn't: generics are erased at compile time (*type erasure*), so at runtime a raw list and a generic list are the same class doing the same work. Memory is unchanged for the same reason, and primitives are still banned — you need `Integer`, not `int`. Generics move bugs from runtime to compile time; that's the whole (very valuable) trick."
+  },
+  "hints": [],
+  "tags": ["generics", "type-safety", "collections"],
+  "topic_slugs": ["java-generics-type-safety"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "collections-generics",
+  "diagnostic": false,
+  "is_published": true
+}

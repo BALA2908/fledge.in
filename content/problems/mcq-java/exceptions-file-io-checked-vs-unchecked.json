@@ -1,0 +1,24 @@
+{
+  "slug": "exceptions-file-io-checked-vs-unchecked",
+  "title": "Which one does the compiler force you to handle?",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "A method opens a file with `new FileReader(\"marks.txt\")`. The code refuses to compile until you add a `try`/`catch` or a `throws` clause. Which kind of exception causes this, and why?",
+    "options": [
+      "Unchecked — the compiler flags all possible runtime failures",
+      "Checked — the compiler forces you to plan for outside-world failures like a missing file",
+      "An Error — file problems are JVM-level failures",
+      "Neither — this is only an IDE warning, and the code actually compiles"
+    ],
+    "correct_index": 1,
+    "explanation_md": "`FileNotFoundException` is a **checked** exception: a missing file is the outside world misbehaving, not a bug in your code, so the compiler makes you decide upfront — catch it or declare `throws`. The tempting wrong answer is the first one: unchecked exceptions (`NullPointerException`, `ArrayIndexOutOfBoundsException`) are usually bugs in your own logic, and the compiler stays completely silent about them — if it flagged every possible runtime failure, every line would need a catch block."
+  },
+  "hints": [],
+  "tags": ["exceptions", "checked-exceptions", "java"],
+  "topic_slugs": ["java-checked-vs-unchecked"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "exceptions-file-io",
+  "diagnostic": true,
+  "is_published": true
+}

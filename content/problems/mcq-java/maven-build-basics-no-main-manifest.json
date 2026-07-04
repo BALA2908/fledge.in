@@ -1,0 +1,24 @@
+{
+  "slug": "maven-build-basics-no-main-manifest",
+  "title": "The jar that won't start on the lab machine",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "You run `mvn package`, copy the jar to the lab machine, and run `java -jar studentportal.jar`. It fails with `no main manifest attribute`. What's going on?",
+    "options": [
+      "The lab machine has the wrong Java version installed",
+      "The plain jar doesn't record which class holds main(); the manifest needs to name it (e.g. via the Shade plugin)",
+      "Jars built by Maven can only be run with the mvn command",
+      "You must rename the jar to match your main class"
+    ],
+    "correct_index": 1,
+    "explanation_md": "A default Maven jar contains your compiled classes but its manifest doesn't say **which class has `main()`** — so `java -jar` has no idea where to start. Configuring the main class in the manifest (the Shade plugin does this, and also bundles your dependencies into a fat jar) fixes it. The tempting wrong answer is the Java version: a version mismatch gives a *different* error (`UnsupportedClassVersionError`), not this one. And jars are plain `java -jar` runnable anywhere — needing Maven at *run* time would defeat the point of packaging."
+  },
+  "hints": [],
+  "tags": ["maven", "jar", "plugins"],
+  "topic_slugs": ["maven-plugins-runnable-jar", "maven-lifecycle-commands"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "maven-build-basics",
+  "diagnostic": false,
+  "is_published": true
+}

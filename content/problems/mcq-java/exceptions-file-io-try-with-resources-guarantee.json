@@ -1,0 +1,24 @@
+{
+  "slug": "exceptions-file-io-try-with-resources-guarantee",
+  "title": "What try-with-resources actually guarantees",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "You write:\n\n```java\ntry (BufferedReader br = new BufferedReader(new FileReader(\"notes.txt\"))) {\n    process(br.readLine());\n}\n```\n\n`process()` throws a `RuntimeException`. What happens to the reader?",
+    "options": [
+      "It stays open — the exception skips all cleanup",
+      "It closes only if you also add a finally block",
+      "Java closes it automatically before the exception continues upward",
+      "It closes only when the garbage collector eventually runs"
+    ],
+    "correct_index": 2,
+    "explanation_md": "The whole point of try-with-resources: any resource declared in the parentheses is closed **automatically**, success or failure, before the exception travels on. That's why it replaced manual cleanup. The tempting wrong answer is the `finally` one — that was the *old* pattern; with try-with-resources, adding a `finally` for closing is redundant. And waiting for the garbage collector is dangerous thinking: GC frees memory on its own schedule and gives no promise about when (or whether) an open file handle is released."
+  },
+  "hints": [],
+  "tags": ["exceptions", "try-with-resources", "java"],
+  "topic_slugs": ["java-try-with-resources"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "exceptions-file-io",
+  "diagnostic": true,
+  "is_published": true
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "collections-generics-hashmap-repeat-key",
+  "title": "Same roll number, two put() calls",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "```java\nHashMap<Integer, String> students = new HashMap<>();\nstudents.put(101, \"Arun\");\nstudents.put(101, \"Divya\");\nSystem.out.println(students.size() + \" \" + students.get(101));\n```\n\nWhat gets printed?",
+    "options": [
+      "2 Arun",
+      "1 Divya",
+      "1 Arun",
+      "It throws an exception — duplicate key"
+    ],
+    "correct_index": 1,
+    "explanation_md": "HashMap keys are **unique**. The second `put(101, \"Divya\")` doesn't add a new entry — it silently **replaces** the value for key 101. So the map holds one entry, and `get(101)` returns the latest value, `\"Divya\"`. The tempting answer is \"2 Arun\" (or expecting an error) because you called `put` twice — but a map isn't a list; putting to an existing key is an update, not an append, and Java never warns you about it. If you need to know whether a key was already there, `put` actually returns the old value — `null` if the key was new."
+  },
+  "hints": [],
+  "tags": ["collections", "hashmap"],
+  "topic_slugs": ["java-hashmap-hashset-lookups"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "collections-generics",
+  "diagnostic": true,
+  "is_published": true
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "fresher-interview-prep-project-bullet",
+  "title": "Pick the resume bullet that survives 30 seconds",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "Four students describe the same project on their resumes. A recruiter skims each for a few seconds. Which bullet works best?",
+    "options": [
+      "\"Worked on a web development project using various modern technologies\"",
+      "\"Built a campus notice board — Spring Boot REST API with Postgres, React frontend, deployed on Render and Vercel\"",
+      "\"Hardworking team player passionate about coding and eager to learn new things\"",
+      "\"Completed a project as part of the final-year curriculum under faculty guidance\""
+    ],
+    "correct_index": 1,
+    "explanation_md": "The strong bullet names *what you built* and *the exact tech*, and \"deployed\" implies a clickable proof. It also hands the interviewer ready-made follow-up questions — \"why Postgres?\", \"how did you handle CORS?\" — and follow-ups you can answer are how fresher interviews are won. Option A is the tempting one because it sounds professional, but \"various modern technologies\" is a claim with zero evidence; the recruiter learns nothing and moves on. Option C describes a personality, not work — it belongs nowhere. Option D describes *permission* to do a project, not the project. Rule of thumb: every project bullet should answer \"what, with what, and where can I see it?\""
+  },
+  "hints": [],
+  "tags": ["resume", "placement", "interview"],
+  "topic_slugs": ["fresher-resume-and-projects"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "fresher-interview-prep",
+  "diagnostic": false,
+  "is_published": true
+}

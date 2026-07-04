@@ -47,4 +47,4 @@ NEXT_PUBLIC_SUPABASE_URL · NEXT_PUBLIC_SUPABASE_ANON_KEY ·
 SUPABASE_SERVICE_ROLE_KEY (server only) · SENTRY_DSN (Phase 6)
 
 ## Current phase
-Phase 1A complete: migrations applied, db:seed idempotent, verify:rls all green — next: Prompt 1B, Java Full-Stack pathway content   ← update this line as you progress
+Phase 1B complete: java-fullstack pathway (12 modules, 64 topics) + 51 MCQs seeded; YouTube URLs still TODO pending Bala's verification — next: Prompt 1C, DSA problem bank   ← update this line as you progress

@@ -1,0 +1,24 @@
+{
+  "slug": "jdbc-mysql-executeupdate-return",
+  "title": "What executeUpdate hands back",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "You run `int result = stmt.executeUpdate(\"UPDATE students SET marks = 90 WHERE roll_no = 999\");` but roll number 999 doesn't exist in the table. What is `result`?",
+    "options": [
+      "It throws SQLException because no row matched",
+      "0 — the count of rows the statement changed",
+      "-1 — the standard 'not found' signal",
+      "null — no ResultSet was produced"
+    ],
+    "correct_index": 1,
+    "explanation_md": "`executeUpdate` returns an `int`: **how many rows were affected**. A `WHERE` clause that matches nothing isn't an error — the database did exactly what you asked, to zero rows — so you get `0`, quietly. That's why checking this return value matters: it's the only hint that your update missed. The tempting wrong answer is the exception: SQL treats 'matched no rows' as success, not failure. And `null` is impossible — `int` is a primitive, and it's `executeQuery` (for SELECT) that returns a ResultSet, not this method."
+  },
+  "hints": [],
+  "tags": ["jdbc", "crud", "executeupdate"],
+  "topic_slugs": ["jdbc-crud-resultset"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "jdbc-mysql",
+  "diagnostic": false,
+  "is_published": true
+}

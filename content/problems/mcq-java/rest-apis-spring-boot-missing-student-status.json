@@ -1,0 +1,24 @@
+{
+  "slug": "rest-apis-spring-boot-missing-student-status",
+  "title": "The student who doesn't exist",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "A client calls `GET /api/students/42`, but no student with id 42 exists. Your code runs fine and finds nothing. What should the API respond with?",
+    "options": [
+      "200 OK with an empty body — the request itself worked",
+      "400 Bad Request — the client asked for something that isn't there",
+      "404 Not Found — the requested resource doesn't exist",
+      "500 Internal Server Error — the lookup failed"
+    ],
+    "correct_index": 2,
+    "explanation_md": "404 means exactly this situation: the URL was well-formed, the server worked correctly, and the thing asked for isn't there. The tempting wrong answer is 500 — beginners often let a `NoSuchElementException` bubble up, and Spring turns an unhandled exception into a 500. But 5xx codes mean *the server broke*; a missing record is a normal outcome, not a crash. 200-with-empty-body forces every client to guess whether \"empty\" means missing or means a bug, and 400 would blame the request's *format*, which was fine — id 42 is a perfectly valid ask that happens to have no answer."
+  },
+  "hints": [],
+  "tags": ["rest", "status-codes", "error-handling"],
+  "topic_slugs": ["rest-status-codes-error-handling"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "rest-apis-spring-boot",
+  "diagnostic": true,
+  "is_published": true
+}

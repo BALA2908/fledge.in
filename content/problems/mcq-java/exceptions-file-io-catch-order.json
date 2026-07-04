@@ -1,0 +1,24 @@
+{
+  "slug": "exceptions-file-io-catch-order",
+  "title": "Ordering multiple catch blocks",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "```java\ntry {\n    readTimetable();\n} catch (Exception e) {\n    System.out.println(\"something failed\");\n} catch (IOException e) {\n    System.out.println(\"file problem\");\n}\n```\n\nWhat happens with this code?",
+    "options": [
+      "Compile error — the IOException catch can never run because Exception already catches it",
+      "Both catch blocks run, most specific one last",
+      "It compiles; whichever catch matches first at runtime wins",
+      "It compiles only if readTimetable() declares throws IOException"
+    ],
+    "correct_index": 0,
+    "explanation_md": "Catch blocks are checked **top to bottom**, and `Exception` is the parent of `IOException` — so the first block swallows everything and the second can never execute. Java treats unreachable catch blocks as a **compile error**, not a runtime choice. The tempting wrong answer is the runtime one: the order is fixed at the code level, never decided at runtime. The rule to remember: catch the most specific exception first, the most general last — like sorting complaints to the class rep before escalating to the HOD."
+  },
+  "hints": [],
+  "tags": ["exceptions", "catch-order", "java"],
+  "topic_slugs": ["java-exceptions-why-they-exist", "java-checked-vs-unchecked"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "exceptions-file-io",
+  "diagnostic": false,
+  "is_published": true
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "html-css-js-essentials-fetch-returns",
+  "title": "What does fetch hand you first?",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "You write:\n\n```js\nconst result = fetch(\"http://localhost:8080/api/menu\");\nconsole.log(result);\n```\n\nWhat gets logged?",
+    "options": [
+      "The parsed JSON data from the API",
+      "A Promise — the request hasn't finished yet",
+      "The raw response text as a string",
+      "Nothing — the line blocks until the server responds, then logs the data"
+    ],
+    "correct_index": 1,
+    "explanation_md": "`fetch()` returns immediately with a **Promise** — an IOU for a response that's still travelling over the network. To get actual data you wait twice: `const res = await fetch(...)` for the response, then `const data = await res.json()` for the parsed body. The blocking option is the tempting one if you're coming from Java, where a method call usually waits for its result — but JavaScript refuses to freeze the page for network calls; that's the entire reason Promises exist. And it's never raw text unless you explicitly ask with `res.text()`."
+  },
+  "hints": [],
+  "tags": ["javascript", "fetch", "promises", "async"],
+  "topic_slugs": ["js-fetch-json-frontend"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "html-css-js-essentials",
+  "diagnostic": true,
+  "is_published": true
+}

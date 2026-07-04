@@ -1,0 +1,19 @@
+{
+  "slug": "fresher-interview-prep-encapsulation-example",
+  "title": "Name that pillar: the guarded bank balance",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "A `BankAccount` class keeps its `balance` field **private**. The only ways to change it are the public methods `deposit(amount)` and `withdraw(amount)`, and each one validates the amount before touching the balance. Which OOP pillar does this demonstrate most directly?",
+    "options": ["Inheritance", "Polymorphism", "Encapsulation", "Abstraction"],
+    "correct_index": 2,
+    "explanation_md": "**Encapsulation** is bundling data with the methods that operate on it and restricting direct access — private field, controlled public entry points, validation at the door. No outside code can set `balance = -5000`. The tempting wrong answer is **abstraction**, and interviewers deliberately probe this line: abstraction is about *hiding complexity behind a simple interface* (you call `pay()` without knowing the steps inside), while encapsulation is about *protecting state from uncontrolled access*. The private field with guarded setters is the textbook signature of encapsulation. Inheritance and polymorphism don't apply — there's no parent class and no method taking different forms here."
+  },
+  "hints": [],
+  "tags": ["oop", "java", "interview"],
+  "topic_slugs": ["fresher-core-cs-questions"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "fresher-interview-prep",
+  "diagnostic": true,
+  "is_published": true
+}

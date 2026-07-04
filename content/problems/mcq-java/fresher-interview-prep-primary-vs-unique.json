@@ -1,0 +1,24 @@
+{
+  "slug": "fresher-interview-prep-primary-vs-unique",
+  "title": "Primary key vs unique constraint: the one-line difference",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "A `students` table has `roll_no` as the **primary key** and `email` with a **unique** constraint. What can `email` do that `roll_no` cannot?",
+    "options": [
+      "Repeat the same value in multiple rows",
+      "Be NULL in some rows",
+      "Be used in a WHERE clause",
+      "Store text instead of numbers"
+    ],
+    "correct_index": 1,
+    "explanation_md": "A primary key is **unique AND not-null** — it must identify every row, so a missing value is not allowed, and a table gets exactly one primary key. A unique constraint only forbids *duplicates among the values that exist*; in standard SQL, NULLs are permitted (a student who hasn't given an email yet simply has NULL there). Option A is the tempting flip: unique means unique — emails can't repeat either. Options C and D are red herrings — any column can appear in a WHERE clause, and key-ness has nothing to do with data type. The crisp interview answer: \"both enforce uniqueness; primary key additionally forbids NULL, and there's only one per table.\""
+  },
+  "hints": [],
+  "tags": ["sql", "dbms", "interview"],
+  "topic_slugs": ["fresher-core-cs-questions"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "fresher-interview-prep",
+  "diagnostic": true,
+  "is_published": true
+}

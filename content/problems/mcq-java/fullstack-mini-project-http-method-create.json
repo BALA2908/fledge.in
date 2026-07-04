@@ -1,0 +1,19 @@
+{
+  "slug": "fullstack-mini-project-http-method-create",
+  "title": "Posting a notice: pick the right HTTP method",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "Your notice board API follows REST conventions. The frontend sends a new notice — `{title, body, postedBy}` — to `/api/notices` so the server can save it. Which HTTP method should the request use?",
+    "options": ["GET", "POST", "PUT", "DELETE"],
+    "correct_index": 1,
+    "explanation_md": "Creating a **new** resource on the server is what **POST** is for — the server assigns the id and typically replies with `201 Created` and the saved notice. The tempting wrong answer is PUT: it also sends a body, but by convention PUT means \"replace the resource at this exact URL\" — you'd PUT to `/api/notices/12` to update notice 12, not to create one whose id doesn't exist yet. GET is for reading and should never change data (browsers cache and prefetch GETs, so a GET that creates rows will create surprises too), and DELETE removes things."
+  },
+  "hints": [],
+  "tags": ["rest", "http", "spring-boot"],
+  "topic_slugs": ["miniproject-springboot-rest-api"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "fullstack-mini-project",
+  "diagnostic": false,
+  "is_published": true
+}

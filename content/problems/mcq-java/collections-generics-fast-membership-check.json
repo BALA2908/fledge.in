@@ -1,0 +1,24 @@
+{
+  "slug": "collections-generics-fast-membership-check",
+  "title": "One lakh roll numbers, a million lookups",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "You load 1,00,000 registered roll numbers once. Then, for every entry scan at the exam hall, you must answer: \"is this roll number registered?\" — lakhs of times. Which structure keeps each check fastest?",
+    "options": [
+      "ArrayList<Integer> with contains()",
+      "HashSet<Integer> with contains()",
+      "int[] array, loop and compare each element",
+      "LinkedList<Integer> with contains()"
+    ],
+    "correct_index": 1,
+    "explanation_md": "`HashSet.contains()` hashes the roll number and jumps straight to the right bucket — roughly **O(1)** per check, no matter how many entries. All three other options do a **linear scan**: they walk element by element, averaging ~50,000 comparisons per check here, which multiplied by lakhs of lookups becomes painfully slow. The tempting answer is ArrayList — it feels like the \"default\" collection, and `contains()` reads identically in code. But same method name, completely different cost: list `contains` is O(n), set `contains` is O(1). Choosing a structure by how it will be *queried* is exactly the instinct interviewers test."
+  },
+  "hints": [],
+  "tags": ["collections", "hashset", "time-complexity"],
+  "topic_slugs": ["java-hashmap-hashset-lookups", "java-arraylist-dynamic-arrays"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "collections-generics",
+  "diagnostic": true,
+  "is_published": true
+}

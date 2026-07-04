@@ -1,0 +1,24 @@
+{
+  "slug": "fullstack-mini-project-cors-blocked",
+  "title": "Blocked by CORS: who's stopping the request, and who can fix it?",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "Your React app on `localhost:3000` calls your Spring Boot API on `localhost:8080`. The console shows *\"blocked by CORS policy\"* — yet the same URL works perfectly in Postman. What's going on, and where does the fix belong?",
+    "options": [
+      "The API server is down; restart Spring Boot and it will work",
+      "The browser blocks cross-origin responses unless the server allows the frontend's origin — fix it in the Spring Boot CORS config",
+      "React can't call APIs on a different port; move the frontend to port 8080",
+      "It's a React bug; wrapping the fetch in a try/catch will fix it"
+    ],
+    "correct_index": 1,
+    "explanation_md": "CORS is a **browser** security rule: JavaScript from one origin (`localhost:3000`) can't read responses from another origin (`localhost:8080`) unless the *server* explicitly allows it — for example with `@CrossOrigin(origins = \"http://localhost:3000\")` or a global CORS config in Spring. That's why the fix lives on the backend even though the error appears in the frontend console. The giveaway that kills option A: Postman works. Postman isn't a browser, so it doesn't enforce CORS — the server is up and answering fine. And a try/catch (option D) only changes how the failure is reported; the browser still refuses to hand your code the response."
+  },
+  "hints": [],
+  "tags": ["cors", "http", "spring-boot", "react"],
+  "topic_slugs": ["miniproject-connect-cors-integration"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "fullstack-mini-project",
+  "diagnostic": true,
+  "is_published": true
+}

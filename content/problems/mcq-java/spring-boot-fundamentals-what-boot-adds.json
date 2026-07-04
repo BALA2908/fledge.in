@@ -1,0 +1,24 @@
+{
+  "slug": "spring-boot-fundamentals-what-boot-adds",
+  "title": "What does Spring Boot actually add?",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "You already have Java and the Spring Framework. What does Spring Boot mainly add on top?",
+    "options": [
+      "A new programming language that replaces Java",
+      "Auto-configuration, an embedded server, and starter dependencies — so apps run with almost no setup",
+      "A built-in database so you never need Postgres or MySQL",
+      "A faster JVM that speeds up all Java code"
+    ],
+    "correct_index": 1,
+    "explanation_md": "Spring Boot is Spring with the setup work removed: **auto-configuration** picks sensible defaults, an **embedded server** (Tomcat) ships inside your jar so `java -jar` just runs, and **starters** bundle the dependencies a feature needs. The built-in database option tempts people because Boot *can* auto-configure an in-memory H2 database for testing — but that comes from a dependency you add, not from Boot itself, and it's never your production database. Boot changes how apps are *assembled*, not the language or the JVM."
+  },
+  "hints": [],
+  "tags": ["spring-boot", "fundamentals"],
+  "topic_slugs": ["spring-boot-why-first-run"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "spring-boot-fundamentals",
+  "diagnostic": true,
+  "is_published": true
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "jdbc-mysql-prepared-statement-injection",
+  "title": "Why PreparedStatement stops the prankster",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "A login screen takes a username. Someone types `' OR '1'='1` into it. Which version of the lookup is safe, and why?",
+    "options": [
+      "String glue: \"... WHERE name = '\" + input + \"'\" — quotes inside input are auto-escaped",
+      "PreparedStatement with ?: the input travels as plain data, never as part of the SQL",
+      "Either one, as long as you trim() the input first",
+      "Neither — only stored procedures can prevent SQL injection"
+    ],
+    "correct_index": 1,
+    "explanation_md": "With a `PreparedStatement`, the query shape (`WHERE name = ?`) and the user's text are sent to the database **separately** — whatever the prankster types is just a weird username that matches nobody, never executable SQL. The tempting wrong answer is the first: string concatenation does **no** escaping at all, so the input rewrites your query into `WHERE name = '' OR '1'='1'`, which is true for every row. `trim()` only removes spaces — the attack has none it needs — and stored procedures are *a* defence, not the only one."
+  },
+  "hints": [],
+  "tags": ["jdbc", "sql-injection", "prepared-statement"],
+  "topic_slugs": ["jdbc-prepared-statements"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "jdbc-mysql",
+  "diagnostic": true,
+  "is_published": true
+}

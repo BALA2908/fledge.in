@@ -1,0 +1,24 @@
+{
+  "slug": "react-essentials-useeffect-empty-deps",
+  "title": "What the empty array in useEffect really means",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "Your mess-menu component fetches data like this:\n\n```jsx\nuseEffect(() => {\n  fetch(\"/api/menu\").then(res => res.json()).then(setMenu);\n}, []);\n```\n\nWhen does this fetch run?",
+    "options": [
+      "Once, after the component first renders",
+      "After every render of the component",
+      "Only when the `menu` state changes",
+      "Before the component renders, so data is ready on first paint"
+    ],
+    "correct_index": 0,
+    "explanation_md": "The second argument is the dependency array — the list of values that should re-trigger the effect. An **empty** array says \"this effect depends on nothing,\" so it runs once after the first render and never again. That's exactly what you want for load-on-mount fetching. Remove the array entirely and you get option B: the effect runs after *every* render — and since the fetch sets state, and setting state re-renders, you've built an infinite fetch loop. Option D is the other tempting one: effects always run *after* render, never before, which is why you need a loading state for that first data-less paint."
+  },
+  "hints": [],
+  "tags": ["react", "useeffect", "fetch"],
+  "topic_slugs": ["react-useeffect-fetch"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "react-essentials",
+  "diagnostic": false,
+  "is_published": true
+}

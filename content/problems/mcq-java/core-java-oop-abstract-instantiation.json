@@ -1,0 +1,24 @@
+{
+  "slug": "core-java-oop-abstract-instantiation",
+  "title": "Which line refuses to compile?",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "```java\nabstract class Payment {\n    abstract void pay(int amount);\n}\nclass Upi extends Payment {\n    void pay(int amount) { System.out.println(\"Paid via UPI\"); }\n}\n```\n\nWhich of these lines will NOT compile?",
+    "options": [
+      "Payment p = new Upi();",
+      "Payment p = new Payment();",
+      "Upi u = new Upi();",
+      "Payment p = null;"
+    ],
+    "correct_index": 1,
+    "explanation_md": "You can never instantiate an abstract class — `new Payment()` asks Java to build an object with a `pay()` method that has no body, which makes no sense, so the compiler refuses. The tempting wrong pick is `Payment p = new Upi();` — it *looks* suspicious because the types differ, but it's not only legal, it's the whole point of abstraction: a parent-type reference holding a concrete child. That's the pattern Spring and every real codebase lean on. `Payment p = null;` is also fine — declaring a reference of an abstract type is allowed; it's only `new` that's forbidden."
+  },
+  "hints": [],
+  "tags": ["oop", "abstraction", "abstract-class"],
+  "topic_slugs": ["java-polymorphism-abstraction-interfaces"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "core-java-oop",
+  "diagnostic": false,
+  "is_published": true
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "react-essentials-list-keys",
+  "title": "Why React nags you about keys",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "You render a list of notices with `notices.map(n => <NoticeCard ... />)` and the console warns: *\"Each child in a list should have a unique key prop.\"* What is the `key` actually for?",
+    "options": [
+      "It sets the CSS `id` so each card can be styled separately",
+      "It lets React tell list items apart, so it updates the right ones when the list changes",
+      "It encrypts the item's data before rendering",
+      "It decides the order in which the items appear on screen"
+    ],
+    "correct_index": 1,
+    "explanation_md": "When the list changes — a notice gets deleted from the middle, say — React compares the new list with the old one to update as little of the page as possible. Keys are the name tags that make that comparison reliable: same key means same item, even if its position moved. Without stable keys (or with array indexes as keys), deleting item 2 can make React re-render or mis-match everything after it, and inputs inside list items can show the wrong values. Option D is the tempting one — keys look positional, but order comes from the array itself; the key only identifies *which* item is which."
+  },
+  "hints": [],
+  "tags": ["react", "jsx", "lists"],
+  "topic_slugs": ["react-jsx-props"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "react-essentials",
+  "diagnostic": false,
+  "is_published": true
+}

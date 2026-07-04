@@ -1,0 +1,19 @@
+{
+  "slug": "java-programming-basics-int-division-result",
+  "title": "What does 7 divided by 2 print?",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "You wrote this to split a ₹7 samosa bill between 2 friends:\n\n```java\nint bill = 7;\nint friends = 2;\nSystem.out.println(bill / friends);\n```\n\nWhat gets printed?",
+    "options": ["3.5", "3", "4", "It won't compile"],
+    "correct_index": 1,
+    "explanation_md": "Both `bill` and `friends` are `int`, so Java does **integer division**: it computes 3.5 and throws away the decimal part, printing `3`. The tempting answer is `3.5` — that's the school-maths result — but Java only produces a decimal when at least one side is a `double` (try `7.0 / 2`). Note it *truncates* toward zero, it doesn't round — so `4` is wrong too. This one rule explains a huge share of \"my percentage prints 0\" bugs."
+  },
+  "hints": [],
+  "tags": ["java-basics", "operators", "integer-division"],
+  "topic_slugs": ["java-variables-types-operators"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "java-programming-basics",
+  "diagnostic": true,
+  "is_published": true
+}

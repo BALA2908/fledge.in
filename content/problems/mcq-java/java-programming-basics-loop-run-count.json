@@ -1,0 +1,19 @@
+{
+  "slug": "java-programming-basics-loop-run-count",
+  "title": "How many times does this loop run?",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "```java\nfor (int i = 0; i < 5; i++) {\n    System.out.println(\"Attendance marked\");\n}\n```\n\nHow many times is \"Attendance marked\" printed?",
+    "options": ["4", "5", "6", "It loops forever"],
+    "correct_index": 1,
+    "explanation_md": "The loop body runs for `i = 0, 1, 2, 3, 4` — that's **5** times. The tempting answer is `4`, from thinking \"it stops before 5, so 1 to 4\" — but the count starts at **0**, not 1. Count it on your fingers once: 0, 1, 2, 3, 4 is five values. The `i < 5` condition means the body never runs *at* 5, and `i++` guarantees it eventually gets there, so it can't loop forever."
+  },
+  "hints": [],
+  "tags": ["java-basics", "loops"],
+  "topic_slugs": ["java-loops-basics"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "java-programming-basics",
+  "diagnostic": true,
+  "is_published": true
+}

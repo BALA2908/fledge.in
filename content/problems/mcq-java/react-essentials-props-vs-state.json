@@ -1,0 +1,24 @@
+{
+  "slug": "react-essentials-props-vs-state",
+  "title": "Props or state? The ID card and the like count",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "A `StudentCard` component shows a student's **name** (passed in by the parent list) and a **like count** that goes up each time someone clicks the card. Which is which?",
+    "options": [
+      "Name is state, like count is props",
+      "Name is props, like count is state",
+      "Both are props, because both are data",
+      "Both are state, because both appear on screen"
+    ],
+    "correct_index": 1,
+    "explanation_md": "Ask two questions: *where does the data come from* and *does it change here?* The name comes from the parent and the card never changes it — that's **props**. The like count is owned by the card and changes on every click, and the screen must update to match — that's **state**. \"Both are props because both are data\" is the tempting one: props and state are both data, but props are read-only inputs from outside, while state is the component's own changing memory. If a component needs to *change* a value in response to a click, props alone can't do it."
+  },
+  "hints": [],
+  "tags": ["react", "props", "state"],
+  "topic_slugs": ["react-jsx-props", "react-state-usestate"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "react-essentials",
+  "diagnostic": true,
+  "is_published": true
+}

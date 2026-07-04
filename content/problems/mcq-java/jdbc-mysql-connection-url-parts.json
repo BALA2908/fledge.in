@@ -1,0 +1,24 @@
+{
+  "slug": "jdbc-mysql-connection-url-parts",
+  "title": "Reading a JDBC URL like an address",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "In the connection URL `jdbc:mysql://localhost:3306/college`, what does `college` refer to?",
+    "options": [
+      "The MySQL username",
+      "The name of the table to query",
+      "The name of the database to connect to",
+      "The password, encoded for safety"
+    ],
+    "correct_index": 2,
+    "explanation_md": "Read the URL left to right: `jdbc:mysql` picks the driver, `localhost` is the machine, `3306` is MySQL's default port, and the last part — `college` — is the **database** you land in. The tempting wrong answer is the table name: a database holds many tables, and you choose which table to touch later, inside each SQL statement, not in the URL. Username and password never ride inside this URL in our code — they're passed as separate arguments to `DriverManager.getConnection`."
+  },
+  "hints": [],
+  "tags": ["jdbc", "connection", "mysql"],
+  "topic_slugs": ["jdbc-connection-basics"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "jdbc-mysql",
+  "diagnostic": false,
+  "is_published": true
+}

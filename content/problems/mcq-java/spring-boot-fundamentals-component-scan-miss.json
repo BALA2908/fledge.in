@@ -1,0 +1,24 @@
+{
+  "slug": "spring-boot-fundamentals-component-scan-miss",
+  "title": "The bean that Spring couldn't find",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "Your main class with `@SpringBootApplication` lives in package `com.fledge.app`. You create `MessMenuService`, mark it `@Service`, and put it in package `com.fledge.utils`. At startup Spring fails with *\"required a bean of type MessMenuService that could not be found\"*. What's the most likely cause?",
+    "options": [
+      "`@Service` only works on classes that implement an interface",
+      "The class sits outside `com.fledge.app`, so component scanning never visits it",
+      "You must also register the class in an XML configuration file",
+      "`@Service` classes need a no-argument constructor to be detected"
+    ],
+    "correct_index": 1,
+    "explanation_md": "`@SpringBootApplication` includes `@ComponentScan`, which searches the main class's package **and below** — `com.fledge.app` and its sub-packages. `com.fledge.utils` is a sibling, not a child, so the scan never sees the class and the annotation on it does nothing. Fix: move the class under the base package (usual) or widen the scan with `scanBasePackages`. The XML option tempts people who've seen old Spring tutorials — XML config exists but Boot apps don't need it. Interfaces and no-arg constructors are not requirements for detection."
+  },
+  "hints": [],
+  "tags": ["spring-boot", "component-scan", "annotations"],
+  "topic_slugs": ["spring-boot-annotations-tour"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "spring-boot-fundamentals",
+  "diagnostic": false,
+  "is_published": true
+}

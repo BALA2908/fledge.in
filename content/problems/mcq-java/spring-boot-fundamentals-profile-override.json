@@ -1,0 +1,24 @@
+{
+  "slug": "spring-boot-fundamentals-profile-override",
+  "title": "Which port does the app start on?",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "Your project has two files:\n\n- `application.properties` → `server.port=8080`\n- `application-dev.properties` → `server.port=9090`\n\nYou start the app with `spring.profiles.active=dev`. Which port does it listen on?",
+    "options": [
+      "8080 — the base file always wins because it loads first",
+      "9090 — the active profile's file overrides the base file",
+      "Neither — the app fails to start because the two values conflict",
+      "Both — Spring opens the app on 8080 and 9090 at the same time"
+    ],
+    "correct_index": 1,
+    "explanation_md": "Profile-specific properties override the base file for any key they both define — that's the whole point of profiles: common settings in `application.properties`, environment differences in `application-dev.properties`. So with `dev` active, 9090 wins. The 'base loads first' option is the tempting one because the base file *is* read first — but being read first means being **overridden** later, not winning. Duplicate keys across these files are normal, not a conflict, and one embedded server listens on exactly one port."
+  },
+  "hints": [],
+  "tags": ["spring-boot", "properties", "profiles"],
+  "topic_slugs": ["spring-boot-application-properties"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "spring-boot-fundamentals",
+  "diagnostic": false,
+  "is_published": true
+}

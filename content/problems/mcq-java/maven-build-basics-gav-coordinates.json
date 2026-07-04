@@ -1,0 +1,24 @@
+{
+  "slug": "maven-build-basics-gav-coordinates",
+  "title": "What identifies a Maven dependency?",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "You want Maven to fetch MySQL Connector/J for your project. Which three values pin down *exactly* which library (and which release) you get?",
+    "options": [
+      "groupId, artifactId, version",
+      "The jar's filename and its download URL",
+      "packageName, className, version",
+      "repositoryId, licence, checksum"
+    ],
+    "correct_index": 0,
+    "explanation_md": "Maven identifies every library by its **GAV coordinates**: `groupId` (who made it, like `com.mysql`), `artifactId` (which project, like `mysql-connector-j`), and `version`. Put those three in your pom and Maven resolves the rest — where to download from, what it depends on. The tempting wrong answer is the filename-and-URL one: that's exactly the manual-download world Maven replaces. Filenames aren't unique and URLs move; coordinates are stable names that work from any Maven repository."
+  },
+  "hints": [],
+  "tags": ["maven", "dependencies", "pom"],
+  "topic_slugs": ["maven-pom-and-dependencies"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "maven-build-basics",
+  "diagnostic": true,
+  "is_published": true
+}

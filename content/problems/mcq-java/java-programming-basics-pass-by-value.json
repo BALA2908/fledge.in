@@ -1,0 +1,19 @@
+{
+  "slug": "java-programming-basics-pass-by-value",
+  "title": "Did the method change my marks?",
+  "difficulty": "medium",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "```java\nstatic void addGrace(int marks) {\n    marks = marks + 10;\n}\n\npublic static void main(String[] args) {\n    int marks = 40;\n    addGrace(marks);\n    System.out.println(marks);\n}\n```\n\nWhat gets printed?",
+    "options": ["50", "40", "10", "It won't compile"],
+    "correct_index": 1,
+    "explanation_md": "Java passes a **copy** of the value into the method. Inside `addGrace`, the parameter `marks` is a separate box that starts at 40 and becomes 50 — then vanishes when the method returns. The `marks` in `main` never moves, so it prints `40`. The tempting answer is `50`, assuming the method reaches back and edits the caller's variable — it can't; Java is pass-by-value, always. To actually apply grace marks, return the new value and assign it: `marks = addGrace(marks);`."
+  },
+  "hints": [],
+  "tags": ["java-basics", "methods", "pass-by-value"],
+  "topic_slugs": ["java-methods-basics"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "java-programming-basics",
+  "diagnostic": false,
+  "is_published": true
+}

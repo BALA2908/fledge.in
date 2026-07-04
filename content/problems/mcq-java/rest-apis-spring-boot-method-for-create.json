@@ -1,0 +1,24 @@
+{
+  "slug": "rest-apis-spring-boot-method-for-create",
+  "title": "Registering a student: which method?",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "Your API lets the placement cell register a new student. The client sends the student's details as JSON to `/api/students`. Which HTTP method should this endpoint use?",
+    "options": [
+      "GET — it's the default and works everywhere",
+      "POST — it creates a new resource under the collection",
+      "PUT — any request with a body should use PUT",
+      "DELETE — it clears space for the new student first"
+    ],
+    "correct_index": 1,
+    "explanation_md": "Creating something new in a collection is exactly what POST is for: `POST /api/students` says \"add this to the students.\" PUT is the tempting one — it also carries a body — but PUT means \"replace the resource *at this exact URL*,\" which needs the client to already know the identity (`PUT /api/students/42`). For a brand-new student whose id the server will assign, POST is correct. GET must never change data (browsers and caches re-fire GETs freely, and you don't want a re-fired request creating duplicates), and DELETE removes — it has no role in creation."
+  },
+  "hints": [],
+  "tags": ["rest", "http-methods", "spring-boot"],
+  "topic_slugs": ["rest-http-request-response-basics"],
+  "pathway_slugs": ["java-fullstack"],
+  "module_slug": "rest-apis-spring-boot",
+  "diagnostic": true,
+  "is_published": true
+}
