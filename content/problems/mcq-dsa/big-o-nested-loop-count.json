@@ -1,0 +1,19 @@
+{
+  "slug": "big-o-nested-loop-count",
+  "title": "Counting the work in a nested loop",
+  "difficulty": "easy",
+  "kind": "mcq",
+  "mcq": {
+    "question_md": "A function takes an array of size `n`. For **each** element, it walks through the **entire** array again to compare that element with every element. What is the time complexity?",
+    "options": ["O(n)", "O(n log n)", "O(n²)", "O(2n)"],
+    "correct_index": 2,
+    "explanation_md": "For each of the `n` elements, the inner walk does `n` comparisons, so the total work is `n × n = n²` — that's **O(n²)**. Watch out for O(2n): doing two separate passes over the array is O(2n), which simplifies to O(n). It's the loop *inside* a loop that multiplies the work, not loops written one after another."
+  },
+  "hints": [],
+  "tags": ["big-o", "basics"],
+  "topic_slugs": ["big-o-basics"],
+  "pathway_slugs": ["dsa"],
+  "module_slug": "getting-started",
+  "diagnostic": true,
+  "is_published": true
+}

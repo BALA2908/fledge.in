@@ -47,4 +47,4 @@ NEXT_PUBLIC_SUPABASE_URL · NEXT_PUBLIC_SUPABASE_ANON_KEY ·
 SUPABASE_SERVICE_ROLE_KEY (server only) · SENTRY_DSN (Phase 6)
 
 ## Current phase
-Phase 0 complete (live at fledge-in.vercel.app) — next: Phase 1, database + seed engine   ← update this line as you progress
+Phase 1 in progress: schema, migrations, RLS, seed pipeline + sample content built — next: apply 0001_init.sql to Supabase, run db:seed + verify:rls   ← update this line as you progress

@@ -1,0 +1,111 @@
+{
+  "slug": "dsa",
+  "title": "DSA for Placements",
+  "tagline": "Crack the coding round, one pattern at a time.",
+  "description": "Data structures and algorithms the way placement rounds actually test them — patterns first, language second. Start from zero, practice on original problems, and build the muscle memory interviews reward.",
+  "outcomes": [
+    "Read a problem and recognise which pattern it belongs to",
+    "Estimate time complexity before you write a line of code",
+    "Solve easy and medium array problems under interview pressure"
+  ],
+  "is_published": true,
+  "sort": 1,
+  "modules": [
+    {
+      "slug": "getting-started",
+      "title": "Getting Started",
+      "description": "What interviewers actually measure, and the two ideas everything else builds on.",
+      "est_hours": 4,
+      "topics": [
+        {
+          "slug": "big-o-basics",
+          "title": "Big-O, without the math degree",
+          "summary_md": "Big-O answers one question: when the input grows, how much slower does your code get? That's it. If you loop through an array once, doubling the array doubles the work — that's O(n). If you have a loop inside a loop, doubling the input makes the work four times bigger — that's O(n²).\n\nHere's a concrete example. Say your college has 1,000 students and you want to check if two students share a roll number. Comparing every student with every other student is roughly 1,000 × 1,000 = a million checks — O(n²). Putting each roll number into a set as you go and asking \"have I seen this one before?\" is 1,000 checks — O(n). Same answer, a thousand times less work.\n\nInterviewers care about this because it predicts whether your solution survives real input sizes. A typical judge allows around 10⁷–10⁸ simple operations per second. So when the constraint says N ≤ 10⁵, an O(n²) solution (10¹⁰ operations) will time out, and the constraint itself is quietly telling you to find an O(n) or O(n log n) approach. Read the constraints before you code — they are a hint, not a formality.",
+          "tips": [
+            "Constraints are hints: N ≤ 10⁵ usually means your O(n²) idea will time out.",
+            "Interviewers often ask 'can you do better?' — they're really asking you to drop one factor of n.",
+            "Say the complexity of your solution out loud before coding; it's an easy way to score points."
+          ],
+          "est_minutes": 45,
+          "is_core": true,
+          "resources": [
+            {
+              "type": "video",
+              "title": "Big O Notation - Time Complexity Explained",
+              "url": "TODO",
+              "source": "Kunal Kushwaha",
+              "language": "english",
+              "minutes": 45,
+              "depth": "intro",
+              "is_verified": false
+            },
+            {
+              "type": "video",
+              "title": "Time Complexity kya hoti hai? Big O Notation in Hindi",
+              "url": "TODO",
+              "source": "Apna College",
+              "language": "hindi",
+              "minutes": 30,
+              "depth": "intro",
+              "is_verified": false
+            },
+            {
+              "type": "article",
+              "title": "MDN — Loops and iteration (refresh your loop basics)",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration",
+              "source": "MDN",
+              "language": "english",
+              "minutes": 20,
+              "depth": "intro",
+              "is_verified": true
+            }
+          ]
+        },
+        {
+          "slug": "arrays-intro",
+          "title": "Arrays: your first weapon",
+          "summary_md": "An array is a row of boxes sitting next to each other in memory, numbered from 0. Because the boxes are adjacent, jumping straight to box 57 costs the same as jumping to box 0 — that instant access by index is the array's superpower, and it's why most interview problems start here.\n\nThe trade-off: inserting or removing in the middle means shifting everything after it, which is O(n). So arrays are great when you mostly read and append, and painful when you constantly insert in the middle.\n\nA concrete example: you have marks of 60 students and want the highest. Walk the array once, keep a `maxSoFar` variable, and update it whenever the current mark beats it — one pass, O(n). That walk-once-while-remembering-something shape (a max, a running sum, a set of things seen so far) is the seed of two pointers, sliding window, and prefix sums. Master the single pass with a bit of memory and half of easy-level problems fall to the same trick.\n\nStart by writing the loop yourself instead of reaching for built-in helpers — interviewers want to see that you know what the helper does under the hood.",
+          "tips": [
+            "Off-by-one errors live at the edges: check your loop at index 0 and index n−1 before running.",
+            "'Walk once and remember something' solves more easy problems than any fancy structure.",
+            "In interviews, ask whether the array is sorted — sorted input usually unlocks a cheaper approach."
+          ],
+          "est_minutes": 60,
+          "is_core": true,
+          "resources": [
+            {
+              "type": "video",
+              "title": "Arrays in Java - Complete Tutorial for Beginners",
+              "url": "TODO",
+              "source": "Kunal Kushwaha",
+              "language": "english",
+              "minutes": 60,
+              "depth": "intro",
+              "is_verified": false
+            },
+            {
+              "type": "video",
+              "title": "Arrays in Tamil - Data Structures for Beginners",
+              "url": "TODO",
+              "source": "Error Makes Clever",
+              "language": "tamil",
+              "minutes": 40,
+              "depth": "intro",
+              "is_verified": false
+            },
+            {
+              "type": "doc",
+              "title": "Java Arrays — Oracle official tutorial",
+              "url": "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html",
+              "source": "docs.oracle.com",
+              "language": "english",
+              "minutes": 25,
+              "depth": "intro",
+              "is_verified": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
