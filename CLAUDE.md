@@ -47,4 +47,4 @@ NEXT_PUBLIC_SUPABASE_URL · NEXT_PUBLIC_SUPABASE_ANON_KEY ·
 SUPABASE_SERVICE_ROLE_KEY (server only) · SENTRY_DSN (Phase 6)
 
 ## Current phase
-Phase 2 complete: public pages live (landing + hero path, pathways grid, roadmap, topic pages, problems list + read-only problem pages, all static+ISR); YouTube URL verification: 70/141 verified via web research, pass 2 in flight — next: Phase 3, auth + onboarding + Your Plan   ← update this line as you progress
+Phase 2 complete: public pages built (landing + hero path, pathways grid, roadmap, topic pages, problems list + read-only problem pages, all static+ISR); YouTube URLs 132/141 verified via web research (9 honest TODOs) — next: push to deploy, then Phase 3: auth + onboarding + Your Plan   ← update this line as you progress
