@@ -34,32 +34,32 @@
             {
               "type": "video",
               "title": "Java Tutorial for Beginners",
-              "url": "TODO",
+              "url": "https://www.youtube.com/watch?v=BGTx91t8q50",
               "source": "Telusko",
               "language": "english",
               "minutes": 60,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Java Tutorial For Beginners in Hindi - Installation & First Program",
-              "url": "TODO",
+              "title": "Introduction to Java + Installing Java JDK and IntelliJ IDEA for Java",
+              "url": "https://www.youtube.com/watch?v=ntLJmHOJ0ME",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Java Tutorial in Tamil for Beginners",
-              "url": "TODO",
+              "title": "Java Tutorial - Java Full course for Beginners in Tamil | Error Makes Clever",
+              "url": "https://www.youtube.com/watch?v=kGxSyqKbzsc",
               "source": "Error Makes Clever",
               "language": "tamil",
               "minutes": 45,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -87,23 +87,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "JVM JRE JDK in Java - Difference Explained",
-              "url": "TODO",
+              "title": "#23 JDK JRE JVM in Java",
+              "url": "https://www.youtube.com/watch?v=s7UgQ7_1KQY",
               "source": "Telusko",
               "language": "english",
               "minutes": 15,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "JDK, JRE and JVM in Java - Complete Explanation in Hindi",
-              "url": "TODO",
-              "source": "Apna College",
+              "title": "#5 JDK, JRE and JVM in Java (Hindi)",
+              "url": "https://www.youtube.com/watch?v=Q9ccJsqmDbs",
+              "source": "Smart Programming",
               "language": "hindi",
               "minutes": 15,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -132,23 +132,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Java Data Types and Variables for Beginners",
-              "url": "TODO",
+              "title": "First Java Program - Input/Output, Debugging and Datatypes",
+              "url": "https://www.youtube.com/watch?v=TAtrPoaJ7gc",
               "source": "Kunal Kushwaha",
               "language": "english",
               "minutes": 50,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Variables and Data Types in Java in Tamil",
-              "url": "TODO",
+              "title": "#04 Variables and Datatypes in Java | In Tamil | Java Tutorial Series | Error Makes Clever",
+              "url": "https://www.youtube.com/watch?v=SkKJDwpMdvA",
               "source": "Error Makes Clever",
               "language": "tamil",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -177,23 +177,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Taking User Input in Java Using Scanner",
-              "url": "TODO",
+              "title": "#83 User Input using BufferedReader and Scanner in Java",
+              "url": "https://www.youtube.com/watch?v=bwHr9G5VIls",
               "source": "Telusko",
               "language": "english",
               "minutes": 20,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "If Else and Conditional Statements in Java in Hindi",
-              "url": "TODO",
+              "title": "Java Conditionals: If-else Statement in Java",
+              "url": "https://www.youtube.com/watch?v=YPK6NYMJt_A",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -222,33 +222,33 @@
           "resources": [
             {
               "type": "video",
-              "title": "Loops in Java - for, while and do while",
-              "url": "TODO",
+              "title": "Conditionals and Loops + Calculator Program",
+              "url": "https://www.youtube.com/watch?v=ldYLYRNaucM",
               "source": "Kunal Kushwaha",
               "language": "english",
               "minutes": 45,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Loops in Java in Hindi - Pattern Printing Questions",
-              "url": "TODO",
+              "title": "Loops in Java | Java Placement Full Course | Lecture 4",
+              "url": "https://www.youtube.com/watch?v=0r1SfRoLuzU",
               "source": "Apna College",
               "language": "hindi",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Loops in Tamil - for, while, do while Explained",
-              "url": "TODO",
+              "title": "#14 For loop explained | in Tamil | Java tutorial Series | EMC Academy",
+              "url": "https://www.youtube.com/watch?v=BtaIHsGv5dA",
               "source": "Error Makes Clever",
               "language": "tamil",
               "minutes": 35,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -277,23 +277,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Methods in Java - Defining and Calling Functions",
-              "url": "TODO",
+              "title": "#24 Methods in Java",
+              "url": "https://www.youtube.com/watch?v=KSS3MUbBWLk",
               "source": "Telusko",
               "language": "english",
               "minutes": 25,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Java Methods in Hindi - Functions, Parameters and Return",
-              "url": "TODO",
+              "title": "Java Tutorial: Methods in Java",
+              "url": "https://www.youtube.com/watch?v=t6e5AyYWLFw",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -330,33 +330,33 @@
           "resources": [
             {
               "type": "video",
-              "title": "Class and Object in Java",
-              "url": "TODO",
+              "title": "#21 Class And Object Theory in Java",
+              "url": "https://www.youtube.com/watch?v=Znmz_WxMxp4",
               "source": "Telusko",
               "language": "english",
               "minutes": 20,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Classes and Objects in Java in Hindi - OOP Part 1",
-              "url": "TODO",
+              "title": "Java Tutorial: Introduction to Object Oriented Programming",
+              "url": "https://www.youtube.com/watch?v=5OrZpBbGKgc",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "OOPs in Tamil - Class and Object Explained",
-              "url": "TODO",
+              "title": "Java Tutorial - Java Full course for Beginners in Tamil | Error Makes Clever",
+              "url": "https://www.youtube.com/watch?v=kGxSyqKbzsc",
               "source": "Error Makes Clever",
               "language": "tamil",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -385,23 +385,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Constructors in Java - Default and Parameterized",
-              "url": "TODO",
+              "title": "#44 Default vs Parameterized Constructor in Java",
+              "url": "https://www.youtube.com/watch?v=49ptL_q7sxU",
               "source": "Telusko",
               "language": "english",
               "minutes": 20,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Constructor, this and static Keyword in Java in Hindi",
-              "url": "TODO",
+              "title": "Java OOPs in One Shot | Object Oriented Programming | Java Language | Placement Course",
+              "url": "https://www.youtube.com/watch?v=bSrm9RXwBaI",
               "source": "Apna College",
               "language": "hindi",
               "minutes": 35,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -430,23 +430,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Inheritance in Java - extends and super",
-              "url": "TODO",
+              "title": "OOP 3 | Principles - Inheritance, Polymorphism, Encapsulation, Abstraction",
+              "url": "https://www.youtube.com/watch?v=46T2wD3IuhM",
               "source": "Kunal Kushwaha",
               "language": "english",
               "minutes": 45,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Inheritance in Java in Hindi - OOP Part 2",
-              "url": "TODO",
+              "title": "Inheritance in Java",
+              "url": "https://www.youtube.com/watch?v=XSuybcFfLx4",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -475,33 +475,33 @@
           "resources": [
             {
               "type": "video",
-              "title": "Polymorphism in Java - Method Overriding and Dynamic Dispatch",
-              "url": "TODO",
+              "title": "#55 Polymorphism in Java",
+              "url": "https://www.youtube.com/watch?v=6U-0aUBiO5A",
               "source": "Telusko",
               "language": "english",
               "minutes": 25,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Abstract Class and Interface in Java in Hindi",
-              "url": "TODO",
+              "title": "Java OOPs in One Shot | Object Oriented Programming | Java Language | Placement Course",
+              "url": "https://www.youtube.com/watch?v=bSrm9RXwBaI",
               "source": "Apna College",
               "language": "hindi",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Interface in Tamil - Java OOPs Concepts",
-              "url": "TODO",
+              "title": "#41 Interface in Java | In Tamil | Java Tutorial Series | Error Makes Clever",
+              "url": "https://www.youtube.com/watch?v=26fNJRePfQ8",
               "source": "Error Makes Clever",
               "language": "tamil",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -530,23 +530,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Strings in Java - Immutability and String Pool",
-              "url": "TODO",
+              "title": "Strings and StringBuilder in Java",
+              "url": "https://www.youtube.com/watch?v=zL1DPZ0Ovlo",
               "source": "Kunal Kushwaha",
               "language": "english",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "String in Java in Hindi - StringBuilder and String Methods",
-              "url": "TODO",
+              "title": "Java Tutorials For Beginners In Hindi",
+              "url": "https://www.youtube.com/playlist?list=PLu0W_9lII9agS67Uits0UnJyrYiXhDS6q",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -575,23 +575,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Stack and Heap Memory in Java",
-              "url": "TODO",
+              "title": "#26 Stack And Heap in Java",
+              "url": "https://www.youtube.com/watch?v=_GK3WoFFKUE",
               "source": "Telusko",
               "language": "english",
               "minutes": 15,
               "depth": "deep",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Stack vs Heap Memory in Java in Hindi",
-              "url": "TODO",
-              "source": "Apna College",
+              "title": "219. Stack and Heap in Java Programming (Hindi)",
+              "url": "https://www.youtube.com/watch?v=w_xMK1ygPjo",
+              "source": "Java by Saurabh Shukla Sir",
               "language": "hindi",
               "minutes": 20,
               "depth": "deep",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -628,23 +628,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "ArrayList in Java - Complete Tutorial",
-              "url": "TODO",
+              "title": "Introduction to Arrays and ArrayList in Java",
+              "url": "https://www.youtube.com/watch?v=n60Dn0UsbEk",
               "source": "Kunal Kushwaha",
               "language": "english",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "ArrayList in Java in Hindi - Collection Framework Part 1",
-              "url": "TODO",
+              "title": "ArrayList in Java: Demo & Methods",
+              "url": "https://www.youtube.com/watch?v=hxUGjnVaPgE",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 25,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -673,33 +673,33 @@
           "resources": [
             {
               "type": "video",
-              "title": "HashMap and HashSet in Java Explained",
-              "url": "TODO",
+              "title": "14.11 HashMap and HashTable in Java",
+              "url": "https://www.youtube.com/watch?v=z5tZ0Zb5rJQ",
               "source": "Telusko",
               "language": "english",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "HashMap in Java in Hindi - Collection Framework",
-              "url": "TODO",
+              "title": "HashMap in Java | Hashing | Java Placement Course | Data Structures & Algorithms",
+              "url": "https://www.youtube.com/watch?v=WeF3_nk-UqY",
               "source": "Apna College",
               "language": "hindi",
               "minutes": 35,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "HashMap in Tamil - Java Collections",
-              "url": "TODO",
-              "source": "Error Makes Clever",
+              "title": "Java Collection in Tamil - HashMap, LinkedHashMap, WeakHashMap, IdentityHashMap, Properties in Tamil",
+              "url": "https://www.youtube.com/watch?v=RAx8mepUOpw",
+              "source": "Payilagam",
               "language": "tamil",
               "minutes": 25,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -728,13 +728,13 @@
           "resources": [
             {
               "type": "video",
-              "title": "Generics in Java - Type Safety Explained",
-              "url": "TODO",
+              "title": "Collection and Generics in Java",
+              "url": "https://www.youtube.com/watch?v=5NOLuoG6fcQ",
               "source": "Telusko",
               "language": "english",
               "minutes": 25,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
@@ -773,23 +773,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Comparable vs Comparator in Java",
-              "url": "TODO",
+              "title": "#95 Comparator vs Comparable in Java",
+              "url": "https://www.youtube.com/watch?v=ZA2oNhtNk3w",
               "source": "Telusko",
               "language": "english",
               "minutes": 20,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Comparator and Comparable in Java in Hindi",
-              "url": "TODO",
+              "title": "Java Collections Framework | Java Placement Course",
+              "url": "https://www.youtube.com/watch?v=VphowcSkBX4",
               "source": "Apna College",
               "language": "hindi",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -818,23 +818,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Stack and Queue in Java",
-              "url": "TODO",
+              "title": "Stacks and Queues Complete Tutorial - Theory + Implementation + Types (Dynamic, Circular)",
+              "url": "https://www.youtube.com/watch?v=rHQI4mrJ3cg",
               "source": "Kunal Kushwaha",
               "language": "english",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Stack and Queue in Tamil - Data Structures",
-              "url": "TODO",
-              "source": "Error Makes Clever",
+              "title": "Stack Data Structure Implementation | Java Course in Tamil | Logic First Tamil",
+              "url": "https://www.youtube.com/watch?v=xQuPDZgRIvE",
+              "source": "Logic First Tamil",
               "language": "tamil",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -863,13 +863,13 @@
           "resources": [
             {
               "type": "video",
-              "title": "equals() and hashCode() Methods in Java",
-              "url": "TODO",
+              "title": "#58 Object Class equals toString hashcode in Java",
+              "url": "https://www.youtube.com/watch?v=dCt9sfZV8Sg",
               "source": "Telusko",
               "language": "english",
               "minutes": 20,
               "depth": "deep",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
@@ -915,23 +915,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Exception Handling in Java",
-              "url": "TODO",
+              "title": "#76 What is Exception in Java",
+              "url": "https://www.youtube.com/watch?v=5r_ERSm7NKE",
               "source": "Telusko",
               "language": "english",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Exception Handling in Java in Hindi",
-              "url": "TODO",
+              "title": "Java Tutorials For Beginners In Hindi",
+              "url": "https://www.youtube.com/playlist?list=PLu0W_9lII9agS67Uits0UnJyrYiXhDS6q",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 35,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -959,23 +959,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Checked and Unchecked Exceptions in Java",
-              "url": "TODO",
+              "title": "#79 Exception Hierarchy in Java",
+              "url": "https://www.youtube.com/watch?v=IBttEEFkH_Y",
               "source": "Telusko",
               "language": "english",
               "minutes": 25,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Exception Handling | Java Course in Hindi",
-              "url": "TODO",
-              "source": "Apna College",
+              "title": "Exception Handling in Java in Hindi | Java Programming | Java Tutorial | Great Learning",
+              "url": "https://www.youtube.com/watch?v=tsEfe7kFvlM",
+              "source": "Great Learning",
               "language": "hindi",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -1023,23 +1023,23 @@
             },
             {
               "type": "video",
-              "title": "Try With Resources in Java",
-              "url": "TODO",
+              "title": "#84 try with resources in Java",
+              "url": "https://www.youtube.com/watch?v=hVQR0ZHFk-o",
               "source": "Telusko",
               "language": "english",
               "minutes": 15,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Java Exception Handling in Tamil",
-              "url": "TODO",
+              "title": "#44 Exception Handling in Java | In Tamil | Java Tutorial Series | Error Makes Clever",
+              "url": "https://www.youtube.com/watch?v=cklET8UVxQI",
               "source": "Error Makes Clever",
               "language": "tamil",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             }
           ]
         },
@@ -1058,13 +1058,13 @@
           "resources": [
             {
               "type": "video",
-              "title": "File Handling in Java",
-              "url": "TODO",
+              "title": "File Handling in Java Complete Course",
+              "url": "https://www.youtube.com/watch?v=b35mlSPOlJg",
               "source": "Kunal Kushwaha",
               "language": "english",
               "minutes": 60,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
@@ -1122,23 +1122,23 @@
             },
             {
               "type": "video",
-              "title": "Custom Exception in Java",
-              "url": "TODO",
+              "title": "#81 Custom Exception in Java",
+              "url": "https://www.youtube.com/watch?v=V_jVp6WdW0Y",
               "source": "Telusko",
               "language": "english",
               "minutes": 15,
               "depth": "deep",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Custom Exceptions in Java in Hindi",
-              "url": "TODO",
+              "title": "Java Tutorials For Beginners In Hindi",
+              "url": "https://www.youtube.com/playlist?list=PLu0W_9lII9agS67Uits0UnJyrYiXhDS6q",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 20,
               "depth": "deep",
-              "is_verified": false
+              "is_verified": true
             }
           ]
         }
@@ -1174,33 +1174,33 @@
             },
             {
               "type": "video",
-              "title": "MySQL Tutorial for Beginners in Hindi",
-              "url": "TODO",
+              "title": "SQL Tutorial for Beginners (Complete Course using MySQL)",
+              "url": "https://www.youtube.com/watch?v=yE6tIle64tU",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 90,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "SQL Full Course in Tamil",
-              "url": "TODO",
+              "title": "SQL Basic for Beginners Tutorial in Tamil | Learn SQL With MySQL | sql tutorial for beginners",
+              "url": "https://www.youtube.com/playlist?list=PLvepBxfiuao2y4Pgdfregh7hOpxaJ5oxd",
               "source": "Error Makes Clever",
               "language": "tamil",
               "minutes": 90,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "MySQL Tutorial for Beginners",
-              "url": "TODO",
+              "title": "Mysql Tutorial",
+              "url": "https://www.youtube.com/playlist?list=PLsyeobzWxl7oJca2fwLyKbDwlKUDPl3RE",
               "source": "Telusko",
               "language": "english",
               "minutes": 60,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             }
           ]
         },
@@ -1218,13 +1218,13 @@
           "resources": [
             {
               "type": "video",
-              "title": "Java JDBC Tutorial",
-              "url": "TODO",
+              "title": "Java Database Connectivity (JDBC) by Navin Reddy",
+              "url": "https://www.youtube.com/playlist?list=PLsyeobzWxl7rU7Jz3zDRpqB-EODzBbHOI",
               "source": "Telusko",
               "language": "english",
               "minutes": 45,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -1238,13 +1238,13 @@
             },
             {
               "type": "video",
-              "title": "JDBC in Java in Hindi",
-              "url": "TODO",
-              "source": "CodeWithHarry",
+              "title": "Java JDBC Tutorial for Beginners in Hindi and English",
+              "url": "https://www.youtube.com/playlist?list=PLV8vIYTIdSnY-chFcGceL1okSWPFAZ0zr",
+              "source": "Easy Engineering Classes",
               "language": "hindi",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             }
           ]
         },
@@ -1272,23 +1272,23 @@
             },
             {
               "type": "video",
-              "title": "JDBC Complete Tutorial in Hindi",
-              "url": "TODO",
-              "source": "Apna College",
+              "title": "Java JDBC Tutorial for Beginners in Hindi and English",
+              "url": "https://www.youtube.com/playlist?list=PLV8vIYTIdSnY-chFcGceL1okSWPFAZ0zr",
+              "source": "Easy Engineering Classes",
               "language": "hindi",
               "minutes": 60,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "JDBC CRUD Operations in Java",
-              "url": "TODO",
+              "title": "Java Database Connectivity (JDBC) by Navin Reddy",
+              "url": "https://www.youtube.com/playlist?list=PLsyeobzWxl7rU7Jz3zDRpqB-EODzBbHOI",
               "source": "Telusko",
               "language": "english",
               "minutes": 45,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -1326,23 +1326,23 @@
             },
             {
               "type": "video",
-              "title": "PreparedStatement in Java JDBC",
-              "url": "TODO",
+              "title": "Java Database Connectivity (JDBC) by Navin Reddy",
+              "url": "https://www.youtube.com/playlist?list=PLsyeobzWxl7rU7Jz3zDRpqB-EODzBbHOI",
               "source": "Telusko",
               "language": "english",
               "minutes": 20,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "SQL Injection Explained in Hindi",
-              "url": "TODO",
+              "title": "SQL Injection 💉",
+              "url": "https://www.youtube.com/watch?v=zlPQpZxryMA",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 20,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -1380,13 +1380,13 @@
             },
             {
               "type": "video",
-              "title": "Transactions in DBMS | ACID Properties in Hindi",
-              "url": "TODO",
-              "source": "Apna College",
+              "title": "Lec-88: ACID Properties of a Transaction | Database Management System",
+              "url": "https://www.youtube.com/watch?v=-GS0OxFJsYQ",
+              "source": "Gate Smashers",
               "language": "hindi",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -1422,23 +1422,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Maven Tutorial for Beginners",
-              "url": "TODO",
+              "title": "Introduction to Maven | Theory",
+              "url": "https://www.youtube.com/watch?v=dqJanLvjDqc",
               "source": "Telusko",
               "language": "english",
               "minutes": 60,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Maven Tutorial in Hindi",
-              "url": "TODO",
-              "source": "CodeWithHarry",
+              "title": "Maven Crash Course | Learn maven in one video in Hindi",
+              "url": "https://www.youtube.com/watch?v=ybQAmFsVQqA",
+              "source": "Learn Code With Durgesh",
               "language": "hindi",
               "minutes": 45,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -1476,23 +1476,23 @@
             },
             {
               "type": "video",
-              "title": "Maven Tutorial",
-              "url": "TODO",
-              "source": "Kunal Kushwaha",
+              "title": "Maven Tutorial - Crash Course",
+              "url": "https://www.youtube.com/watch?v=Xatr8AZLOsE",
+              "source": "Marco Codes",
               "language": "english",
               "minutes": 60,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Maven in One Video in Hindi",
-              "url": "TODO",
-              "source": "CodeWithHarry",
+              "title": "Maven Crash Course | Learn maven in one video in Hindi",
+              "url": "https://www.youtube.com/watch?v=ybQAmFsVQqA",
+              "source": "Learn Code With Durgesh",
               "language": "hindi",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -1530,23 +1530,23 @@
             },
             {
               "type": "video",
-              "title": "Maven Build Lifecycle Explained",
-              "url": "TODO",
+              "title": "Maven Tutorial Practical",
+              "url": "https://www.youtube.com/watch?v=uEYjXpMDJiU",
               "source": "Telusko",
               "language": "english",
               "minutes": 20,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Maven Lifecycle in Hindi",
-              "url": "TODO",
-              "source": "CodeWithHarry",
+              "title": "Maven Crash Course | Learn maven in one video in Hindi",
+              "url": "https://www.youtube.com/watch?v=ybQAmFsVQqA",
+              "source": "Learn Code With Durgesh",
               "language": "hindi",
               "minutes": 20,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             }
           ]
         },
@@ -1556,7 +1556,7 @@
           "summary_md": "Here's a Maven secret: the lifecycle phases don't do any work themselves. Every phase just triggers **plugins** — `compile` runs the compiler plugin, `package` runs the jar plugin. Maven is a manager; plugins are the workers. Once you see that, the pom stops looking like magic.\n\nThe first plugin problem every beginner meets: you run `mvn package`, get your jar from `target/`, run `java -jar myapp.jar` — and hit `no main manifest attribute`. Two things are missing. The jar doesn't know which class holds `main()`, and it doesn't contain your dependencies — a plain jar has *your* classes only, so anything using MySQL Connector dies with `ClassNotFoundException` the moment it leaves your machine.\n\nThe fix is a **fat jar** (also called an uber jar): one file containing your classes *and* every dependency, with the main class recorded in its manifest. The **Maven Shade plugin** builds it — a copy-paste block in your pom with your main class's name filled in.\n\nA concrete example of why this matters: project demo day, and the lab machine has Java but no IDE, no Maven, no wifi worth trusting. If you brought a fat jar on a pen drive, your demo is one command: `java -jar studentportal.jar`. If you brought source code, you're that team installing dependencies while the external examiner checks the time.\n\nThis is a deep-dive topic — skip it on a tight schedule. But when Spring Boot later hands you a runnable fat jar out of the box, you'll know exactly what problem it quietly solved.",
           "tips": [
             "'no main manifest attribute' means the jar doesn't know your main class — a manifest/plugin fix, not a code fix.",
-            "Fat jar vs plain jar is a neat interview differentiator at fresher level — most candidates can't explain it.",
+            "Fat jar vs plain jar is a neat interview differentiator at fresher level — most freshers can't explain it.",
             "Test your jar with java -jar on a different machine (or at least a different folder) before demo day."
           ],
           "est_minutes": 60,
@@ -1584,23 +1584,23 @@
             },
             {
               "type": "video",
-              "title": "How to Create a JAR File with Maven",
-              "url": "TODO",
+              "title": "Maven Tutorial Practical",
+              "url": "https://www.youtube.com/watch?v=uEYjXpMDJiU",
               "source": "Telusko",
               "language": "english",
               "minutes": 15,
               "depth": "deep",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "JAR File Kya Hota Hai? Maven se JAR Banana in Hindi",
-              "url": "TODO",
-              "source": "CodeWithHarry",
+              "title": "Maven Crash Course | Learn maven in one video in Hindi",
+              "url": "https://www.youtube.com/watch?v=ybQAmFsVQqA",
+              "source": "Learn Code With Durgesh",
               "language": "hindi",
               "minutes": 15,
               "depth": "deep",
-              "is_verified": false
+              "is_verified": true
             }
           ]
         }
@@ -1626,23 +1626,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Spring Boot Tutorial for Beginners",
-              "url": "TODO",
+              "title": "Spring Boot Tutorials | Full Course",
+              "url": "https://www.youtube.com/watch?v=35EQXmHKZYs",
               "source": "Telusko",
               "language": "english",
               "minutes": 60,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Spring Boot Tutorial in Hindi - Introduction & First Project",
-              "url": "TODO",
-              "source": "CodeWithHarry",
+              "title": "Introduction to Spring Boot | What is Spring Boot | Spring Boot Tutorial in Hindi",
+              "url": "https://www.youtube.com/watch?v=729Pd-ZQ4uA",
+              "source": "Learn Code With Durgesh",
               "language": "hindi",
               "minutes": 45,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -1670,23 +1670,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Dependency Injection in Spring Boot Explained",
-              "url": "TODO",
+              "title": "#6 Dependency Injection using Spring Boot",
+              "url": "https://www.youtube.com/watch?v=9EoAXpjnsxM",
               "source": "Telusko",
               "language": "english",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Dependency Injection & IoC in Spring Boot in Hindi",
-              "url": "TODO",
-              "source": "CodeWithHarry",
+              "title": "Spring Boot Tutorial in Hindi",
+              "url": "https://www.youtube.com/playlist?list=PL0zysOflRCelmjxj-g4jLr3WKraSU_e8q",
+              "source": "Learn Code With Durgesh",
               "language": "hindi",
               "minutes": 35,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -2223,7 +2223,7 @@
         {
           "slug": "html-forms-inputs",
           "title": "Forms and inputs: collecting real data",
-          "summary_md": "Almost everything users *do* on the web goes through a form: signups, searches, payments, job applications. Forms are also where HTML meets your backend — the data a form collects is exactly what your Spring Boot API receives — so this topic pays off twice.\n\nBuild one properly, start to finish: a registration form for your college fest. A `<form>` element wrapping the fields. `<input type=\"text\">` for the name. `<input type=\"email\">` for email — on a phone this even switches the keyboard to show the @ key. A `<select>` with `<option>`s for department, radio buttons for year (only one choice allowed), checkboxes for which events they'll join (multiple allowed), and a `<button type=\"submit\">` that says exactly what happens: \"Register\".\n\nTwo details separate careful work from copy-paste work. First, **labels**: every input gets a `<label for=\"...\">` matched to the input's `id`. It's not decoration — clicking the label focuses the input, and screen readers depend on the pairing. Second, **built-in validation**: `required`, `min`, `max`, `maxlength`, and the type itself (`email`, `number`) let the browser catch obvious mistakes before anything is sent.\n\nOne mental shift to make now: browser validation is a convenience, not a defence. Anyone can bypass it with dev tools, which is exactly why your Spring Boot API validates again with `@Valid`. Client-side checks are for user experience; server-side checks are for truth. Both, always.",
+          "summary_md": "Almost everything people *do* on the web goes through a form: signups, searches, payments, job applications. Forms are also where HTML meets your backend — the data a form collects is exactly what your Spring Boot API receives — so this topic pays off twice.\n\nBuild one properly, start to finish: a registration form for your college fest. A `<form>` element wrapping the fields. `<input type=\"text\">` for the name. `<input type=\"email\">` for email — on a phone this even switches the keyboard to show the @ key. A `<select>` with `<option>`s for department, radio buttons for year (only one choice allowed), checkboxes for which events they'll join (multiple allowed), and a `<button type=\"submit\">` that says exactly what happens: \"Register\".\n\nTwo details separate careful work from copy-paste work. First, **labels**: every input gets a `<label for=\"...\">` matched to the input's `id`. It's not decoration — clicking the label focuses the input, and screen readers depend on the pairing. Second, **built-in validation**: `required`, `min`, `max`, `maxlength`, and the type itself (`email`, `number`) let the browser catch obvious mistakes before anything is sent.\n\nOne mental shift to make now: browser validation is a convenience, not a defence. Anyone can bypass it with dev tools, which is exactly why your Spring Boot API validates again with `@Valid`. Client-side checks are for user experience; server-side checks are for truth. Both, always.",
           "tips": [
             "Every input needs a label — clickable, screen-reader-friendly, and it makes tap targets bigger on mobile.",
             "input type=email and required give you free validation — use them before writing any JavaScript.",
@@ -2831,7 +2831,7 @@
         {
           "slug": "miniproject-connect-cors-integration",
           "title": "Connect the two: fetch, CORS, and honest error states",
-          "summary_md": "Both halves work alone. Time to introduce them — and to meet the error every full-stack fresher meets on this exact day.\n\nReplace the fake array: in `App`, a `useEffect` fetches `GET http://localhost:8080/api/notices` on load and puts the result in state. Open the browser… and the console goes red: *\"blocked by CORS policy.\"*\n\nDon't panic — nothing is broken. Your React dev server runs on `localhost:3000` (or 5173) and your API on `localhost:8080`. Those are different **origins**, and the browser refuses to hand one origin's JavaScript another origin's response unless the *server* says it's fine. It's a security rule protecting real users, not a bug in your code. Think of it like the hostel gate register: the watchman doesn't stop you because he suspects you — visitors from another hostel just need the warden's note. The fix is that note: `@CrossOrigin(origins = \"http://localhost:3000\")` on your controller (or a global CORS config), telling the browser your frontend is a welcome guest.\n\nOnce data flows, wire the rest: the form POSTs and appends the created notice to state; delete calls DELETE and removes the card. Then make it honest — a loading line while fetching, a readable message with a retry when the API is down, and \"No notices yet. Post the first one →\" when the board is empty.\n\nWhen you can post a notice from the browser and watch it land in the database, stop and enjoy it. That round trip is the whole job description.",
+          "summary_md": "Both halves work alone. Time to introduce them — and to meet the error every full-stack fresher meets on this exact day.\n\nReplace the fake array: in `App`, a `useEffect` fetches `GET http://localhost:8080/api/notices` on load and puts the result in state. Open the browser… and the console goes red: *\"blocked by CORS policy.\"*\n\nDon't panic — nothing is broken. Your React dev server runs on `localhost:3000` (or 5173) and your API on `localhost:8080`. Those are different **origins**, and the browser refuses to hand one origin's JavaScript another origin's response unless the *server* says it's fine. It's a security rule protecting real people, not a bug in your code. Think of it like the hostel gate register: the watchman doesn't stop you because he suspects you — visitors from another hostel just need the warden's note. The fix is that note: `@CrossOrigin(origins = \"http://localhost:3000\")` on your controller (or a global CORS config), telling the browser your frontend is a welcome guest.\n\nOnce data flows, wire the rest: the form POSTs and appends the created notice to state; delete calls DELETE and removes the card. Then make it honest — a loading line while fetching, a readable message with a retry when the API is down, and \"No notices yet. Post the first one →\" when the board is empty.\n\nWhen you can post a notice from the browser and watch it land in the database, stop and enjoy it. That round trip is the whole job description.",
           "tips": [
             "CORS is enforced by the browser and fixed on the server — a config change in Spring, not a React fix. Interviewers love this question.",
             "Kill your backend on purpose and look at the app — if the screen goes blank instead of showing an error, fix that before demo day.",
