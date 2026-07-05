@@ -10,7 +10,7 @@ export function Footer() {
           <span>· become full-fledged</span>
         </div>
         <p>
-          Free, for students. Built by{" "}
+          For students on the way out. Built by{" "}
           <Link
             href="/"
             className="underline decoration-ballpoint/40 underline-offset-4 hover:text-foreground"

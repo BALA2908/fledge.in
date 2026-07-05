@@ -137,10 +137,12 @@ The rule that beats all rules: **read it aloud. If you wouldn't say it to a juni
 4. Active voice; a button says exactly what happens: "Pick your path", "Run code", "Save session" — never "Submit" or "Get Started Now!".
 5. Feelings named plainly, then forward motion. Honest — never pity, never hype.
 6. Errors say what happened and what to do next; no apologizing, no vagueness. Empty states are invitations: *"Solve your first problem →"*.
-7. **Banned words:** empower, unlock, leverage, elevate, seamless, supercharge, cutting-edge, world-class, game-changer, revolutionize, "in today's fast-paced world", journey (say *path*), delve.
+7. **Banned words:** empower, unlock, leverage, elevate, seamless, supercharge, cutting-edge, world-class, game-changer, revolutionize, "in today's fast-paced world", journey (say *path*), delve, "free"/"always free" as branding (lead with value, not price).
 
 ### Hero copy — pick one, edit freely
-**Option A** — H1: *Your college doesn't decide your career.* · Sub: *Your next six months do. Free roadmaps, real practice problems, and speaking drills — from a fresher who got out of a no-placement college and wrote down every step.*
+**Option A** — H1: *Your college doesn't decide your career.* · Sub: *Your next six months do. Roadmaps, real practice problems, and speaking drills — from a fresher who got out of a no-placement college and wrote down every step.*
+
+> **No "free" branding (decided July 2026):** Fledge is a service, and pricing talk cheapens it. Never brand it "free" or "always free" in UI copy — lead with the value and the story. (The site still costs students nothing; we just don't make that the pitch.)
 
 **Option B** — H1: *No placements at your college? Same.* · Sub: *So I built my own way in — and left the map behind. Pick a path. Practice in English — it's what the interview panel speaks. Keep going till the offer letter.*
 

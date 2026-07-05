@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: "%s · Fledge",
   },
   description:
-    "Free career paths, practice problems, and speaking drills for Indian college students — practice in English, the language your interviews happen in.",
+    "Career paths, practice problems, and speaking drills for Indian college students — practice in English, the language your interviews happen in.",
 };
 
 export default function RootLayout({

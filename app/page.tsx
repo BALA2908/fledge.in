@@ -12,11 +12,11 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Fledge — your college doesn't decide your career",
   description:
-    "Free roadmaps, real practice problems, and speaking drills for Indian college students. Practice in English — it's what the interview panel speaks. From a fresher who wrote down every step.",
+    "Roadmaps, real practice problems, and speaking drills for Indian college students. Practice in English — it's what the interview panel speaks. From a fresher who wrote down every step.",
   openGraph: {
     title: "Fledge — your college doesn't decide your career",
     description:
-      "Free roadmaps, real practice problems, and speaking drills. Practice in English — it's what the interview panel speaks.",
+      "Roadmaps, real practice problems, and speaking drills. Practice in English — it's what the interview panel speaks.",
     type: "website",
     siteName: "Fledge",
   },
@@ -87,7 +87,7 @@ export default async function HomePage() {
               Your college doesn&apos;t decide your career.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">
-              Your next six months do. Free roadmaps, real practice problems,
+              Your next six months do. Roadmaps, real practice problems,
               and speaking drills — from a fresher who got out of a
               no-placement college and wrote down every step.
             </p>
@@ -106,7 +106,7 @@ export default async function HomePage() {
               </Link>
             </div>
             <p className="mt-12 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-              Learn it in English · speak it in the interview — always free
+              Learn it in English · speak it in the interview
             </p>
           </div>
           <div className="mx-auto w-full max-w-sm md:max-w-none">
@@ -126,7 +126,7 @@ export default async function HomePage() {
               things.
             </li>
             <li>
-              So this is one honest map — free, in plain English, tested on
+              So this is one honest map — in plain English, tested on
               myself first. The English is part of the training: it&apos;s
               the language your interviews will happen in.
             </li>
@@ -175,7 +175,7 @@ export default async function HomePage() {
                   stop.
                 </p>
                 <p>
-                  This site is that map — free, in plain English, with
+                  This site is that map — in plain English, with
                   everything I wish someone had handed me in second year.
                 </p>
               </div>

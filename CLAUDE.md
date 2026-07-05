@@ -1,7 +1,8 @@
 # Fledge — Claude Code Project Guide
 
 ## What this is
-Free platform for Indian college students: career pathways (roadmap +
+Career-prep platform for Indian college students (costs them nothing,
+but NEVER branded "free" in copy — lead with value): career pathways (roadmap +
 curated English-first resources; Tamil/Hindi kept as a quiet fallback,
 framed as placement-communication practice, never "in your language"
 marketing) + a personal plan engine (§2C:
