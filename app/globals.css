@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -155,6 +156,36 @@
   h3,
   h4 {
     @apply font-heading;
+  }
+}
+
+@layer components {
+  /* Notebook-flavoured markdown: ink text, blue links, IDE code blocks. */
+  .prose-notebook {
+    @apply prose prose-neutral dark:prose-invert max-w-none;
+    --tw-prose-body: var(--foreground);
+    --tw-prose-headings: var(--foreground);
+    --tw-prose-links: var(--ballpoint);
+    --tw-prose-bold: var(--foreground);
+    --tw-prose-code: var(--foreground);
+    --tw-prose-quotes: var(--muted-foreground);
+    --tw-prose-invert-body: var(--foreground);
+    --tw-prose-invert-headings: var(--foreground);
+    --tw-prose-invert-links: var(--ballpoint);
+    --tw-prose-invert-bold: var(--foreground);
+    --tw-prose-invert-code: var(--foreground);
+  }
+  .prose-notebook :where(pre) {
+    background: var(--code-surface);
+    color: #e8eaf2;
+    border-radius: var(--radius-md);
+  }
+  .prose-notebook :where(code):not(:where(pre code)) {
+    @apply rounded bg-secondary px-1 py-0.5 font-mono text-[0.85em] font-medium;
+  }
+  .prose-notebook :where(code)::before,
+  .prose-notebook :where(code)::after {
+    content: none;
   }
 }
 
