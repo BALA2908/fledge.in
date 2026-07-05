@@ -47,4 +47,4 @@ NEXT_PUBLIC_SUPABASE_URL · NEXT_PUBLIC_SUPABASE_ANON_KEY ·
 SUPABASE_SERVICE_ROLE_KEY (server only) · SENTRY_DSN (Phase 6)
 
 ## Current phase
-Phase 1 COMPLETE: schema+RLS verified, java-fullstack pathway (12 modules, 64 topics, 51 MCQs), DSA bank done (61 coding problems: 26E/25M/10H, all reference-validated); YouTube URLs still TODO pending Bala's verification — next: Phase 2, public content pages   ← update this line as you progress
+Phase 2 complete: public pages live (landing + hero path, pathways grid, roadmap, topic pages, problems list + read-only problem pages, all static+ISR); YouTube URL verification: 70/141 verified via web research, pass 2 in flight — next: Phase 3, auth + onboarding + Your Plan   ← update this line as you progress
