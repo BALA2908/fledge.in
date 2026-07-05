@@ -1,0 +1,85 @@
+{
+  "slug": "canteen-bill-postfix",
+  "title": "Canteen Bill Machine",
+  "difficulty": "medium",
+  "statement_md": "The canteen's billing machine is older than most of the professors, and it prints bills in its own strange style. Each bill is a single line of tokens separated by spaces. A token is either an **amount** (a whole number) or one of the symbols `+`, `-`, `*` — and here's the twist: every symbol appears **after** the two amounts it combines, not between them.\n\nSo `2 3 +` means 2 + 3 = 5. And `2 3 + 4 *` means: first combine 2 and 3 into 5, then combine 5 and 4 with `*` to get 20.\n\nRead the line left to right. Whenever you meet a symbol, it acts on the **two most recent results that haven't been used yet** — the earlier one is the left side of the operation, the later one is the right side. That order matters for `-`: `7 2 -` is 7 − 2 = 5, not −5.\n\nEvery bill line is guaranteed to be valid — whenever a symbol shows up, there are always exactly two results ready for it, and at the end exactly one final amount remains. Print that final amount for each bill.",
+  "input_format_md": "The first line contains a single integer `T` — the number of bills.\n\nEach of the next `T` lines contains one bill: space-separated tokens, each either a whole number or one of `+`, `-`, `*`.\n\nRead the input **line by line** — each bill lives on its own line.",
+  "output_format_md": "For each bill, print its final amount on its own line.",
+  "constraints_md": "- `1 ≤ T ≤ 10`\n- each bill line has an **odd** number of tokens, between `1` and `99`\n- every number token is between `0` and `1000`\n- the only symbols are `+`, `-` and `*`\n- every line is a valid bill (a symbol always finds exactly two results waiting)\n- every in-between result and every final answer has magnitude at most `9 × 10^18` — this fits in a signed 64-bit integer (`long` in Java, `long long` in C++; in JavaScript, plain numbers lose precision here, so use `BigInt` — see the starter comment)\n- results can be **negative**",
+  "starter_code": {
+    "python": "import sys\n\ndef solve_case(tokens):\n    # your code here — evaluate the bill and return the final amount (int)\n    return 0\n\ndef main():\n    lines = sys.stdin.read().splitlines()\n    t = int(lines[0])\n    out = []\n    for i in range(1, t + 1):\n        tokens = lines[i].split()\n        out.append(str(solve_case(tokens)))\n    print(\"\\n\".join(out))\n\nmain()\n",
+    "java": "import java.io.*;\nimport java.util.*;\n\npublic class Main {\n    // amounts can reach ±9 × 10^18 — keep everything in long\n    static long solveCase(String[] tokens) {\n        // your code here — evaluate the bill and return the final amount\n        return 0L;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        int t = Integer.parseInt(br.readLine().trim());\n        StringBuilder out = new StringBuilder();\n        for (int i = 0; i < t; i++) {\n            String[] tokens = br.readLine().trim().split(\"\\\\s+\");\n            out.append(solveCase(tokens)).append('\\n');\n        }\n        System.out.print(out);\n    }\n}\n",
+    "cpp": "#include <bits/stdc++.h>\nusing namespace std;\n\n// amounts can reach ±9 * 10^18 — keep everything in long long\nlong long solve_case(vector<string>& tokens) {\n    // your code here — evaluate the bill and return the final amount\n    return 0;\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    string line;\n    getline(cin, line);\n    int t = stoi(line);\n    while (t--) {\n        getline(cin, line);\n        vector<string> tokens;\n        stringstream ss(line);\n        string tok;\n        while (ss >> tok) tokens.push_back(tok);\n        cout << solve_case(tokens) << '\\n';\n    }\n    return 0;\n}\n",
+    "javascript": "// amounts can reach ±9 × 10^18, beyond Number's safe range —\n// use BigInt for every running amount (BigInt(token)) and print with .toString().\nconst lines = require(\"fs\").readFileSync(0, \"utf8\").split(\"\\n\");\nconst t = parseInt(lines[0], 10);\nconst out = [];\nfor (let i = 1; i <= t; i++) {\n  const tokens = lines[i].trim().split(/\\s+/);\n  out.push(solveCase(tokens).toString());\n}\nconsole.log(out.join(\"\\n\"));\n\nfunction solveCase(tokens) {\n  // your code here — evaluate the bill and return the final amount as a BigInt\n  return 0n;\n}\n"
+  },
+  "reference_solution": {
+    "python": "import sys\n\nOPS = {\"+\", \"-\", \"*\"}\n\ndef solve_case(tokens):\n    stack = []\n    for tok in tokens:\n        if tok in OPS:\n            b = stack.pop()\n            a = stack.pop()\n            if tok == \"+\":\n                stack.append(a + b)\n            elif tok == \"-\":\n                stack.append(a - b)\n            else:\n                stack.append(a * b)\n        else:\n            stack.append(int(tok))\n    return stack[0]\n\ndef main():\n    lines = sys.stdin.read().splitlines()\n    t = int(lines[0])\n    out = []\n    for i in range(1, t + 1):\n        out.append(str(solve_case(lines[i].split())))\n    sys.stdout.write(\"\\n\".join(out) + \"\\n\")\n\nmain()\n"
+  },
+  "hints": [
+    "Walk the line left to right and park every amount you haven't used yet somewhere you can always grab the most recent one back first.",
+    "Keep a stack: push each number; on a symbol, pop twice (the second pop is the LEFT side), apply the operation, push the result. The lone value left at the end is the answer."
+  ],
+  "tags": [
+    "stack",
+    "math"
+  ],
+  "topic_slugs": [
+    "stack-queue-basics"
+  ],
+  "pathway_slugs": [
+    "dsa",
+    "java-fullstack"
+  ],
+  "diagnostic": false,
+  "time_limit_ms": 4000,
+  "is_published": true,
+  "kind": "coding",
+  "sample_tests": [
+    {
+      "input": "3\n2 3 +\n7 2 -\n2 3 + 4 *\n",
+      "output": "5\n5\n20\n"
+    },
+    {
+      "input": "2\n42\n5 1 2 + 4 * - 3 +\n",
+      "output": "42\n-4\n"
+    }
+  ],
+  "hidden_tests": [
+    {
+      "input": "4\n7\n0\n1000\n999\n",
+      "output": "7\n0\n1000\n999\n"
+    },
+    {
+      "input": "2\n1000 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 + 1000 +\n198 879 + 459 + 814 + 541 + 191 + 802 + 103 + 107 + 398 + 872 + 837 + 861 + 378 + 62 + 536 + 143 + 144 + 263 + 510 + 565 + 596 + 28 + 851 + 424 + 365 + 937 + 246 + 286 + 796 +\n",
+      "output": "50000\n14192\n"
+    },
+    {
+      "input": "3\n1000 1000 * 1000 * 1000 * 1000 * 1000 * 9 *\n2 3 * 4 * 5 *\n0 1000 *\n",
+      "output": "9000000000000000000\n120\n0\n"
+    },
+    {
+      "input": "3\n2 5 -\n0 1000 - 1000 * 1000 * 1000 * 1000 * 1000 *\n1 2 - 3 - 4 -\n",
+      "output": "-3\n-1000000000000000000\n-8\n"
+    },
+    {
+      "input": "4\n1 2 +\n3 4 *\n10 4 - 2 *\n5 1 2 + 4 * + 3 -\n",
+      "output": "3\n12\n12\n14\n"
+    },
+    {
+      "input": "10\n267 333 657 - -\n95 503 847 - - 278 685 + 472 - 589 - +\n505 250 668 11 + - 527 412 + 917 * 340 121 * + * + 128 374 854 - * *\n786 902 * 397 834 - 518 + 722 130 - * - 176 61 * 104 184 * 286 218 + - * 25 - 987 100 + 440 * 380 149 + 388 - * * +\n308 118 + 524 + 993 411 * 398 * - 440 807 325 - 709 - 2 + * * 791 668 - 278 + 164 651 879 * + 413 898 588 - 54 - - * - + 332 875 * 606 + - 936 874 985 * + 968 264 * 274 979 - - * +\n163 528 500 + - 875 * 380 * 184 + 304 910 297 * - 644 965 - - 14 + 388 497 796 * 314 * * 937 911 * - + 301 789 - 389 892 + - - + 222 403 - 784 - 224 637 * 944 396 * + * + 81 656 718 727 30 573 + - + - 511 + 700 954 638 859 * + - + + 916 932 122 703 - * * + +\n816 61 - 690 - 311 391 294 547 941 - + * 494 260 166 * + 837 928 * * - * - 452 120 - 513 737 + - + 311 142 972 472 + 963 * + * 934 410 752 485 + 186 902 632 + 31 674 + + 570 - + + + + + - 249 876 541 + - 263 611 470 * 774 - - 188 - 338 393 526 * + + 330 841 * 768 751 + + 332 499 * 271 - * - * +\n872 673 + 240 + 745 * 952 446 - 866 + 80 642 - + +\n795 315 * 177 572 - 485 406 * 547 - * 508 587 359 * - 153 564 * + * * 519 323 * 749 - -\n292 859 777 16 995 737 + + * - 846 455 * 40 944 616 + - * 191 49 - 467 268 320 + * - 628 442 - 823 902 * 84 + + + 436 18 - 263 - - 738 825 - - - + *\n",
+      "output": "591\n341\n23780019118080\n13489730002060980\n16301527184876\n46914478757\n64452663379365\n1330635\n2407251130073195237\n-171380357052\n"
+    },
+    {
+      "input": "10\n49 703 + 966 * 361 151 768 - * 301 * 50 412 + 727 290 * + + * 313 701 * + 180 * 8 562 981 * 971 907 * 168 - 349 665 + 378 * 136 * + * * 726 19 495 * 782 959 + * 93 115 * * 173 237 68 * * + * 886 984 565 * 132 * 211 260 - 977 900 470 * + + 524 306 381 - * + * 32 502 * * 287 304 - - + + + +\n957 378 + 190 428 283 225 - - 688 752 + * - 646 * * 31 686 - 508 566 48 * 897 * 32 286 - + * 987 975 902 * * 247 92 + 178 728 * - + - - 453 987 * 855 * 986 + 253 * 417 898 969 224 * * - + 657 230 - 162 262 757 996 * * * * + 677 * 426 618 88 + 927 + * 119 173 * * 224 + 921 * - + -\n545 162 899 104 45 - * + 774 30 539 * 398 773 + + + 628 * * - 37 671 976 * + 656 993 860 298 * + 911 - 141 802 * + * 394 - * + 198 466 348 797 + 906 + * 598 518 * 309 - 367 979 + 787 * * * + + 878 - 81 702 908 * - 554 * 414 479 149 369 - * * * 147 508 * + 361 + +\n756 917 + 149 * 441 493 * 874 + 852 732 * 934 - * 530 - * 975 6 - 294 32 852 - * 752 + - - 148 514 * 149 390 - 84 547 * 690 778 * 949 + - * * + 545 180 + 394 392 * * 432 619 * 476 124 * 862 * * + + 72 740 * 68 110 * 37 * 287 + - +\n704 790 * 670 568 218 * 441 557 * - - 805 717 - 191 23 * * 168 - + 718 207 628 + - 486 * 325 126 - 891 * * 103 777 640 861 - * 718 100 193 * * * * + 185 284 - 671 713 * 634 * * 192 * 851 * - + +\n656 781 + 533 91 770 * + 262 - * 462 288 * 769 408 725 * + - * 403 690 381 * 333 359 995 * * * 871 623 270 166 + + - 959 208 * * 636 * + * 184 - -\n499 837 * 819 979 * 341 35 956 - + 846 - 825 41 * - 392 223 * + + 677 19 - + 373 749 535 - + + 764 - +\n340 300 740 + 353 337 + * 792 * - 900 853 881 * + 393 * +\n290 668 665 - + 335 * 398 *\n531 226 *\n",
+      "output": "445053961976680317\n-9303590132153520\n328868328238458812\n33907807769289892\n4661345176430357\n-12608956785344399\n1272110\n-272648411\n39065690\n120006\n"
+    },
+    {
+      "input": "10\n691 722 * 927 * 999 + 236 657 491 863 103 * 82 + 149 * * - + 933 848 + 804 * 326 662 * 257 737 * + * - 196 963 114 411 * - - - - 300 700 - 629 67 * 603 * 197 678 - 635 * 574 * * * 667 9 - 273 - - 753 266 117 * - 607 515 + 178 843 431 6 * 557 * - 850 + * + 628 - 72 310 607 + + + * 521 - + -\n563 234 327 963 - * + 306 984 209 214 - - 124 277 814 * + - 762 286 254 - - 446 418 222 + + * - 308 424 * 128 542 + + 963 411 104 - + 70 102 - 644 91 * 270 - + + 933 174 - 631 - * - 715 87 * 707 + - * 225 509 295 * 332 + - 870 297 - + 194 + 434 126 * 173 + 753 439 162 + 937 - * + 535 * * + * -\n798 532 - 892 917 * 17 * 226 * * 156 137 272 * 186 474 634 + 693 - 722 593 + - * + * 578 880 65 - + - 293 952 - 122 - 715 718 816 + + - 18 820 916 * 57 * - 398 * * + - 42 803 167 228 + 612 + * 960 433 * 463 * 901 628 62 + - + + - 75 285 196 6 610 397 + * + + + 812 285 * * 445 326 - - - +\n699 551 * 604 489 905 + + 526 232 * 194 494 + - * - 437 257 31 * 260 368 * + 608 439 + 654 - * - + 0 659 + 572 * 165 119 377 * - * 81 45 - 586 738 + 776 883 918 * * 855 789 + 437 * * + 565 176 * + - 337 535 491 - - 206 233 * 516 62 * - - - + 133 - + 106 81 - * 297 316 + 110 - 34 817 * * -\n45 46 * 268 * 30 100 73 + - 291 758 - * 493 22 593 + - + 620 84 - 845 350 543 - 309 * * - * 12 347 229 - - 227 + 765 288 * * - - 884 572 783 + 271 * 387 910 + * + 89 472 785 - 675 + * + 874 651 - 768 * 410 + 825 663 * 574 - 381 918 148 - 254 * - * * 849 842 - 646 - 345 805 901 * + + + + -\n571 973 745 - * 121 * 382 583 46 * * * 748 - 919 443 983 * + 652 297 - 704 126 - 952 - 810 - * 755 - - + 220 807 145 + 580 - 343 259 583 - * - + 693 519 * 298 713 160 715 405 181 * + 506 241 + 892 - + + + * 256 640 * 157 597 340 - - 354 85 * - + 57 675 387 + + - 174 647 23 329 + + + + + + - -\n2 84 815 * 60 + 446 + 289 551 374 952 45 * * - 360 262 + + + 510 831 + + 726 532 * 40 197 859 * * 441 673 889 * 50 + 623 927 917 - + + - * 684 87 * 325 835 - + 465 97 * 335 465 826 - - + - - 30 145 + 338 * 228 + * + + - 782 635 20 573 * + * 550 + 816 198 29 + 712 - - * 447 944 + * + *\n639 891 * 902 178 317 + - 297 23 - 968 752 * + * 436 195 + 819 358 + * * 621 267 * 764 277 - + 761 893 + 485 - - + 917 906 + 304 51 + 883 * 235 - * 679 401 * + + + 594 371 662 673 * - * 740 - 767 749 135 * - * 673 577 109 - + 633 - 179 763 * 178 295 + * + 722 661 * 422 * 313 + - + 765 180 - + +\n678 166 - 482 + 919 766 - 487 * 403 580 559 - + * * 857 622 650 - * 879 + - 639 547 + + 1000 135 * 255 747 - 853 556 * + + 179 - 364 266 + 248 305 - 24 - + 41 921 - - * 470 371 * 842 698 + * 898 * 342 - 647 529 + 684 437 * * + - + 939 775 128 164 + - 494 - 495 796 - - * 657 775 14 - - * 487 * +\n526 516 + 818 998 - 573 531 + * 639 549 * 648 474 * - 568 857 * - + * 729 700 - 329 525 669 + - 237 * + 173 429 * 314 * 589 304 + 485 - * - * 386 953 * 825 * 685 21 * 960 * + 404 102 96 296 260 * * 98 741 762 - * - - - 147 631 815 + * 846 692 145 + 649 - * - * + 809 1000 - 911 293 * 399 + * + -\n",
+      "output": "-1782112834136677465\n-7202133771565639\n-50796664072734\n-11298084775369359\n18306861944449149\n161378672333314\n481169730215261274\n246653400178390\n-223010415314\n6359090564418963892\n"
+    },
+    {
+      "input": "10\n421 244 330 97 * * + 978 232 601 * * 659 335 401 114 * - - 755 + 583 599 * 620 * * 719 * 725 830 791 + * + 874 519 * 455 952 854 * * * + + + 364 540 - 307 666 721 * * 643 431 * * + 819 931 * 280 * 754 552 * + + 679 445 * 60 60 * * 389 802 123 - * * + + 644 671 * 443 959 592 * 553 - * 200 + + +\n663 332 816 * + 55 - 956 176 421 742 * * * * 608 822 * 430 882 * * + 641 804 * 452 * 289 * + 884 663 * 94 192 * * 186 54 * 50 * * 806 534 * 411 828 - 193 84 * * - 376 642 721 * + * 965 + + + 415 * 613 392 472 * + 550 559 991 884 372 + * * * * 347 754 - 751 676 + * + + 862 78 643 - * 55 * +\n248 56 * 900 342 * 308 * 132 91 * 105 400 125 * 868 408 626 - * * 315 * * * 986 + + + 14 715 * 455 41 + * 953 728 459 * 662 286 - * * 277 750 * * 990 265 + + 368 620 * 98 974 * 125 699 * - 140 45 196 * 567 * * 335 * * + 295 144 * 975 249 291 * 317 * * * + 780 12 * 813 * + + - 494 481 * - +\n251 95 * 303 365 13 - 557 978 * 895 821 123 * 791 * * * + + 28 960 * 462 * + 220 102 117 + - 735 * + + 675 389 * 962 528 - 5 * * 368 * 257 124 * 309 389 + 215 + 139 - 26 188 407 - * - * 298 863 * 714 230 + * * + 210 468 763 * * + 524 489 457 563 * + * + +\n808 93 * 921 998 * 734 * * 216 464 * 372 713 * 363 * * 619 349 165 879 * * * 77 783 * 508 96 164 406 - * * * + - 121 160 480 798 * * 162 643 * 368 906 792 * 787 * * * + + 292 195 656 321 - * 523 59 - * * 221 - + + +\n154 646 191 556 618 * * 957 * 636 * - 244 113 35 983 - * 660 261 822 774 * 285 + + * 484 290 * * 366 * + 180 * + 19 + - 161 525 744 - 42 * * + - 561 327 * 475 868 * * +\n414 985 * 133 - 188 569 * 614 496 * * * 583 705 * 367 * 804 924 76 * * * 11 223 - 650 + 613 * 596 * + 54 656 0 - + * +\n550 595 * 315 166 * * 209 244 + 372 775 321 - 552 * * * + 88 41 + 462 * *\n0 178 831 * * 706 341 * 23 * * 448 165 * *\n63 346 979 * - 70 *\n",
+      "output": "7780414019284969\n8199596838754135676\n-3786626351355754475\n88985082087069009\n21708244935550823\n3886249511863523885\n6060054075582902416\n3536745582868344\n0\n-23706970\n"
+    }
+  ]
+}

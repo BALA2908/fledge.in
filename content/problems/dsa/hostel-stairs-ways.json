@@ -1,0 +1,86 @@
+{
+  "slug": "hostel-stairs-ways",
+  "title": "Hostel Staircase Hops",
+  "difficulty": "medium",
+  "kind": "coding",
+  "statement_md": "Back at the hostel after class, everyone races up the same old staircase. It has `N` steps. A student climbs by taking either **1 step** or **2 steps** in a single hop, mixing the two however they like.\n\nTwo climbs count as different if the sequence of hops differs at any point — so for 3 steps, `1+1+1`, `1+2` and `2+1` are three different climbs.\n\nFor each staircase, print how many distinct climbs land exactly on the top step. The count explodes quickly, so print it **modulo 1000000007**.",
+  "input_format_md": "The first line contains a single integer `T` — the number of test cases.\n\nEach of the next `T` lines contains a single integer `N` — the number of steps in that staircase.",
+  "output_format_md": "For each test case, print one integer on its own line — the number of distinct climbs modulo `1000000007`.",
+  "constraints_md": "- `1 ≤ T ≤ 10`\n- `1 ≤ N ≤ 10^5`",
+  "starter_code": {
+    "python": "import sys\n\nMOD = 1000000007\n\ndef solve_case(n):\n    # your code here — return the number of distinct climbs modulo 1000000007\n    return 0\n\ndef main():\n    data = sys.stdin.read().split()\n    t = int(data[0])\n    for i in range(1, t + 1):\n        n = int(data[i])\n        print(solve_case(n))\n\nmain()\n",
+    "java": "import java.io.*;\n\npublic class Main {\n    static final int MOD = 1000000007;\n\n    static long solveCase(int n) {\n        // your code here — return the number of distinct climbs modulo 1000000007\n        return 0;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        int t = Integer.parseInt(br.readLine().trim());\n        StringBuilder out = new StringBuilder();\n        for (int i = 0; i < t; i++) {\n            int n = Integer.parseInt(br.readLine().trim());\n            out.append(solveCase(n)).append('\\n');\n        }\n        System.out.print(out);\n    }\n}\n",
+    "cpp": "#include <bits/stdc++.h>\nusing namespace std;\n\nconst long long MOD = 1000000007;\n\nlong long solve_case(int n) {\n    // your code here — return the number of distinct climbs modulo 1000000007\n    return 0;\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int t;\n    cin >> t;\n    while (t--) {\n        int n;\n        cin >> n;\n        cout << solve_case(n) << '\\n';\n    }\n    return 0;\n}\n",
+    "javascript": "const data = require(\"fs\").readFileSync(0, \"utf8\").split(/\\s+/).filter(Boolean).map(Number);\nlet pos = 0;\nconst t = data[pos++];\nconst out = [];\nfor (let i = 0; i < t; i++) {\n  const n = data[pos++];\n  out.push(solveCase(n));\n}\nconsole.log(out.join(\"\\n\"));\n\nconst MOD = 1000000007;\n\nfunction solveCase(n) {\n  // your code here — return the number of distinct climbs modulo 1000000007\n  // (answers stay below MOD, so plain numbers are safe as long as you take\n  //  the remainder after every addition)\n  return 0;\n}\n"
+  },
+  "reference_solution": {
+    "python": "import sys\n\nMOD = 1000000007\n\ndef main():\n    data = sys.stdin.buffer.read().split()\n    t = int(data[0])\n    out = []\n    for i in range(1, t + 1):\n        n = int(data[i])\n        a, b = 1, 1  # climbs to reach step 0 and step 1\n        for _ in range(n - 1):\n            a, b = b, (a + b) % MOD\n        out.append(str(b))\n    sys.stdout.write(\"\\n\".join(out) + \"\\n\")\n\nmain()\n"
+  },
+  "hints": [
+    "Work out 1, 2, 3 and 4 steps by hand. Look at the last hop of any climb — it was either a 1-step or a 2-step. What does that say about the count for N?",
+    "ways(N) = ways(N-1) + ways(N-2), with ways(1) = 1 and ways(2) = 2. Build it up with a simple loop keeping only the last two values, and take the remainder modulo 1000000007 after every addition."
+  ],
+  "tags": [
+    "recursion",
+    "dp",
+    "math"
+  ],
+  "topic_slugs": [
+    "recursion-basics",
+    "dp-basics"
+  ],
+  "pathway_slugs": [
+    "dsa",
+    "java-fullstack"
+  ],
+  "time_limit_ms": 4000,
+  "is_published": true,
+  "sample_tests": [
+    {
+      "input": "3\n1\n2\n3\n",
+      "output": "1\n2\n3\n"
+    },
+    {
+      "input": "2\n4\n10\n",
+      "output": "5\n89\n"
+    }
+  ],
+  "hidden_tests": [
+    {
+      "input": "1\n1\n",
+      "output": "1\n"
+    },
+    {
+      "input": "1\n2\n",
+      "output": "2\n"
+    },
+    {
+      "input": "10\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n",
+      "output": "1\n2\n3\n5\n8\n13\n21\n34\n55\n89\n"
+    },
+    {
+      "input": "6\n11\n15\n18\n20\n24\n25\n",
+      "output": "144\n987\n4181\n10946\n75025\n121393\n"
+    },
+    {
+      "input": "5\n26\n100\n999\n4321\n50000\n",
+      "output": "196418\n782204094\n517691607\n592250890\n441423758\n"
+    },
+    {
+      "input": "3\n99998\n99999\n100000\n",
+      "output": "56182730\n911435502\n967618232\n"
+    },
+    {
+      "input": "4\n77777\n2\n31337\n1\n",
+      "output": "895198524\n2\n753875811\n1\n"
+    },
+    {
+      "input": "10\n19868\n87867\n45903\n81346\n54075\n19130\n80134\n10326\n10746\n39795\n",
+      "output": "853402405\n769347639\n808704199\n984459789\n269895942\n251143640\n646732312\n298541079\n176172333\n293283740\n"
+    },
+    {
+      "input": "10\n100000\n100000\n100000\n100000\n100000\n100000\n100000\n100000\n100000\n100000\n",
+      "output": "967618232\n967618232\n967618232\n967618232\n967618232\n967618232\n967618232\n967618232\n967618232\n967618232\n"
+    }
+  ]
+}

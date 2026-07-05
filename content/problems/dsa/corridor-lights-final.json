@@ -1,0 +1,87 @@
+{
+  "slug": "corridor-lights-final",
+  "title": "Corridor Lights After Lights-Out",
+  "difficulty": "medium",
+  "statement_md": "The hostel warden is in a mood tonight. The corridor has `N` lights, numbered `1` to `N`, and all of them start **OFF**.\n\nThe warden makes `N` passes down the corridor. On pass `i` (for `i = 1` to `N`), he flips the switch of every `i`-th light — lights `i`, `2i`, `3i`, and so on. Flipping a switch turns an OFF light ON and an ON light OFF.\n\nAfter all `N` passes are done, how many lights are ON?",
+  "input_format_md": "The first line contains a single integer `T` — the number of test cases.\n\nEach of the next `T` lines contains a single integer `N` — the number of lights in the corridor.",
+  "output_format_md": "For each test case, print a single line with one integer — the number of lights that are ON after all `N` passes.",
+  "constraints_md": "- `1 ≤ T ≤ 10`\n- `1 ≤ N ≤ 10^18`\n- careful: `N` does not fit in a 32-bit integer — use 64-bit (`long` / `long long`) or `BigInt`",
+  "starter_code": {
+    "python": "import sys\n\ndef solve_case(n):\n    # your code here — return how many lights are ON\n    # note: n can be as large as 10**18\n    return 0\n\ndef main():\n    data = sys.stdin.read().split()\n    t = int(data[0])\n    for i in range(1, t + 1):\n        n = int(data[i])\n        print(solve_case(n))\n\nmain()\n",
+    "java": "import java.io.*;\n\npublic class Main {\n    static long solveCase(long n) {\n        // your code here — return how many lights are ON\n        // note: n can be as large as 10^18, so keep everything in long\n        return 0;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        int t = Integer.parseInt(br.readLine().trim());\n        StringBuilder out = new StringBuilder();\n        for (int i = 0; i < t; i++) {\n            long n = Long.parseLong(br.readLine().trim());\n            out.append(solveCase(n)).append('\\n');\n        }\n        System.out.print(out);\n    }\n}\n",
+    "cpp": "#include <bits/stdc++.h>\nusing namespace std;\n\nlong long solve_case(long long n) {\n    // your code here — return how many lights are ON\n    // note: n can be as large as 10^18, so keep everything in long long\n    return 0;\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int t;\n    cin >> t;\n    while (t--) {\n        long long n;\n        cin >> n;\n        cout << solve_case(n) << '\\n';\n    }\n    return 0;\n}\n",
+    "javascript": "// n can be as large as 10^18, which does NOT fit safely in a normal JS\n// number — keep n (and your answer) in BigInt end to end.\nconst lines = require(\"fs\").readFileSync(0, \"utf8\").split(\"\\n\");\nlet pos = 0;\nconst t = parseInt(lines[pos++], 10);\nconst out = [];\nfor (let i = 0; i < t; i++) {\n  const n = BigInt(lines[pos++].trim());\n  out.push(solveCase(n).toString());\n}\nconsole.log(out.join(\"\\n\"));\n\nfunction solveCase(n) {\n  // your code here — return a BigInt: how many lights are ON\n  return 0n;\n}\n"
+  },
+  "reference_solution": {
+    "python": "import sys\nimport math\n\ndef main():\n    data = sys.stdin.buffer.read().split()\n    t = int(data[0])\n    out = []\n    for i in range(1, t + 1):\n        n = int(data[i])\n        out.append(str(math.isqrt(n)))\n    print(\"\\n\".join(out))\n\nmain()\n"
+  },
+  "hints": [
+    "Light number `L` gets flipped once for every pass number that divides `L` exactly. So a light ends up ON only if `L` has an odd number of divisors. List the divisors of 12, then of 16 — what is different about 16?",
+    "Divisors come in pairs (`d` with `L/d`), so the count is even — unless one divisor pairs with itself. Count how many numbers from 1 to `N` have that property. And since `N` goes up to 10^18, stay in integers: floating-point square roots WILL be off by one on the biggest cases."
+  ],
+  "tags": [
+    "math"
+  ],
+  "topic_slugs": [
+    "math-basics"
+  ],
+  "pathway_slugs": [
+    "dsa"
+  ],
+  "diagnostic": false,
+  "time_limit_ms": 4000,
+  "is_published": true,
+  "kind": "coding",
+  "sample_tests": [
+    {
+      "input": "3\n1\n4\n10\n",
+      "output": "1\n2\n3\n"
+    },
+    {
+      "input": "2\n100\n1000000000000000000\n",
+      "output": "10\n1000000000\n"
+    }
+  ],
+  "hidden_tests": [
+    {
+      "input": "4\n1\n2\n3\n4\n",
+      "output": "1\n1\n1\n2\n"
+    },
+    {
+      "input": "6\n15\n16\n17\n24\n25\n26\n",
+      "output": "3\n4\n4\n4\n5\n5\n"
+    },
+    {
+      "input": "5\n99\n100\n101\n120\n121\n",
+      "output": "9\n10\n10\n10\n11\n"
+    },
+    {
+      "input": "10\n699\n437\n426\n594\n442\n119\n906\n527\n758\n342\n",
+      "output": "26\n20\n20\n24\n21\n10\n30\n22\n27\n18\n"
+    },
+    {
+      "input": "3\n999998\n999999\n1000000\n",
+      "output": "999\n999\n1000\n"
+    },
+    {
+      "input": "6\n1000000000000000000\n999999999999999999\n999999998000000001\n999999998000000000\n999999998000000002\n4611686018427387904\n",
+      "output": "1000000000\n999999999\n999999999\n999999998\n999999999\n2147483648\n"
+    },
+    {
+      "input": "10\n19846292782750641\n894514734762227882\n8145221882279689\n207362135622827584\n2380433362399226\n893440922127161521\n711923137903922883\n19971110635872401\n434227817692283905\n170174307254040768\n",
+      "output": "140876871\n945787891\n90250883\n455370328\n48789685\n945220039\n843755377\n141319180\n658959648\n412521886\n"
+    },
+    {
+      "input": "1\n1000000000000000000\n",
+      "output": "1000000000\n"
+    },
+    {
+      "input": "4\n9007199254740225\n9007199254740224\n9007199254740992\n9007199254740993\n",
+      "output": "94906265\n94906265\n94906265\n94906265\n"
+    },
+    {
+      "input": "5\n5\n8\n9\n10\n1000003\n",
+      "output": "2\n2\n3\n3\n1000\n"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "slug": "bus-schedule-align",
+  "title": "Shuttles at the Main Gate",
+  "difficulty": "easy",
+  "kind": "coding",
+  "statement_md": "At sharp 8 AM the campus opens and both shuttle routes leave the main gate together — Route A towards the hostels, Route B towards the labs. After that they run like clockwork: Route A departs every `a` minutes, Route B every `b` minutes.\n\nYour friend loves the rare moment when both shuttles roll out of the gate side by side and always wants to be there for the next one. Counting from the 8 AM start, after how many minutes do both routes next depart together?\n\n**Careful:** the answer can be as large as `10^18`, so it does not fit in a 32-bit integer — use `long` in Java, `long long` in C++, and `BigInt` in JavaScript.",
+  "input_format_md": "The first line contains a single integer `T` — the number of test cases.\n\nEach of the next `T` lines contains two integers `a` and `b` — the departure gaps (in minutes) of Route A and Route B.",
+  "output_format_md": "For each test case, print a single integer on its own line — the number of minutes after 8 AM when both routes next depart together.",
+  "constraints_md": "- `1 ≤ T ≤ 10`\n- `1 ≤ a, b ≤ 10^9`\n- the answer can be up to `10^18` — it fits in a signed 64-bit integer",
+  "starter_code": {
+    "python": "import sys\n\ndef solve_case(a, b):\n    # your code here — return the number of minutes\n    return 0\n\ndef main():\n    data = sys.stdin.read().split()\n    pos = 0\n    t = int(data[pos]); pos += 1\n    for _ in range(t):\n        a, b = int(data[pos]), int(data[pos + 1]); pos += 2\n        print(solve_case(a, b))\n\nmain()\n",
+    "java": "import java.io.*;\nimport java.util.*;\n\npublic class Main {\n    // answers can reach 10^18 — keep everything in long\n    static long solveCase(long a, long b) {\n        // your code here — return the number of minutes\n        return 0;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        int t = Integer.parseInt(br.readLine().trim());\n        StringBuilder out = new StringBuilder();\n        while (t-- > 0) {\n            StringTokenizer st = new StringTokenizer(br.readLine());\n            long a = Long.parseLong(st.nextToken());\n            long b = Long.parseLong(st.nextToken());\n            out.append(solveCase(a, b)).append('\\n');\n        }\n        System.out.print(out);\n    }\n}\n",
+    "cpp": "#include <bits/stdc++.h>\nusing namespace std;\n\n// answers can reach 10^18 — keep everything in long long\nlong long solve_case(long long a, long long b) {\n    // your code here — return the number of minutes\n    return 0;\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int t;\n    cin >> t;\n    while (t--) {\n        long long a, b;\n        cin >> a >> b;\n        cout << solve_case(a, b) << '\\n';\n    }\n    return 0;\n}\n",
+    "javascript": "// answers can reach 10^18 (beyond 2^53) — use BigInt everywhere\nconst data = require(\"fs\").readFileSync(0, \"utf8\").split(/\\s+/).filter(Boolean);\nlet pos = 0;\nconst t = Number(data[pos++]);\nconst out = [];\nfor (let i = 0; i < t; i++) {\n  const a = BigInt(data[pos++]);\n  const b = BigInt(data[pos++]);\n  out.push(solveCase(a, b).toString());\n}\nconsole.log(out.join(\"\\n\"));\n\nfunction solveCase(a, b) {\n  // your code here — return the number of minutes as a BigInt\n  return 0n;\n}\n"
+  },
+  "reference_solution": {
+    "python": "import sys\nfrom math import gcd\n\ndef main():\n    data = sys.stdin.read().split()\n    pos = 0\n    t = int(data[pos]); pos += 1\n    out = []\n    for _ in range(t):\n        a, b = int(data[pos]), int(data[pos + 1]); pos += 2\n        out.append(str(a // gcd(a, b) * b))\n    sys.stdout.write(\"\\n\".join(out) + \"\\n\")\n\nmain()\n"
+  },
+  "hints": [
+    "Both shuttles leave together only at minutes that are multiples of a AND multiples of b — you want the smallest positive such minute. Walking minute by minute is hopeless when a and b are near 10^9.",
+    "The smallest shared multiple of a and b is a × b divided by their greatest shared divisor. That divisor follows the classic remainder recursion: the pair (a, b) shares exactly the same divisors as (b, a mod b) — recurse until the second number hits 0."
+  ],
+  "tags": [
+    "math",
+    "recursion"
+  ],
+  "topic_slugs": [
+    "math-basics",
+    "recursion-basics"
+  ],
+  "pathway_slugs": [
+    "dsa",
+    "java-fullstack"
+  ],
+  "time_limit_ms": 4000,
+  "is_published": true,
+  "sample_tests": [
+    {
+      "input": "2\n4 6\n7 3\n",
+      "output": "12\n21\n"
+    },
+    {
+      "input": "1\n5 5\n",
+      "output": "5\n"
+    }
+  ],
+  "hidden_tests": [
+    {
+      "input": "1\n1 1\n",
+      "output": "1\n"
+    },
+    {
+      "input": "1\n1 1000000000\n",
+      "output": "1000000000\n"
+    },
+    {
+      "input": "1\n1000000000 1000000000\n",
+      "output": "1000000000\n"
+    },
+    {
+      "input": "1\n999999999 1000000000\n",
+      "output": "999999999000000000\n"
+    },
+    {
+      "input": "1\n999999937 999999893\n",
+      "output": "999999830000006741\n"
+    },
+    {
+      "input": "3\n12 4\n4 12\n1000000000 500000000\n",
+      "output": "12\n12\n1000000000\n"
+    },
+    {
+      "input": "2\n2 3\n999983 999979\n",
+      "output": "6\n999962000357\n"
+    },
+    {
+      "input": "10\n2893 198\n1146 1458\n2402 1127\n2109 1998\n1216 41\n1746 1166\n2138 399\n563 2510\n1331 1498\n2295 1893\n",
+      "output": "52074\n278478\n2707054\n37962\n49856\n1017918\n853062\n1413130\n1993838\n1448145\n"
+    },
+    {
+      "input": "10\n924784477 796844245\n163473923 598349865\n170644761 908689314\n907776058 581767173\n657682972 80001447\n308798424 111083333\n120897343 697010126\n847746884 517202912\n992683562 408272359\n433095788 94387847\n",
+      "output": "736909188362784865\n97814599758070395\n51687690270261318\n528114310979744034\n52615589427260484\n34302358163067192\n84266672277495218\n109614289260931552\n405285259598262758\n40878978974088436\n"
+    },
+    {
+      "input": "4\n6 10\n21 6\n1 999999999\n536870912 33554432\n",
+      "output": "30\n42\n999999999\n536870912\n"
+    }
+  ]
+}

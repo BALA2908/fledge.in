@@ -1,0 +1,86 @@
+{
+  "slug": "chai-circle-last-standing",
+  "title": "The Chai Circle",
+  "difficulty": "medium",
+  "statement_md": "Evening chai time at the hostel. `N` students sit in a circle, numbered `1` to `N` clockwise, and nobody wants to be the one who walks to the tapri. So they settle it with their usual counting game.\n\nThe count starts at student `1`. They count clockwise `1, 2, ..., K`, and the student on whom the count lands at `K` steps out of the circle. The counting restarts at `1` from the very next student clockwise, and again the `K`-th student steps out. This keeps going until exactly one student is left sitting — and that last student has to go fetch chai for the whole group.\n\nFor each test case, print the number of the student who ends up fetching the chai.",
+  "input_format_md": "The first line contains a single integer `T` — the number of test cases.\n\nEach of the next `T` lines contains two integers `N` and `K` — the number of students in the circle and the count at which a student steps out.",
+  "output_format_md": "For each test case, print a single line with one integer — the number of the last student remaining.",
+  "constraints_md": "- `1 ≤ T ≤ 10`\n- `1 ≤ N ≤ 2 × 10^4`\n- `1 ≤ K ≤ 100`",
+  "starter_code": {
+    "python": "import sys\n\ndef solve_case(n, k):\n    # your code here — return the number of the last student remaining\n    return 0\n\ndef main():\n    data = sys.stdin.read().split()\n    pos = 0\n    t = int(data[pos]); pos += 1\n    for _ in range(t):\n        n, k = int(data[pos]), int(data[pos + 1]); pos += 2\n        print(solve_case(n, k))\n\nmain()\n",
+    "java": "import java.io.*;\nimport java.util.*;\n\npublic class Main {\n    static int solveCase(int n, int k) {\n        // your code here — return the number of the last student remaining\n        return 0;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        int t = Integer.parseInt(br.readLine().trim());\n        StringBuilder out = new StringBuilder();\n        for (int i = 0; i < t; i++) {\n            StringTokenizer st = new StringTokenizer(br.readLine());\n            int n = Integer.parseInt(st.nextToken());\n            int k = Integer.parseInt(st.nextToken());\n            out.append(solveCase(n, k)).append('\\n');\n        }\n        System.out.print(out);\n    }\n}\n",
+    "cpp": "#include <bits/stdc++.h>\nusing namespace std;\n\nint solve_case(int n, int k) {\n    // your code here — return the number of the last student remaining\n    return 0;\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int t;\n    cin >> t;\n    while (t--) {\n        int n, k;\n        cin >> n >> k;\n        cout << solve_case(n, k) << '\\n';\n    }\n    return 0;\n}\n",
+    "javascript": "const data = require(\"fs\").readFileSync(0, \"utf8\").split(/\\s+/).filter(Boolean).map(Number);\nlet pos = 0;\nconst t = data[pos++];\nconst out = [];\nfor (let i = 0; i < t; i++) {\n  const n = data[pos++];\n  const k = data[pos++];\n  out.push(solveCase(n, k));\n}\nconsole.log(out.join(\"\\n\"));\n\nfunction solveCase(n, k) {\n  // your code here — return the number of the last student remaining\n  return 0;\n}\n"
+  },
+  "reference_solution": {
+    "python": "import sys\n\ndef main():\n    data = sys.stdin.buffer.read().split()\n    t = int(data[0]); pos = 1\n    out = []\n    for _ in range(t):\n        n = int(data[pos]); k = int(data[pos + 1]); pos += 2\n        res = 0\n        for i in range(2, n + 1):\n            res = (res + k) % i\n        out.append(str(res + 1))\n    print(\"\\n\".join(out))\n\nmain()\n"
+  },
+  "hints": [
+    "Simulating the circle with a queue or a next-pointer array works within these limits — but before coding, try tiny circles (N = 1, 2, 3, 4) by hand and watch how the survivor's seat shifts when one more student joins the circle.",
+    "If you know the survivor's position in a circle of `i - 1` students (counting positions from 0), the survivor in a circle of `i` students sits at `(that position + K) mod i`. Start from a circle of 1 (position 0), build up to N, then add 1 to get the student number."
+  ],
+  "tags": [
+    "queue",
+    "recursion",
+    "math"
+  ],
+  "topic_slugs": [
+    "stack-queue-basics",
+    "recursion-basics"
+  ],
+  "pathway_slugs": [
+    "dsa"
+  ],
+  "diagnostic": false,
+  "time_limit_ms": 4000,
+  "is_published": true,
+  "kind": "coding",
+  "sample_tests": [
+    {
+      "input": "2\n5 2\n6 1\n",
+      "output": "3\n6\n"
+    },
+    {
+      "input": "1\n7 3\n",
+      "output": "4\n"
+    }
+  ],
+  "hidden_tests": [
+    {
+      "input": "2\n1 1\n1 100\n",
+      "output": "1\n1\n"
+    },
+    {
+      "input": "4\n5 1\n7 1\n1 5\n2 1\n",
+      "output": "5\n7\n1\n2\n"
+    },
+    {
+      "input": "4\n5 2\n6 2\n7 2\n2 2\n",
+      "output": "3\n5\n7\n1\n"
+    },
+    {
+      "input": "5\n3 7\n4 9\n2 5\n5 100\n3 100\n",
+      "output": "3\n3\n2\n2\n2\n"
+    },
+    {
+      "input": "10\n10 88\n23 82\n28 20\n41 11\n6 40\n44 84\n44 38\n4 54\n8 15\n14 51\n",
+      "output": "3\n10\n15\n6\n6\n18\n1\n3\n4\n2\n"
+    },
+    {
+      "input": "10\n1130 60\n58 86\n848 37\n1873 25\n573 80\n18 12\n437 52\n1190 39\n1803 20\n727 31\n",
+      "output": "70\n13\n249\n1072\n470\n7\n425\n1048\n696\n203\n"
+    },
+    {
+      "input": "8\n12727 50\n10629 17\n9468 13\n18974 53\n12768 8\n10777 100\n5493 30\n6176 50\n",
+      "output": "7178\n4353\n4495\n8656\n3287\n4086\n956\n4787\n"
+    },
+    {
+      "input": "2\n20000 1\n20000 2\n",
+      "output": "20000\n7233\n"
+    },
+    {
+      "input": "10\n20000 100\n20000 99\n20000 97\n20000 73\n20000 100\n20000 61\n20000 100\n20000 87\n20000 100\n20000 100\n",
+      "output": "17962\n4911\n6896\n12729\n17962\n15201\n17962\n14446\n17962\n17962\n"
+    }
+  ]
+}
