@@ -1,0 +1,88 @@
+{
+  "slug": "canteen-token-change",
+  "title": "Canteen Token Change",
+  "difficulty": "medium",
+  "kind": "coding",
+  "statement_md": "The canteen finally retired the cash box this semester and put a **token machine** at the gate. The machine sells tokens in `D` fixed denominations — maybe 5, 10 and 50 — and it never runs out of any of them. You buy tokens, walk to the counter, and hand them over for your meal.\n\nThe catch: the counter accepts **exact payment only**. Your meal costs exactly `A`, so the tokens you hand over must add up to exactly `A` — anna does not keep change, and he will not let you off with less.\n\nTokens are chunky plastic coins and your pocket is already fighting for space, so you want to pay with the **fewest tokens possible**.\n\nFor each test case, print the minimum number of tokens whose values add up to exactly `A`. If no combination of tokens can make exactly `A`, print `-1`. (If `A` is `0`, you owe nothing — the answer is `0`.)",
+  "input_format_md": "The first line contains a single integer `T` — the number of test cases.\n\nFor each test case:\n- the first line contains two integers `D` and `A` — the number of denominations and the exact amount to pay\n- the second line contains `D` integers — the token denominations (unlimited stock of each; values may repeat)",
+  "output_format_md": "For each test case, print a single integer on its own line — the minimum number of tokens that add up to exactly `A`, or `-1` if exact payment is impossible.",
+  "constraints_md": "- `1 ≤ T ≤ 10`\n- `1 ≤ D ≤ 20`\n- `1 ≤ denomination ≤ 10^4`\n- `0 ≤ A ≤ 10^4`",
+  "starter_code": {
+    "python": "import sys\n\ndef solve_case(d, a, denoms):\n    # your code here — return the minimum token count, or -1\n    return -1\n\ndef main():\n    data = sys.stdin.read().split()\n    pos = 0\n    t = int(data[pos]); pos += 1\n    for _ in range(t):\n        d, a = int(data[pos]), int(data[pos + 1]); pos += 2\n        denoms = [int(x) for x in data[pos:pos + d]]; pos += d\n        print(solve_case(d, a, denoms))\n\nmain()\n",
+    "java": "import java.io.*;\nimport java.util.*;\n\npublic class Main {\n    static int solveCase(int d, int a, int[] denoms) {\n        // your code here — return the minimum token count, or -1\n        return -1;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        StreamTokenizer in = new StreamTokenizer(br);\n        in.nextToken();\n        int t = (int) in.nval;\n        StringBuilder out = new StringBuilder();\n        while (t-- > 0) {\n            in.nextToken(); int d = (int) in.nval;\n            in.nextToken(); int a = (int) in.nval;\n            int[] denoms = new int[d];\n            for (int i = 0; i < d; i++) { in.nextToken(); denoms[i] = (int) in.nval; }\n            out.append(solveCase(d, a, denoms)).append('\\n');\n        }\n        System.out.print(out);\n    }\n}\n",
+    "cpp": "#include <bits/stdc++.h>\nusing namespace std;\n\nint solve_case(int d, int a, vector<int>& denoms) {\n    // your code here — return the minimum token count, or -1\n    return -1;\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int t;\n    cin >> t;\n    while (t--) {\n        int d, a;\n        cin >> d >> a;\n        vector<int> denoms(d);\n        for (auto& x : denoms) cin >> x;\n        cout << solve_case(d, a, denoms) << '\\n';\n    }\n    return 0;\n}\n",
+    "javascript": "const data = require(\"fs\").readFileSync(0, \"utf8\").split(/\\s+/).filter(Boolean).map(Number);\nlet pos = 0;\nconst t = data[pos++];\nconst out = [];\nfor (let i = 0; i < t; i++) {\n  const d = data[pos++];\n  const a = data[pos++];\n  const denoms = data.slice(pos, pos + d);\n  pos += d;\n  out.push(solveCase(d, a, denoms));\n}\nconsole.log(out.join(\"\\n\"));\n\nfunction solveCase(d, a, denoms) {\n  // your code here — return the minimum token count, or -1\n  return -1;\n}\n"
+  },
+  "reference_solution": {
+    "python": "import sys\n\ndef main():\n    data = sys.stdin.read().split()\n    pos = 0\n    t = int(data[pos]); pos += 1\n    out = []\n    for _ in range(t):\n        d, a = int(data[pos]), int(data[pos + 1]); pos += 2\n        denoms = [int(x) for x in data[pos:pos + d]]; pos += d\n        coins = sorted(set(c for c in denoms if c <= a))\n        INF = a + 1\n        dp = [0] + [INF] * a\n        for c in coins:\n            for amt in range(c, a + 1):\n                v = dp[amt - c] + 1\n                if v < dp[amt]:\n                    dp[amt] = v\n        out.append(str(dp[a]) if dp[a] <= a else \"-1\")\n    sys.stdout.write(\"\\n\".join(out) + \"\\n\")\n\nmain()\n"
+  },
+  "hints": [
+    "Greedy — always grabbing the biggest token first — fails. Try denominations {1, 3, 4} with A = 6 and count for yourself.",
+    "Build bottom-up: if best[x] is the fewest tokens for amount x, then best[x] = 1 + min over every denomination c ≤ x of best[x − c], starting from best[0] = 0."
+  ],
+  "tags": [
+    "dp"
+  ],
+  "topic_slugs": [
+    "dp-basics"
+  ],
+  "pathway_slugs": [
+    "dsa",
+    "java-fullstack"
+  ],
+  "diagnostic": false,
+  "time_limit_ms": 4000,
+  "is_published": true,
+  "sample_tests": [
+    {
+      "input": "2\n3 11\n1 2 5\n1 3\n2\n",
+      "output": "3\n-1\n"
+    },
+    {
+      "input": "1\n3 6\n1 3 4\n",
+      "output": "2\n"
+    }
+  ],
+  "hidden_tests": [
+    {
+      "input": "4\n1 0\n7\n1 9999\n3\n1 10000\n3\n2 3\n5 8\n",
+      "output": "0\n3333\n-1\n-1\n"
+    },
+    {
+      "input": "3\n3 6\n1 3 4\n3 30\n1 15 25\n4 11\n1 5 6 9\n",
+      "output": "2\n2\n2\n"
+    },
+    {
+      "input": "3\n2 7\n4 6\n3 11\n2 4 8\n2 9999\n2 4\n",
+      "output": "-1\n-1\n-1\n"
+    },
+    {
+      "input": "3\n5 13\n100 7 7 200 2\n4 1\n2 3 4 5\n3 24\n6 6 6\n",
+      "output": "4\n-1\n4\n"
+    },
+    {
+      "input": "2\n3 9973\n9973 9973 9973\n1 10000\n10000\n",
+      "output": "1\n1\n"
+    },
+    {
+      "input": "10\n1 44\n10\n5 27\n4 17 3 3 8\n5 42\n18 8 2 11 3\n1 13\n11\n3 30\n1 18 9\n2 47\n5 6\n4 0\n3 5 11 12\n2 45\n4 8\n2 32\n10 11\n1 24\n3\n",
+      "output": "-1\n4\n4\n-1\n5\n8\n0\n-1\n3\n8\n"
+    },
+    {
+      "input": "10\n10 356\n9 458 315 190 219 200 132 283 490 362\n10 665\n37 101 423 491 103 236 14 82 486 381\n4 1721\n177 202 208 190\n2 627\n281 7\n6 845\n79 85 446 35 74 120\n8 1598\n374 166 316 202 363 354 396 121\n2 671\n406 242\n7 1335\n155 195 145 109 68 66 127\n9 200\n408 245 188 25 45 116 363 254 431\n5 1217\n126 427 367 339 15\n",
+      "output": "-1\n4\n9\n-1\n5\n5\n-1\n9\n8\n8\n"
+    },
+    {
+      "input": "10\n3 2363\n7280 6042 6318\n20 9694\n7124 9924 9708 9902 5104 9958 9789 4475 422 7357 9992 2236 2573 9732 9968 7107 9721 8545 1376 5966\n18 3833\n9077 8867 8829 8916 5944 2217 5257 3421 85 5212 5973 9113 9453 6192 1315 5970 1076 9909\n14 2935\n3301 8415 5580 6679 4125 2237 8045 9620 1663 1881 3054 7419 6386 3153\n13 7752\n8792 1884 3434 2884 4420 117 9864 8709 9714 9218 8786 2038 9843\n10 1730\n3385 5139 2364 2100 4393 9279 6045 6352 8541 7666\n6 5759\n3160 5852 7654 397 8643 7490\n4 5484\n6392 7659 7363 3636\n16 597\n9301 4424 8285 3569 9674 9572 6500 5322 1335 8163 6155 1342 681 597 5002 9542\n8 3294\n3776 8133 5059 5411 3621 7869 8713 8968\n",
+      "output": "-1\n-1\n-1\n-1\n17\n-1\n-1\n-1\n1\n-1\n"
+    },
+    {
+      "input": "2\n4 9999\n1 2500 3333 5000\n4 10000\n1 2500 3333 5000\n",
+      "output": "3\n2\n"
+    },
+    {
+      "input": "10\n20 10000\n4081 621 3739 8687 2926 2248 6986 2755 3182 4504 913 1023 8150 4953 3545 8897 9487 8409 2517 3720\n20 10000\n7380 5345 8827 6272 5878 2013 1330 8811 2573 1642 9885 1935 2795 906 6806 2317 5693 2004 3508 7481\n20 10000\n192 6652 4442 5916 9870 6801 1060 565 5233 1597 3875 7853 3418 1949 3248 4325 8389 3693 2500 3001\n20 10000\n6444 9959 2450 9576 9904 9256 2973 1221 4254 4824 2586 4926 6345 5696 4146 2715 7327 8696 8898 4470\n20 10000\n3133 4833 4646 4326 5311 8193 6141 2256 3302 210 5481 5993 7929 6975 6016 8536 9637 4351 2761 5141\n20 10000\n2027 4294 1299 1999 2050 7546 3813 8620 8081 5727 731 9165 6824 2862 9808 6891 541 1015 3581 601\n20 10000\n6017 2201 939 3746 3005 2015 1691 9107 1572 8586 2018 5646 9479 5073 5196 6007 8340 9337 8995 3804\n20 10000\n8724 2309 8356 464 2591 1188 3899 7601 5568 4061 2283 56 3 2207 2732 220 9824 3046 5660 3845\n20 10000\n8343 6864 4435 3719 9130 7528 1355 657 9596 3209 5834 108 6994 7319 3327 1670 910 4893 1279 9479\n20 10000\n5903 1993 1886 7693 3065 5922 807 4536 8865 1082 9561 8925 5712 83 2668 4137 203 4218 9632 2041\n",
+      "output": "5\n5\n4\n-1\n-1\n4\n-1\n4\n6\n5\n"
+    }
+  ]
+}
