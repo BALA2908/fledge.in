@@ -1,0 +1,88 @@
+{
+  "slug": "resume-points-planner",
+  "title": "Resume Points Planner",
+  "difficulty": "hard",
+  "kind": "coding",
+  "statement_md": "Placement season is a few months away, and your seniors keep repeating the same line: *the resume gets shortlisted before you do.*\n\nAfter classes, labs, and sleep, you have `H` free hours left this semester. On your list are `N` side-project ideas. Project `i` needs `h_i` hours of honest work and, once finished, adds `p_i` resume points (your own honest scoring of how much it would impress a recruiter).\n\nA project only counts if you finish it **completely** — a half-built app impresses nobody, so no partial credit. Each project can be done at most once.\n\nChoose which projects to build so the total hours fit within `H` and the total resume points are as large as possible. Print that maximum.\n\nOne warning from a senior who learnt it the hard way: picking projects by best points-per-hour first can leave you with a worse resume. Plan properly.",
+  "input_format_md": "The first line contains a single integer `T` — the number of test cases.\n\nFor each test case:\n- the first line contains two integers `N` and `H` — the number of project ideas and your free hours\n- each of the next `N` lines contains two integers `h_i` and `p_i` — the hours project `i` needs and the resume points it adds",
+  "output_format_md": "For each test case, print a single integer on its own line — the maximum total resume points you can earn within `H` hours.",
+  "constraints_md": "- `1 ≤ T ≤ 5`\n- `1 ≤ N ≤ 100`\n- `1 ≤ H ≤ 10^4`\n- `1 ≤ h_i ≤ H`\n- `1 ≤ p_i ≤ 10^4`\n- at most 2 test cases per input have `N` and `H` at their maximum",
+  "starter_code": {
+    "python": "import sys\n\ndef solve_case(n, hours, projects):\n    # projects is a list of (h_i, p_i) tuples\n    # your code here — return the maximum total resume points\n    return 0\n\ndef main():\n    data = sys.stdin.read().split()\n    pos = 0\n    t = int(data[pos]); pos += 1\n    for _ in range(t):\n        n, hours = int(data[pos]), int(data[pos + 1]); pos += 2\n        projects = []\n        for _ in range(n):\n            projects.append((int(data[pos]), int(data[pos + 1]))); pos += 2\n        print(solve_case(n, hours, projects))\n\nmain()\n",
+    "java": "import java.io.*;\nimport java.util.*;\n\npublic class Main {\n    static int solveCase(int n, int hours, int[] h, int[] p) {\n        // your code here — return the maximum total resume points\n        return 0;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        StreamTokenizer in = new StreamTokenizer(br);\n        in.nextToken();\n        int t = (int) in.nval;\n        StringBuilder out = new StringBuilder();\n        while (t-- > 0) {\n            in.nextToken();\n            int n = (int) in.nval;\n            in.nextToken();\n            int hours = (int) in.nval;\n            int[] h = new int[n];\n            int[] p = new int[n];\n            for (int i = 0; i < n; i++) {\n                in.nextToken();\n                h[i] = (int) in.nval;\n                in.nextToken();\n                p[i] = (int) in.nval;\n            }\n            out.append(solveCase(n, hours, h, p)).append('\\n');\n        }\n        System.out.print(out);\n    }\n}\n",
+    "cpp": "#include <bits/stdc++.h>\nusing namespace std;\n\nint solve_case(int n, int hours, vector<int>& h, vector<int>& p) {\n    // your code here — return the maximum total resume points\n    return 0;\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int t;\n    cin >> t;\n    while (t--) {\n        int n, hours;\n        cin >> n >> hours;\n        vector<int> h(n), p(n);\n        for (int i = 0; i < n; i++) cin >> h[i] >> p[i];\n        cout << solve_case(n, hours, h, p) << '\\n';\n    }\n    return 0;\n}\n",
+    "javascript": "const data = require(\"fs\").readFileSync(0, \"utf8\").split(/\\s+/).filter(Boolean).map(Number);\nlet pos = 0;\nconst t = data[pos++];\nconst out = [];\nfor (let i = 0; i < t; i++) {\n  const n = data[pos++];\n  const hours = data[pos++];\n  const h = [];\n  const p = [];\n  for (let j = 0; j < n; j++) {\n    h.push(data[pos++]);\n    p.push(data[pos++]);\n  }\n  out.push(String(solveCase(n, hours, h, p)));\n}\nconsole.log(out.join(\"\\n\"));\n\nfunction solveCase(n, hours, h, p) {\n  // your code here — return the maximum total resume points\n  return 0;\n}\n"
+  },
+  "reference_solution": {
+    "python": "import sys\n\ndef solve_case(hours, projects):\n    dp = [0] * (hours + 1)\n    for h, p in projects:\n        # candidate scores if we finish this project ending at budget j (j >= h);\n        # built from the OLD dp, so each project is used at most once\n        cand = [v + p for v in dp[: hours - h + 1]]\n        dp[h:] = list(map(max, dp[h:], cand))\n    return dp[hours]\n\ndef main():\n    data = sys.stdin.read().split()\n    pos = 0\n    t = int(data[pos]); pos += 1\n    out = []\n    for _ in range(t):\n        n, hours = int(data[pos]), int(data[pos + 1]); pos += 2\n        projects = []\n        for _ in range(n):\n            projects.append((int(data[pos]), int(data[pos + 1]))); pos += 2\n        out.append(str(solve_case(hours, projects)))\n    print(\"\\n\".join(out))\n\nmain()\n"
+  },
+  "hints": [
+    "Trying every subset of projects explodes — 100 projects means 2^100 combinations. Ask a smaller question instead: for every hour budget j from 0 to H, what is the best score achievable using only the projects seen so far?",
+    "This is the classic 0/1 pick-or-skip pattern. Keep dp[j] = best points within j hours. For each project (h, p), update dp[j] = max(dp[j], dp[j − h] + p), looping j from H down to h — the downward loop is what stops one project from being counted twice."
+  ],
+  "tags": [
+    "dp"
+  ],
+  "topic_slugs": [
+    "dp-basics"
+  ],
+  "pathway_slugs": [
+    "dsa",
+    "java-fullstack"
+  ],
+  "diagnostic": false,
+  "time_limit_ms": 5000,
+  "is_published": true,
+  "sample_tests": [
+    {
+      "input": "1\n4 10\n5 30\n4 25\n6 35\n3 10\n",
+      "output": "60\n"
+    },
+    {
+      "input": "2\n3 7\n7 50\n4 30\n3 25\n1 5\n5 40\n",
+      "output": "55\n40\n"
+    }
+  ],
+  "hidden_tests": [
+    {
+      "input": "1\n1 10\n10 7\n",
+      "output": "7\n"
+    },
+    {
+      "input": "1\n2 5\n5 9\n3 4\n",
+      "output": "9\n"
+    },
+    {
+      "input": "1\n3 10\n6 60\n5 45\n5 46\n",
+      "output": "91\n"
+    },
+    {
+      "input": "1\n4 8\n8 3\n8 10\n8 7\n8 1\n",
+      "output": "10\n"
+    },
+    {
+      "input": "1\n3 1\n1 5\n1 9\n1 2\n",
+      "output": "9\n"
+    },
+    {
+      "input": "1\n5 15\n5 10\n5 10\n5 10\n15 29\n1 1\n",
+      "output": "30\n"
+    },
+    {
+      "input": "3\n10 50\n11 76\n14 90\n4 69\n2 90\n3 24\n27 14\n13 52\n26 1\n28 59\n8 67\n15 80\n15 30\n13 70\n9 90\n3 59\n6 70\n8 82\n34 97\n24 29\n29 72\n15 77\n18 88\n21 77\n33 96\n37 85\n38 34\n18 100\n56 173\n56 99\n19 24\n2 80\n5 58\n14 56\n59 124\n3 33\n30 109\n10 21\n9 109\n10 152\n16 86\n8 110\n24 58\n1 118\n36 181\n21 133\n",
+      "output": "416\n543\n974\n"
+    },
+    {
+      "input": "2\n40 500\n73 484\n79 487\n87 33\n177 351\n13 278\n108 259\n78 128\n46 314\n108 85\n162 311\n197 461\n120 351\n122 61\n84 370\n127 82\n85 485\n170 414\n150 381\n93 10\n113 441\n199 499\n67 408\n69 331\n200 5\n181 199\n123 272\n99 373\n87 438\n36 71\n7 260\n25 482\n193 202\n62 121\n58 365\n112 395\n184 399\n148 463\n165 155\n46 139\n179 203\n60 800\n215 596\n77 573\n247 476\n27 117\n143 308\n291 738\n155 993\n269 901\n197 565\n162 502\n154 216\n290 238\n208 743\n23 706\n214 533\n102 374\n185 518\n197 639\n290 593\n201 656\n244 295\n196 654\n29 444\n56 208\n290 216\n131 720\n5 552\n194 659\n298 161\n112 202\n63 820\n285 896\n144 570\n15 398\n176 212\n284 864\n185 49\n63 650\n190 374\n94 969\n46 455\n77 500\n119 780\n5 473\n198 880\n237 856\n78 24\n151 617\n100 264\n56 79\n256 768\n244 627\n62 457\n90 998\n165 324\n207 956\n145 399\n258 487\n283 106\n93 926\n",
+      "output": "3702\n9244\n"
+    },
+    {
+      "input": "1\n100 2000\n885 3590\n346 9689\n788 2174\n426 1634\n65 6993\n615 3366\n860 2468\n330 6891\n828 1429\n746 8535\n239 5420\n707 6922\n563 2041\n581 5176\n135 7224\n552 6168\n83 6598\n372 8292\n122 7165\n349 8514\n417 9489\n654 9394\n262 2374\n252 3502\n677 6358\n32 1913\n9 5506\n410 5196\n37 7848\n812 4789\n754 5364\n554 8182\n339 7780\n144 9004\n653 5133\n490 9055\n625 6204\n746 3663\n133 2093\n216 4198\n274 3761\n426 3619\n411 8036\n625 6976\n581 7232\n448 1516\n867 2541\n768 7101\n876 9222\n146 3027\n433 3832\n644 6642\n827 8754\n341 4677\n237 3359\n164 4844\n370 9854\n81 1934\n878 1395\n673 7515\n731 4100\n816 5007\n737 1585\n719 325\n448 5977\n748 4555\n484 7572\n667 9665\n736 7386\n350 4800\n333 316\n494 2912\n895 1653\n845 7044\n392 7217\n263 7899\n782 4684\n345 1330\n437 5380\n628 1234\n770 4964\n325 7624\n618 3179\n203 8406\n747 3253\n152 7013\n439 4997\n639 7001\n651 1303\n758 1204\n493 8152\n88 5470\n4 4708\n801 1672\n758 9075\n183 3303\n44 1463\n240 9406\n252 5074\n380 9406\n",
+      "output": "106470\n"
+    },
+    {
+      "input": "2\n100 10000\n40 6992\n2860 22\n2805 1817\n1035 8755\n602 3710\n8550 9290\n4714 4705\n5001 6000\n2549 5539\n1584 7684\n3723 1592\n195 8352\n887 6968\n1418 275\n223 8270\n6671 3378\n9533 5159\n4266 2932\n818 7705\n2361 1489\n1287 6523\n3691 1916\n9113 2611\n6420 8887\n7229 4584\n8765 4169\n1093 7805\n620 7173\n9307 3870\n2957 6339\n7354 4391\n3684 2185\n6649 3622\n5839 3656\n6416 3059\n5750 3351\n9373 6720\n1444 9749\n837 8090\n4739 4105\n6309 5879\n3165 6689\n5736 4347\n2754 6312\n4692 749\n7324 7771\n4148 6585\n8169 9567\n814 6086\n2442 9736\n9151 6129\n4065 6001\n7060 916\n7478 8224\n2939 461\n8390 9653\n9926 7026\n4034 5996\n3526 5768\n4286 7969\n4502 53\n310 8114\n1797 8251\n3118 2939\n5439 8226\n4841 3760\n7998 288\n7656 3536\n1067 1500\n9698 1275\n2820 5022\n4439 7149\n1973 7781\n9182 7642\n8422 7809\n9663 817\n552 3480\n6918 7943\n1732 3108\n5872 3161\n5030 9340\n5620 5898\n2350 1083\n5192 6350\n3192 753\n9330 1085\n9039 9386\n9061 699\n3883 8105\n9194 6788\n7954 9639\n3295 2278\n1159 1059\n4183 8662\n5374 2304\n9349 205\n1411 6316\n9229 8145\n463 7866\n1196 4335\n100 10000\n121 6266\n226 9113\n330 9276\n270 7774\n163 1875\n133 2556\n85 6926\n212 2983\n15 7590\n238 8322\n223 5170\n192 2009\n284 3323\n115 4525\n154 5068\n159 1498\n314 6092\n132 6971\n51 738\n296 4447\n36 4334\n82 8438\n252 581\n375 9739\n107 8622\n127 721\n225 8322\n116 3349\n150 8973\n190 3477\n362 2910\n129 8809\n65 3550\n118 539\n344 7323\n58 3358\n394 7416\n29 7349\n274 2973\n135 7795\n39 4334\n224 9523\n181 9211\n105 4636\n254 1883\n110 2125\n31 15\n363 8836\n228 7932\n356 8554\n32 7924\n326 5303\n75 6075\n391 4229\n20 7658\n332 8284\n134 1460\n361 8189\n137 7580\n223 8406\n397 9303\n211 2729\n49 4638\n172 2035\n8 6832\n236 3750\n240 9870\n26 6109\n359 9810\n163 2471\n159 5377\n171 9776\n371 2903\n344 9797\n396 3592\n89 4878\n168 8341\n356 5926\n314 64\n308 7566\n398 9175\n135 8618\n42 7275\n52 6178\n328 3495\n122 4470\n29 6037\n69 2135\n362 572\n136 2138\n295 3378\n336 9962\n391 2040\n365 7722\n186 2544\n319 1080\n253 8416\n153 4773\n390 553\n380 2748\n",
+      "output": "109115\n426117\n"
+    }
+  ]
+}

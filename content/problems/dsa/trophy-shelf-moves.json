@@ -1,0 +1,80 @@
+{
+  "slug": "trophy-shelf-moves",
+  "title": "Trophy Shelf Moves",
+  "difficulty": "easy",
+  "kind": "coding",
+  "statement_md": "The sports room is shifting to the new block, and the PT sir has put you in charge of the trophy cupboard. All `N` trophies sit in a single stack on shelf `A` — the biggest at the bottom, the smallest on top. They must end up stacked exactly the same way on shelf `C`, and there is one spare shelf `B` you can use in between.\n\nSir's rules are strict:\n\n- Move only **one trophy at a time**, and only the top trophy of a stack.\n- A trophy may be placed on an empty shelf or on top of a **bigger** trophy — never on a smaller one. He does not want scratches.\n\nFor each test case, print the **minimum number of single-trophy moves** needed to shift the whole stack from shelf `A` to shelf `C`.\n\nOne warning from a senior who learnt it the hard way: for large `N` the answer is enormous. It overflows a 32-bit integer, and in JavaScript it does not even fit safely in a normal `number` — use `long` in Java, `unsigned long long` in C++, and `BigInt` in JavaScript.",
+  "input_format_md": "The first line contains a single integer `T` — the number of test cases.\n\nEach of the next `T` lines contains a single integer `N` — the number of trophies in the stack.",
+  "output_format_md": "For each test case, print the minimum number of moves on its own line.",
+  "constraints_md": "- `1 ≤ T ≤ 10`\n- `1 ≤ N ≤ 60`\n- The answer can exceed `2^53`, so use a 64-bit integer type (`BigInt` in JavaScript).",
+  "starter_code": {
+    "python": "import sys\n\ndef solve_case(n):\n    # your code here — return the minimum number of moves\n    return 0\n\ndef main():\n    data = sys.stdin.read().split()\n    pos = 0\n    t = int(data[pos]); pos += 1\n    for _ in range(t):\n        n = int(data[pos]); pos += 1\n        print(solve_case(n))\n\nmain()\n",
+    "java": "import java.io.*;\n\npublic class Main {\n    static long solveCase(int n) {\n        // your code here — return the minimum number of moves\n        return 0L;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        int t = Integer.parseInt(br.readLine().trim());\n        StringBuilder out = new StringBuilder();\n        while (t-- > 0) {\n            int n = Integer.parseInt(br.readLine().trim());\n            out.append(solveCase(n)).append('\\n');\n        }\n        System.out.print(out);\n    }\n}\n",
+    "cpp": "#include <bits/stdc++.h>\nusing namespace std;\n\nunsigned long long solve_case(int n) {\n    // your code here — return the minimum number of moves\n    return 0ULL;\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int t;\n    cin >> t;\n    while (t--) {\n        int n;\n        cin >> n;\n        cout << solve_case(n) << '\\n';\n    }\n    return 0;\n}\n",
+    "javascript": "const data = require(\"fs\").readFileSync(0, \"utf8\").split(/\\s+/).filter(Boolean);\nlet pos = 0;\nconst t = Number(data[pos++]);\nconst out = [];\nfor (let i = 0; i < t; i++) {\n  const n = Number(data[pos++]);\n  out.push(solveCase(n).toString());\n}\nconsole.log(out.join(\"\\n\"));\n\nfunction solveCase(n) {\n  // your code here — return the minimum number of moves as a BigInt\n  return 0n;\n}\n"
+  },
+  "reference_solution": {
+    "python": "import sys\n\ndef main():\n    data = sys.stdin.read().split()\n    t = int(data[0])\n    out = []\n    for i in range(1, t + 1):\n        n = int(data[i])\n        out.append(str((1 << n) - 1))\n    sys.stdout.write(\"\\n\".join(out) + \"\\n\")\n\nmain()\n"
+  },
+  "hints": [
+    "Work out N = 1, 2, 3 by hand. Before the biggest trophy can move to shelf C, where must the other N − 1 trophies be sitting?",
+    "If moves(N−1) shifts a stack of N−1 trophies, then moves(N) = moves(N−1) + 1 + moves(N−1). For N = 60 this count is astronomically large — keep it in a long / unsigned long long / BigInt."
+  ],
+  "tags": [
+    "recursion",
+    "math"
+  ],
+  "topic_slugs": [
+    "recursion-basics"
+  ],
+  "pathway_slugs": [
+    "dsa",
+    "java-fullstack"
+  ],
+  "time_limit_ms": 4000,
+  "is_published": true,
+  "sample_tests": [
+    {
+      "input": "3\n1\n2\n3\n",
+      "output": "1\n3\n7\n"
+    },
+    {
+      "input": "2\n4\n10\n",
+      "output": "15\n1023\n"
+    }
+  ],
+  "hidden_tests": [
+    {
+      "input": "1\n1\n",
+      "output": "1\n"
+    },
+    {
+      "input": "1\n60\n",
+      "output": "1152921504606846975\n"
+    },
+    {
+      "input": "2\n53\n54\n",
+      "output": "9007199254740991\n18014398509481983\n"
+    },
+    {
+      "input": "1\n59\n",
+      "output": "576460752303423487\n"
+    },
+    {
+      "input": "1\n21\n",
+      "output": "2097151\n"
+    },
+    {
+      "input": "3\n2\n3\n4\n",
+      "output": "3\n7\n15\n"
+    },
+    {
+      "input": "10\n5\n12\n20\n31\n40\n47\n55\n58\n60\n2\n",
+      "output": "31\n4095\n1048575\n2147483647\n1099511627775\n140737488355327\n36028797018963967\n288230376151711743\n1152921504606846975\n3\n"
+    },
+    {
+      "input": "10\n12\n53\n28\n49\n33\n12\n49\n7\n7\n24\n",
+      "output": "4095\n9007199254740991\n268435455\n562949953421311\n8589934591\n4095\n562949953421311\n127\n127\n16777215\n"
+    }
+  ]
+}
