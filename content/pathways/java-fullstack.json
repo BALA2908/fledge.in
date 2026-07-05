@@ -1714,23 +1714,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Spring Boot Annotations Explained with Examples",
-              "url": "TODO",
+              "title": "Spring 6 and Spring Boot Tutorial for Beginners",
+              "url": "https://www.youtube.com/playlist?list=PLsyeobzWxl7qbKoSgR5ub6jolI8-ocxCF",
               "source": "Telusko",
               "language": "english",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Spring Boot Annotations in Hindi - @Component, @Service, @Autowired",
-              "url": "TODO",
-              "source": "CodeWithHarry",
+              "title": "Top 12 Spring Boot Annotations [Hindi]",
+              "url": "https://www.youtube.com/watch?v=QT0LpYCpIFk",
+              "source": "Learn Code With Durgesh",
               "language": "hindi",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -1758,23 +1758,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "application.properties and Profiles in Spring Boot",
-              "url": "TODO",
+              "title": "Spring Boot Tutorials | Full Course",
+              "url": "https://www.youtube.com/watch?v=35EQXmHKZYs",
               "source": "Telusko",
               "language": "english",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Spring Boot application.properties in Hindi",
-              "url": "TODO",
-              "source": "CodeWithHarry",
+              "title": "Spring Boot Tutorial in Hindi",
+              "url": "https://www.youtube.com/playlist?list=PL0zysOflRCelmjxj-g4jLr3WKraSU_e8q",
+              "source": "Learn Code With Durgesh",
               "language": "hindi",
               "minutes": 25,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -1802,23 +1802,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Bean Scopes in Spring - Singleton vs Prototype",
-              "url": "TODO",
+              "title": "Spring 6 and Spring Boot Tutorial for Beginners",
+              "url": "https://www.youtube.com/playlist?list=PLsyeobzWxl7qbKoSgR5ub6jolI8-ocxCF",
               "source": "Telusko",
               "language": "english",
               "minutes": 25,
               "depth": "deep",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Spring Bean Life Cycle and Scopes in Hindi",
-              "url": "TODO",
-              "source": "CodeWithHarry",
+              "title": "Spring Core Tutorial in one Video | Learn Spring Core step by step in Hindi",
+              "url": "https://www.youtube.com/watch?v=XQd_D19fPvs",
+              "source": "Learn Code With Durgesh",
               "language": "hindi",
               "minutes": 25,
               "depth": "deep",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -1846,23 +1846,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Spring Boot Actuator Tutorial",
-              "url": "TODO",
-              "source": "Telusko",
+              "title": "Actuator with Spring Boot 2.x | New features | Enhancement | @Endpoint | JavaTechie",
+              "url": "https://www.youtube.com/watch?v=t1_RbTb3BUo",
+              "source": "Java Techie",
               "language": "english",
               "minutes": 25,
               "depth": "deep",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Spring Boot Actuator in Hindi - Health & Metrics",
-              "url": "TODO",
-              "source": "CodeWithHarry",
+              "title": "Documenting APIs using Swagger | Health Info, Check, Metrics Using Actuator Step by Step Hindi",
+              "url": "https://www.youtube.com/watch?v=ylAls5xUdKw",
+              "source": "Engineering Digest",
               "language": "hindi",
               "minutes": 20,
               "depth": "deep",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -1898,23 +1898,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "What is a REST API? Explained Simply",
-              "url": "TODO",
+              "title": "What is REST API? | Web Service",
+              "url": "https://www.youtube.com/watch?v=qVTAB8Z2VmA",
               "source": "Telusko",
               "language": "english",
               "minutes": 25,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "What is an API? in Hindi - Simple Explanation",
-              "url": "TODO",
+              "title": "What is an API ? Simply Explained",
+              "url": "https://www.youtube.com/watch?v=XGa4onZP66Q",
               "source": "Apna College",
               "language": "hindi",
               "minutes": 20,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
@@ -1962,23 +1962,23 @@
             },
             {
               "type": "video",
-              "title": "REST API with Spring Boot - GET and POST Mapping",
-              "url": "TODO",
+              "title": "Rest API Using Spring",
+              "url": "https://www.youtube.com/playlist?list=PLsyeobzWxl7qednPdXyD2yd502artL7Kz",
               "source": "Telusko",
               "language": "english",
               "minutes": 45,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Spring Boot REST API in Hindi - Controllers & Mappings",
-              "url": "TODO",
-              "source": "CodeWithHarry",
+              "title": "Rest API using Spring Boot in hindi",
+              "url": "https://www.youtube.com/playlist?list=PL0zysOflRCekYnhLjQGwpdJYzr38QXdhl",
+              "source": "Learn Code With Durgesh",
               "language": "hindi",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             }
           ]
         },
@@ -1996,23 +1996,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Path Variable and Request Param in Spring Boot",
-              "url": "TODO",
+              "title": "Rest API Using Spring",
+              "url": "https://www.youtube.com/playlist?list=PLsyeobzWxl7qednPdXyD2yd502artL7Kz",
               "source": "Telusko",
               "language": "english",
               "minutes": 25,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "@PathVariable vs @RequestParam in Hindi",
-              "url": "TODO",
-              "source": "CodeWithHarry",
+              "title": "Rest API using Spring Boot in hindi",
+              "url": "https://www.youtube.com/playlist?list=PL0zysOflRCekYnhLjQGwpdJYzr38QXdhl",
+              "source": "Learn Code With Durgesh",
               "language": "hindi",
               "minutes": 20,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -2040,13 +2040,13 @@
           "resources": [
             {
               "type": "video",
-              "title": "Request Body and Validation in Spring Boot",
-              "url": "TODO",
-              "source": "Telusko",
+              "title": "Spring Boot | REST API Request Validation & Exception Handling Realtime Example | JavaTechie",
+              "url": "https://www.youtube.com/watch?v=gPnd-hzM_6A",
+              "source": "Java Techie",
               "language": "english",
               "minutes": 35,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
@@ -2084,13 +2084,13 @@
           "resources": [
             {
               "type": "video",
-              "title": "Exception Handling in Spring Boot REST API",
-              "url": "TODO",
-              "source": "Telusko",
+              "title": "Spring Boot | REST API Request Validation & Exception Handling Realtime Example | JavaTechie",
+              "url": "https://www.youtube.com/watch?v=gPnd-hzM_6A",
+              "source": "Java Techie",
               "language": "english",
               "minutes": 35,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
@@ -2138,23 +2138,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Swagger / OpenAPI Documentation in Spring Boot",
-              "url": "TODO",
-              "source": "Telusko",
+              "title": "Spring boot 3 - OpenApi Documentation | Swagger UI",
+              "url": "https://www.youtube.com/watch?v=2o_3hjUPAfQ",
+              "source": "Java Techie",
               "language": "english",
               "minutes": 25,
               "depth": "deep",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Spring Boot Swagger UI Setup in Hindi",
-              "url": "TODO",
-              "source": "CodeWithHarry",
+              "title": "Spring Boot 3 - Swagger UI | Spring OpenAPI Documentation | Documenting APIs using Swagger In Hindi",
+              "url": "https://www.youtube.com/watch?v=fxxDEYZDxeI",
+              "source": "Engineering Digest",
               "language": "hindi",
               "minutes": 20,
               "depth": "deep",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -2190,23 +2190,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "HTML Tutorial for Beginners in Hindi (One Video)",
-              "url": "TODO",
+              "title": "HTML Tutorial for Beginners | Complete HTML with Notes & Code",
+              "url": "https://www.youtube.com/watch?v=HcOc7P5BMi4",
               "source": "Apna College",
               "language": "hindi",
               "minutes": 60,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "HTML Full Course in Tamil for Beginners",
-              "url": "TODO",
+              "title": "Mastering HTML Basics and Beyond | Your Ultimate Guide to Begin Web Development in Tamil | EMC",
+              "url": "https://www.youtube.com/watch?v=FYErehuSuuw",
               "source": "Error Makes Clever",
               "language": "tamil",
               "minutes": 60,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -2234,13 +2234,13 @@
           "resources": [
             {
               "type": "video",
-              "title": "HTML Forms Complete Tutorial in Hindi",
-              "url": "TODO",
+              "title": "HTML Tutorial: Forms & Input Tags | Web Development Tutorials #8",
+              "url": "https://www.youtube.com/watch?v=KqJikDzb3l4",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 35,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
@@ -2278,23 +2278,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "CSS Tutorial in Hindi - Selectors and Box Model",
-              "url": "TODO",
-              "source": "Apna College",
+              "title": "CSS 3 Tutorial For Beginners: Learn CSS In One Video In Hindi",
+              "url": "https://www.youtube.com/watch?v=u5-K_ua9sOw",
+              "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 60,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "CSS Full Course in Tamil for Beginners",
-              "url": "TODO",
+              "title": "CSS Tutorial for Beginners | Guide to Understand the CSS Box Model and Layout | in Tamil",
+              "url": "https://www.youtube.com/watch?v=vfs1wBDoqBY",
               "source": "Error Makes Clever",
               "language": "tamil",
               "minutes": 60,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -2322,23 +2322,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "CSS Flexbox Tutorial in Hindi",
-              "url": "TODO",
+              "title": "CSS Flexbox Tutorial in Hindi | Web Development Tutorials #28",
+              "url": "https://www.youtube.com/watch?v=4ykmsTpIn08",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Flexbox in Tamil - Complete Guide with Examples",
-              "url": "TODO",
+              "title": "Learn CSS Flexbox with Project | Flex Tutorial | Web Development Project | EMC | In Tamil",
+              "url": "https://www.youtube.com/watch?v=hVWhsHOQbXM",
               "source": "Error Makes Clever",
               "language": "tamil",
               "minutes": 35,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -2366,23 +2366,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "JavaScript DOM Manipulation in Hindi (One Shot)",
-              "url": "TODO",
+              "title": "JavaScript Tutorial (2024) for Beginners to Pro (with Notes, Projects & Practice Questions)",
+              "url": "https://www.youtube.com/watch?v=VlPiVmYuoqw",
               "source": "Apna College",
               "language": "hindi",
               "minutes": 60,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "JavaScript DOM and Events in Tamil",
-              "url": "TODO",
+              "title": "JavaScript tutorial for Beginners in Tamil | DOM Explained | Mini Project in JavaScript",
+              "url": "https://www.youtube.com/watch?v=poo0BXryffI",
               "source": "Error Makes Clever",
               "language": "tamil",
               "minutes": 45,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -2410,13 +2410,13 @@
           "resources": [
             {
               "type": "video",
-              "title": "Fetch API and Async/Await in Hindi",
-              "url": "TODO",
-              "source": "CodeWithHarry",
+              "title": "Fetch API | JavaScript Tutorial in Hindi #66",
+              "url": "https://www.youtube.com/watch?v=Atq7VjVbaA8",
+              "source": "Thapa Technical",
               "language": "hindi",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
@@ -2462,23 +2462,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "React Tutorial for Beginners - What is React and Why Learn It",
-              "url": "TODO",
-              "source": "Telusko",
+              "title": "React Tutorial for Beginners [React js]",
+              "url": "https://www.youtube.com/watch?v=Ke90Tje7VS0",
+              "source": "Programming with Mosh",
               "language": "english",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "React JS Tutorial in Hindi - Introduction and Setup",
-              "url": "TODO",
+              "title": "Introduction to React Js + Installation | Complete React Course in Hindi #1",
+              "url": "https://www.youtube.com/watch?v=-mJFZp84TIY",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 35,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -2506,23 +2506,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "React JSX and Props Explained for Beginners",
-              "url": "TODO",
-              "source": "Kunal Kushwaha",
+              "title": "Full Modern React Tutorial",
+              "url": "https://www.youtube.com/playlist?list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d",
+              "source": "The Net Ninja",
               "language": "english",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "React in Tamil - Components and Props for Beginners",
-              "url": "TODO",
-              "source": "Error Makes Clever",
+              "title": "React (Tamil)",
+              "url": "https://youtube.com/playlist?list=PL7BQ4lqtgECTVwBbEjQ63FPx76WYDbiwh",
+              "source": "JVL code",
               "language": "tamil",
               "minutes": 35,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -2550,23 +2550,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "useState Hook in React - Complete Beginner Tutorial",
-              "url": "TODO",
-              "source": "Telusko",
+              "title": "Learn useState In 15 Minutes - React Hooks Explained",
+              "url": "https://www.youtube.com/watch?v=O6P86uwfdR0",
+              "source": "Web Dev Simplified",
               "language": "english",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "React State aur useState Hook in Hindi",
-              "url": "TODO",
+              "title": "Introduction to React Hooks | Complete React Course in Hindi #38",
+              "url": "https://www.youtube.com/watch?v=esrFnNV5Btc",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 45,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -2594,23 +2594,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "useEffect Hook and Fetching API Data in React",
-              "url": "TODO",
-              "source": "Kunal Kushwaha",
+              "title": "Full React Tutorial #17 - Fetching Data with useEffect",
+              "url": "https://www.youtube.com/watch?v=qdCHEUaFhBk",
+              "source": "The Net Ninja",
               "language": "english",
               "minutes": 45,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "React useEffect and API Call in Tamil",
-              "url": "TODO",
-              "source": "Error Makes Clever",
+              "title": "React (Tamil)",
+              "url": "https://youtube.com/playlist?list=PL7BQ4lqtgECTVwBbEjQ63FPx76WYDbiwh",
+              "source": "JVL code",
               "language": "tamil",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -2648,23 +2648,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "React Router Tutorial - Single Page Application Routing",
-              "url": "TODO",
-              "source": "Telusko",
+              "title": "Full Modern React Tutorial",
+              "url": "https://www.youtube.com/playlist?list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d",
+              "source": "The Net Ninja",
               "language": "english",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "React Router in Hindi - SPA Navigation Tutorial",
-              "url": "TODO",
+              "title": "React Router Setup + Usage | Complete React Course in Hindi #16",
+              "url": "https://www.youtube.com/watch?v=WNU1BEZIjxg",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 35,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -2710,13 +2710,13 @@
             },
             {
               "type": "video",
-              "title": "Full Stack Project Planning in Hindi - Kaise Start Kare",
-              "url": "TODO",
+              "title": "Sigma Web Development Course - Web Development Tutorials in Hindi",
+              "url": "https://www.youtube.com/playlist?list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 25,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -2744,23 +2744,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Spring Boot REST API Tutorial - CRUD from Scratch",
-              "url": "TODO",
+              "title": "Spring Boot Tutorials | Full Course",
+              "url": "https://www.youtube.com/watch?v=35EQXmHKZYs",
               "source": "Telusko",
               "language": "english",
               "minutes": 90,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Spring Boot CRUD API in Tamil for Beginners",
-              "url": "TODO",
-              "source": "Error Makes Clever",
+              "title": "Spring Boot Beginners Tutorial in Tamil",
+              "url": "https://www.youtube.com/playlist?list=PLhbl8CrGKCBNVzNXhoWdmni_sEAqZdLt9",
+              "source": "Code Simple",
               "language": "tamil",
               "minutes": 60,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -2798,23 +2798,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "React CRUD App Tutorial for Beginners - Full Project",
-              "url": "TODO",
+              "title": "Building a Quiz App with React & Spring Boot: Full Stack Web Development | @Telusko Contest",
+              "url": "https://www.youtube.com/watch?v=U61W528ijEE",
               "source": "Telusko",
               "language": "english",
               "minutes": 75,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "React Project in Hindi - Components, State aur Forms",
-              "url": "TODO",
+              "title": "React Js Tutorials in Hindi",
+              "url": "https://www.youtube.com/playlist?list=PLu0W_9lII9agx66oZnT6IyhcMIbUMNMdt",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 60,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -2842,23 +2842,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Connect React Frontend to Spring Boot Backend - Fix CORS",
-              "url": "TODO",
+              "title": "#23 CORS Error in Spring Boot",
+              "url": "https://www.youtube.com/watch?v=iC1a8cUzGgc",
               "source": "Telusko",
               "language": "english",
               "minutes": 45,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "React aur Backend API Connect Karna in Hindi - CORS Error Fix",
-              "url": "TODO",
+              "title": "Handling Forms + Connecting React to Express Backend | Sigma Web Development Course - Tutorial #119",
+              "url": "https://www.youtube.com/watch?v=SdzMBWT2CDQ",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
@@ -2886,23 +2886,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Deploy Full Stack App Free - React on Vercel, Spring Boot on Render",
-              "url": "TODO",
+              "title": "Deploying Your First App on Vercel",
+              "url": "https://www.youtube.com/watch?v=Oiv4ntCc0gM",
               "source": "Kunal Kushwaha",
               "language": "english",
               "minutes": 45,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Website Deploy Kaise Kare in Hindi - Free Hosting Tutorial",
-              "url": "TODO",
+              "title": "Hosting Tutorial: Where to Host your Website? | Web Development Tutorials #89",
+              "url": "https://www.youtube.com/watch?v=tCWPpN4nE-M",
               "source": "CodeWithHarry",
               "language": "hindi",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -2938,33 +2938,33 @@
           "resources": [
             {
               "type": "video",
-              "title": "Resume for Freshers - What Actually Gets Shortlisted",
-              "url": "TODO",
+              "title": "How to Build a Great Resume to Get Hired in Tech",
+              "url": "https://www.youtube.com/watch?v=e8kVKeh2jmg",
               "source": "Kunal Kushwaha",
               "language": "english",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Resume Kaise Banaye - Freshers ke liye Complete Guide",
-              "url": "TODO",
+              "title": "How to make Ultimate Resume ? Step by step guide for Software Engineers",
+              "url": "https://www.youtube.com/watch?v=y3R9e2L8I9E",
               "source": "Apna College",
               "language": "hindi",
               "minutes": 35,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Resume Tips in Tamil for Freshers - IT Jobs",
-              "url": "TODO",
+              "title": "How to create PERFECT RESUME with zero skills for IT Job Application | Resume format for Freshers",
+              "url": "https://www.youtube.com/watch?v=Ll62YIkEvs8",
               "source": "Error Makes Clever",
               "language": "tamil",
               "minutes": 25,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             }
           ]
         },
@@ -2982,23 +2982,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Java Interview Questions for Freshers - OOP Concepts Explained",
-              "url": "TODO",
+              "title": "Java Interview Coding Questions",
+              "url": "https://www.youtube.com/playlist?list=PLsyeobzWxl7o_MlNGQirnKl3OsfKb5Dp7",
               "source": "Telusko",
               "language": "english",
               "minutes": 45,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Technical Interview Questions in Hindi - OOPs, DBMS, OS",
-              "url": "TODO",
+              "title": "OOPs Tutorial in One Shot | Object Oriented Programming | in C++ Language | for Placement Interviews",
+              "url": "https://www.youtube.com/watch?v=mlIUKyZIUUU",
               "source": "Apna College",
               "language": "hindi",
               "minutes": 50,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -3026,33 +3026,33 @@
           "resources": [
             {
               "type": "video",
-              "title": "HR Interview Questions and Answers for Freshers",
-              "url": "TODO",
+              "title": "Interview Questions",
+              "url": "https://www.youtube.com/playlist?list=PLfqMhTWNBTe2B7jqoN28_WC6aRCg_WCRu",
               "source": "Apna College",
               "language": "hindi",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "HR Interview Tips in Tamil - Tell Me About Yourself",
-              "url": "TODO",
-              "source": "Error Makes Clever",
+              "title": "Interview Tips: Tell Me About Yourself Answer | Easy Way To Clear Interview",
+              "url": "https://www.youtube.com/watch?v=WkRo1HQGr9s",
+              "source": "Theneer Idaivelai",
               "language": "tamil",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "How to Answer HR Interview Questions - Fresher Guide",
-              "url": "TODO",
+              "title": "Interview Tips From My Google Recruiter - Do's & Dont's",
+              "url": "https://www.youtube.com/watch?v=8HVwKVxdPxo",
               "source": "Kunal Kushwaha",
               "language": "english",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             }
           ]
         },
@@ -3070,33 +3070,33 @@
           "resources": [
             {
               "type": "video",
-              "title": "Service Based vs Product Based Companies - Which One for Freshers",
-              "url": "TODO",
+              "title": "How He Moved From TCS/Service to Product Based Company via Remote Jobs",
+              "url": "https://www.youtube.com/watch?v=yxyReyCvn_8",
               "source": "Kunal Kushwaha",
               "language": "english",
               "minutes": 25,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Service vs Product Company in Hindi - Placement Reality",
-              "url": "TODO",
-              "source": "Apna College",
+              "title": "Product Based vs Service Based Company Difference | 3.5 LPA vs 10LPA | Off-Campus Placement",
+              "url": "https://www.youtube.com/watch?v=bJW4DR_5nTM",
+              "source": "Last moment tuitions",
               "language": "hindi",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "IT Company Interview Process in Tamil - Service and Product",
-              "url": "TODO",
+              "title": "2025's Playbook to Crack High Paying IT Job: Meta Software Engineer's Career Roadmap",
+              "url": "https://www.youtube.com/watch?v=KlX_fEJeS_Q",
               "source": "Error Makes Clever",
               "language": "tamil",
               "minutes": 25,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             }
           ]
         }

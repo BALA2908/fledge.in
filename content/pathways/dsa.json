@@ -31,23 +31,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Big O Notation - Time Complexity Explained",
-              "url": "TODO",
+              "title": "Time and Space Complexity COMPLETE Tutorial - What is Big O?",
+              "url": "https://www.youtube.com/watch?v=mV3wrLBbuuE",
               "source": "Kunal Kushwaha",
               "language": "english",
               "minutes": 45,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Time Complexity kya hoti hai? Big O Notation in Hindi",
-              "url": "TODO",
+              "title": "Time Complexity for Coding Interviews | Big O Notation Explained | Data Structures & Algorithms",
+              "url": "https://www.youtube.com/watch?v=5T0SiJocPCI",
               "source": "Apna College",
               "language": "hindi",
               "minutes": 30,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "article",
@@ -75,23 +75,23 @@
           "resources": [
             {
               "type": "video",
-              "title": "Arrays in Java - Complete Tutorial for Beginners",
-              "url": "TODO",
+              "title": "Introduction to Arrays and ArrayList in Java",
+              "url": "https://www.youtube.com/watch?v=n60Dn0UsbEk",
               "source": "Kunal Kushwaha",
               "language": "english",
               "minutes": 60,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "video",
-              "title": "Arrays in Tamil - Data Structures for Beginners",
-              "url": "TODO",
+              "title": "#16 Array & Common Array Mistakes in Java Explained | In Tamil | Java Tutorial Series | EMC Academy",
+              "url": "https://www.youtube.com/watch?v=sMI4pXjQBRU",
               "source": "Error Makes Clever",
               "language": "tamil",
               "minutes": 40,
               "depth": "intro",
-              "is_verified": false
+              "is_verified": true
             },
             {
               "type": "doc",
