@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: pathway.title,
     description:
       pathway.tagline ??
-      `The ${pathway.title} roadmap — modules, topics and resources in English, Tamil and Hindi.`,
+      `The ${pathway.title} roadmap — modules, topics and hand-picked English resources.`,
   };
 }
 

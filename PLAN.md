@@ -142,7 +142,9 @@ The rule that beats all rules: **read it aloud. If you wouldn't say it to a juni
 ### Hero copy — pick one, edit freely
 **Option A** — H1: *Your college doesn't decide your career.* · Sub: *Your next six months do. Free roadmaps, real practice problems, and speaking drills — from a fresher who got out of a no-placement college and wrote down every step.*
 
-**Option B** — H1: *No placements at your college? Same.* · Sub: *So I built my own way in — and left the map behind. Pick a path. Learn in your language. Practice till the offer letter.*
+**Option B** — H1: *No placements at your college? Same.* · Sub: *So I built my own way in — and left the map behind. Pick a path. Practice in English — it's what the interview panel speaks. Keep going till the offer letter.*
+
+> **English-first (decided July 2026):** copy never leads with "in your language." English resources lead and are the default; practicing in English is sold as placement-communication training. Tamil/Hindi links stay in the data as a quiet "prefer your mother tongue?" fallback — demoted, never deleted.
 
 CTA: **Pick your path →** · secondary link: *Read my story*
 
@@ -155,7 +157,7 @@ This is *your* story, so these words are scaffolding, not final. Change every li
 >
 > Today I'm a software engineer working on AI systems. I'm not special. I just had a direction and refused to stop.
 >
-> This site is that map — free, in your language, with everything I wish someone had handed me in second year.
+> This site is that map — free, in plain English, with everything I wish someone had handed me in second year.
 >
 > — Bala · [role], [company] · from a college you haven't heard of
 
@@ -228,7 +230,7 @@ Additional protections: per-user 5-second throttle between runs, code size cap (
 | `pathways` | slug, title, tagline, description, outcomes[], is_published, sort | |
 | `modules` | pathway_id, sort, title, description, est_hours | |
 | `topics` | module_id, sort, slug, title, summary_md, tips[], est_minutes, is_core | is_core=false marks optional deep-dives the Core track can drop |
-| `resources` | topic_id, type (video/doc/article/course), title, url, source (e.g. "Telusko"), language (english/tamil/hindi), minutes, depth (intro/deep), is_verified | language tag = your differentiator |
+| `resources` | topic_id, type (video/doc/article/course), title, url, source (e.g. "Telusko"), language (english/tamil/hindi), minutes, depth (intro/deep), is_verified | English listed first + default; tamil/hindi kept as fallback |
 | `problems` | slug, title, difficulty, kind (coding/mcq), statement_md, input_format_md, output_format_md, constraints_md, sample_tests jsonb, **hidden_tests jsonb**, starter_code jsonb, **reference_solution jsonb**, mcq jsonb, hints[], tags[], topic_slugs[], pathway_slugs[], module_slug, diagnostic (bool), time_limit_ms | bold columns are secret |
 | `submissions` | user_id, problem_id, language, code, verdict, passed, total, runtime_ms | |
 | `topic_progress` | user_id, topic_id, completed_at | PK (user_id, topic_id) |

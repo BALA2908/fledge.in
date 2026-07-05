@@ -9,7 +9,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Pathways",
   description:
-    "Structured career roadmaps for Indian college students — Java Full-Stack, DSA, and more, with resources in English, Tamil, and Hindi.",
+    "Structured career roadmaps for Indian college students — Java Full-Stack, DSA, and more, with hand-picked English resources that double as interview-communication practice.",
 };
 
 export default async function PathwaysPage() {
@@ -24,7 +24,8 @@ export default async function PathwaysPage() {
         <h1 className="text-4xl font-bold tracking-tight">Pick your path</h1>
         <p className="mt-4 text-lg text-muted-foreground">
           One goal, one map, no tutorial-hopping. Every topic has an honest
-          time estimate and resources in your language.
+          time estimate and hand-picked English resources — learning in
+          English is half your interview prep.
         </p>
       </div>
 

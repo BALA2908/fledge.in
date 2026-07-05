@@ -2,7 +2,9 @@
 
 ## What this is
 Free platform for Indian college students: career pathways (roadmap +
-curated multi-language resources) + a personal plan engine (§2C:
+curated English-first resources; Tamil/Hindi kept as a quiet fallback,
+framed as placement-communication practice, never "in your language"
+marketing) + a personal plan engine (§2C:
 diagnostic, pacing, weekly adaptation — pure rules, no LLM) +
 LeetCode-style coding judge + in-browser speaking practice + progress
 tracking. Full context in PLAN.md.

@@ -102,8 +102,8 @@ export default async function TopicPage({ params }: Props) {
             <section className="mt-10">
               <h2 className="text-xl font-semibold">Learn it</h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Pick one resource in your language — watching all of them is
-                procrastination with extra steps.
+                Pick one and finish it. Watching in English is double duty —
+                the concept sticks and your interview ear gets trained.
               </p>
               <div className="mt-4">
                 {topic.resources.length === 0 ? (

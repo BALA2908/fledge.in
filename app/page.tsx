@@ -12,11 +12,11 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Fledge — your college doesn't decide your career",
   description:
-    "Free roadmaps, real practice problems, and speaking drills for Indian college students — in English, Tamil, and Hindi. From a fresher who wrote down every step.",
+    "Free roadmaps, real practice problems, and speaking drills for Indian college students. Practice in English — it's what the interview panel speaks. From a fresher who wrote down every step.",
   openGraph: {
     title: "Fledge — your college doesn't decide your career",
     description:
-      "Free roadmaps, real practice problems, and speaking drills — in English, Tamil, and Hindi.",
+      "Free roadmaps, real practice problems, and speaking drills. Practice in English — it's what the interview panel speaks.",
     type: "website",
     siteName: "Fledge",
   },
@@ -41,8 +41,8 @@ const steps = [
     ),
   },
   {
-    title: "Learn in your language",
-    body: "Every topic links videos in English, Tamil, and Hindi. Concepts stick in the language you think in.",
+    title: "Practice in English",
+    body: "Interviews, HR rounds, and standups happen in English. Every video and problem here builds that muscle while you learn — two preparations in one.",
     doodle: (
       <svg viewBox="0 0 40 40" className="h-9 w-9 text-ballpoint" fill="none" aria-hidden="true">
         <path
@@ -106,7 +106,7 @@ export default async function HomePage() {
               </Link>
             </div>
             <p className="mt-12 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-              English · தமிழ் · हिन्दी — always free
+              Learn it in English · speak it in the interview — always free
             </p>
           </div>
           <div className="mx-auto w-full max-w-sm md:max-w-none">
@@ -122,12 +122,13 @@ export default async function HomePage() {
           <ul className="space-y-3 text-lg leading-relaxed">
             <li>Placement training at most colleges is a formality.</li>
             <li>
-              The good roadmaps are scattered, in English, and assume you
-              already know things.
+              The good roadmaps are scattered and assume you already know
+              things.
             </li>
             <li>
-              So this is one honest map — free, in your language, tested on
-              myself first.
+              So this is one honest map — free, in plain English, tested on
+              myself first. The English is part of the training: it&apos;s
+              the language your interviews will happen in.
             </li>
           </ul>
         </Reveal>
@@ -174,7 +175,7 @@ export default async function HomePage() {
                   stop.
                 </p>
                 <p>
-                  This site is that map — free, in your language, with
+                  This site is that map — free, in plain English, with
                   everything I wish someone had handed me in second year.
                 </p>
               </div>
