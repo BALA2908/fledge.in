@@ -1,0 +1,79 @@
+{
+  "slug": "auto-fare-split",
+  "title": "Auto Fare Split",
+  "difficulty": "easy",
+  "kind": "coding",
+  "statement_md": "College fest got over late, so `N` friends squeezed into autos back to the hostel, and the total fare came to `F` rupees. As always, one of them — the organiser — collected the money.\n\nThe rule of the group is simple: everyone pays the **same whole-rupee share**, as large as possible without anyone overpaying. Whatever small amount is still left after collecting that share from all `N` friends, the organiser quietly pays from his own pocket. (Some days the fare splits perfectly and he pays nothing extra.)\n\nFor each ride, print two numbers: the per-head share, and the leftover the organiser covers.\n\n**Careful:** the fare can be astronomically large (a whole fest season's travel bill), so use a 64-bit type — `long` in Java, `long long` in C++, `BigInt` in JavaScript.",
+  "input_format_md": "The first line contains a single integer `T` — the number of rides.\n\nEach of the next `T` lines contains two integers `N` and `F` — the number of friends and the total fare in rupees.",
+  "output_format_md": "For each ride, print two integers separated by a single space on their own line: the per-head share, and the leftover paid by the organiser.",
+  "constraints_md": "- `1 ≤ T ≤ 10`\n- `1 ≤ N ≤ 10^9`\n- `0 ≤ F ≤ 10^18` (does not fit in a 32-bit integer — use `long` / `long long` / `BigInt`)",
+  "starter_code": {
+    "python": "import sys\n\ndef solve_case(n, f):\n    # your code here — return a string like \"<share> <leftover>\"\n    return \"0 0\"\n\ndef main():\n    data = sys.stdin.read().split()\n    pos = 0\n    t = int(data[pos]); pos += 1\n    for _ in range(t):\n        n, f = int(data[pos]), int(data[pos + 1]); pos += 2\n        print(solve_case(n, f))\n\nmain()\n",
+    "java": "import java.util.*;\n\npublic class Main {\n    static String solveCase(long n, long f) {\n        // your code here — return \"<share> <leftover>\"\n        return \"0 0\";\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int t = sc.nextInt();\n        StringBuilder out = new StringBuilder();\n        while (t-- > 0) {\n            long n = sc.nextLong();\n            long f = sc.nextLong();\n            out.append(solveCase(n, f)).append('\\n');\n        }\n        System.out.print(out);\n    }\n}\n",
+    "cpp": "#include <bits/stdc++.h>\nusing namespace std;\n\nstring solve_case(long long n, long long f) {\n    // your code here — return \"<share> <leftover>\"\n    return \"0 0\";\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int t;\n    cin >> t;\n    while (t--) {\n        long long n, f;\n        cin >> n >> f;\n        cout << solve_case(n, f) << '\\n';\n    }\n    return 0;\n}\n",
+    "javascript": "const data = require(\"fs\").readFileSync(0, \"utf8\").split(/\\s+/).filter(Boolean);\nlet pos = 0;\nconst t = Number(data[pos++]);\nconst out = [];\nfor (let i = 0; i < t; i++) {\n  const n = BigInt(data[pos++]); // F can exceed 2^53 — keep everything in BigInt\n  const f = BigInt(data[pos++]);\n  out.push(solveCase(n, f));\n}\nconsole.log(out.join(\"\\n\"));\n\nfunction solveCase(n, f) {\n  // your code here — return a string like `${share} ${leftover}`\n  return \"0 0\";\n}\n"
+  },
+  "reference_solution": {
+    "python": "import sys\n\ndef main():\n    data = sys.stdin.read().split()\n    pos = 0\n    t = int(data[pos]); pos += 1\n    out = []\n    for _ in range(t):\n        n, f = int(data[pos]), int(data[pos + 1]); pos += 2\n        share, leftover = divmod(f, n)\n        out.append(f\"{share} {leftover}\")\n    sys.stdout.write(\"\\n\".join(out) + \"\\n\")\n\nmain()\n"
+  },
+  "hints": [
+    "No loops needed — this is one arithmetic operation you learned in school. What does dividing F by N give you, and what is left behind?",
+    "The share is the integer quotient F ÷ N and the leftover is the remainder (F mod N). Just make sure your types hold 10^18: long / long long / Python int / BigInt."
+  ],
+  "tags": [
+    "math"
+  ],
+  "topic_slugs": [
+    "math-basics"
+  ],
+  "pathway_slugs": [
+    "dsa"
+  ],
+  "diagnostic": false,
+  "time_limit_ms": 4000,
+  "is_published": true,
+  "sample_tests": [
+    {
+      "input": "2\n3 100\n4 100\n",
+      "output": "33 1\n25 0\n"
+    },
+    {
+      "input": "1\n5 23\n",
+      "output": "4 3\n"
+    }
+  ],
+  "hidden_tests": [
+    {
+      "input": "1\n1 0\n",
+      "output": "0 0\n"
+    },
+    {
+      "input": "2\n7 3\n1000000000 999999999\n",
+      "output": "0 3\n0 999999999\n"
+    },
+    {
+      "input": "1\n1 1000000000000000000\n",
+      "output": "1000000000000000000 0\n"
+    },
+    {
+      "input": "1\n1000000000 1000000000000000000\n",
+      "output": "1000000000 0\n"
+    },
+    {
+      "input": "4\n2 5\n3 10\n6 6\n9 0\n",
+      "output": "2 1\n3 1\n1 0\n0 0\n"
+    },
+    {
+      "input": "4\n10 99\n10 100\n10 101\n999999937 1000000000000000000\n",
+      "output": "9 9\n10 0\n10 1\n1000000063 3969\n"
+    },
+    {
+      "input": "10\n248 22952\n167 31267\n466 81952\n138 61085\n423 63593\n310 82595\n268 6420\n352 72514\n155 29933\n135 44891\n",
+      "output": "92 136\n187 38\n175 402\n442 89\n150 143\n266 135\n23 256\n206 2\n193 18\n332 71\n"
+    },
+    {
+      "input": "10\n291915307 497241643416099993\n894982263 5646443468857850\n624130844 572883676033917039\n514376187 788948734937196742\n705965767 761878266721649789\n824398218 408725683117286504\n681217992 971578500658859588\n655666167 364865445984052138\n334437603 709767229571955542\n253701378 725967381715839778\n",
+      "output": "1703376395 133121728\n6309000 371590850\n917890345 309615859\n1533797160 144967822\n1079200015 385763284\n495786713 412009070\n1426237286 574409876\n556480514 359482300\n2122271010 71166512\n2861503502 106614022\n"
+    }
+  ]
+}

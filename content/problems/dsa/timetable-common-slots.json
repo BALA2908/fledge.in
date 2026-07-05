@@ -1,0 +1,88 @@
+{
+  "slug": "timetable-common-slots",
+  "title": "Timetable Common Slots",
+  "difficulty": "hard",
+  "kind": "coding",
+  "statement_md": "You and your hostel roommate just got your semester timetables. Each timetable is written as one string of lowercase letters — every letter is one activity slot (`g` could be gym, `l` library, `c` coding club), listed in the order they happen during the week.\n\nThe two of you want to do as many activities **together** as possible. Each of you can freely skip any of your own slots, but neither of you can reorder them — the college fixes the order, not you.\n\nSo the question is: what is the length of the **longest sequence of activities that appears in both timetables in the same order**? The matching slots do **not** have to be next to each other in either timetable — they just have to come in the same order.\n\nFor each test case, print that length. If there is nothing you can attend together, print `0`.",
+  "input_format_md": "The first line contains a single integer `T` — the number of test cases.\n\nFor each test case:\n- the first line contains a string `A` — your timetable\n- the second line contains a string `B` — your roommate's timetable",
+  "output_format_md": "For each test case, print a single integer on its own line — the length of the longest sequence of activities present in both timetables in the same order.",
+  "constraints_md": "- `1 ≤ T ≤ 10`\n- `1 ≤ |A|, |B| ≤ 800`\n- `A` and `B` contain only lowercase English letters `a`–`z`\n- in any single input, at most 3 test cases have a timetable longer than 400",
+  "hints": [
+    "Compare the two timetables from the end. If the last letters match, they can be attended together — what smaller problem are you left with? If they don't match, at least one of those two letters is useless.",
+    "Build a table where `dp[i][j]` = answer for the first `i` letters of `A` and the first `j` letters of `B`: when the letters match, `dp[i][j] = dp[i-1][j-1] + 1`, otherwise it is `max(dp[i-1][j], dp[i][j-1])`. Fill it row by row — keeping only the previous row makes memory tiny."
+  ],
+  "tags": [
+    "dp",
+    "strings"
+  ],
+  "topic_slugs": [
+    "dp-basics"
+  ],
+  "pathway_slugs": [
+    "dsa",
+    "java-fullstack"
+  ],
+  "is_published": true,
+  "time_limit_ms": 5000,
+  "starter_code": {
+    "python": "import sys\n\ndef solve_case(a, b):\n    # your code here — return the length of the longest common activity sequence\n    return 0\n\ndef main():\n    data = sys.stdin.read().split()\n    pos = 0\n    t = int(data[pos]); pos += 1\n    for _ in range(t):\n        a = data[pos]; pos += 1\n        b = data[pos]; pos += 1\n        print(solve_case(a, b))\n\nmain()\n",
+    "java": "import java.io.*;\n\npublic class Main {\n    static int solveCase(String a, String b) {\n        // your code here — return the length of the longest common activity sequence\n        return 0;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        int t = Integer.parseInt(br.readLine().trim());\n        StringBuilder out = new StringBuilder();\n        while (t-- > 0) {\n            String a = br.readLine().trim();\n            String b = br.readLine().trim();\n            out.append(solveCase(a, b)).append('\\n');\n        }\n        System.out.print(out);\n    }\n}\n",
+    "cpp": "#include <bits/stdc++.h>\nusing namespace std;\n\nint solve_case(const string& a, const string& b) {\n    // your code here — return the length of the longest common activity sequence\n    return 0;\n}\n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    int t;\n    cin >> t;\n    while (t--) {\n        string a, b;\n        cin >> a >> b;\n        cout << solve_case(a, b) << '\\n';\n    }\n    return 0;\n}\n",
+    "javascript": "const lines = require(\"fs\").readFileSync(0, \"utf8\").split(\"\\n\").map((l) => l.trim()).filter((l) => l.length > 0);\nlet pos = 0;\nconst t = parseInt(lines[pos++], 10);\nconst out = [];\nfor (let i = 0; i < t; i++) {\n  const a = lines[pos++];\n  const b = lines[pos++];\n  out.push(solveCase(a, b));\n}\nconsole.log(out.join(\"\\n\"));\n\nfunction solveCase(a, b) {\n  // your code here — return the length of the longest common activity sequence\n  return 0;\n}\n"
+  },
+  "reference_solution": {
+    "python": "import sys\n\ndef solve_case(a, b):\n    # O(len(a) * len(b)) DP with a single rolling row\n    if len(b) > len(a):\n        a, b = b, a\n    row = [0] * (len(b) + 1)\n    for ca in a:\n        diag = 0\n        for j, cb in enumerate(b, 1):\n            tmp = row[j]\n            if ca == cb:\n                row[j] = diag + 1\n            elif row[j - 1] > tmp:\n                row[j] = row[j - 1]\n            diag = tmp\n    return row[-1]\n\ndef main():\n    data = sys.stdin.read().split()\n    pos = 0\n    t = int(data[pos]); pos += 1\n    res = []\n    for _ in range(t):\n        a = data[pos]; pos += 1\n        b = data[pos]; pos += 1\n        res.append(str(solve_case(a, b)))\n    sys.stdout.write(\"\\n\".join(res) + \"\\n\")\n\nmain()\n"
+  },
+  "sample_tests": [
+    {
+      "input": "2\nabcde\nace\nclass\nlabs\n",
+      "output": "3\n3\n"
+    },
+    {
+      "input": "1\ngym\nyoga\n",
+      "output": "1\n"
+    }
+  ],
+  "hidden_tests": [
+    {
+      "input": "1\na\na\n",
+      "output": "1\n"
+    },
+    {
+      "input": "1\na\nb\n",
+      "output": "0\n"
+    },
+    {
+      "input": "1\nabc\nxyz\n",
+      "output": "0\n"
+    },
+    {
+      "input": "1\nxkntqqhffguzbqljyahoncepegihjtlqbafmmontaynpccrfaodowdsicdgyqwxycutujwtmwciabsdirbfzkdnmayhhnqkhqhczjsnjlapsysffwqkacrjjsculcpcrjhjzwyhmxtcaquljgtchnxphkoexyaybfgfogqcqalkgbvqvcjeedskdpysczelrreuffndrujjnicffqchfdwsostqqdblkffdrgktjbecnozpzhiiavmgcwriglxizwxzxvqoexugkovhkjwfnpogznmdzittoeumlqetplftesmqutgvmjkvyvuvouyrjlpwkitqjarkdhwrisjsavnlecrwyzpyeqcqheiljvghgrtuzjbaxourtghtkznxdnugbhsaknhemkwhdjiibljtjxnnvxztokddzzjcugeprrphnlpusevwwycqlwlekhuoxpnhxcryhsltxurwcbcsxxrgkdqgcqheqtumrvzfszbrfqftsrdjwqyagsejbafoxjilmhdnmgpewnuvgmlonmrnihjbyyjmgymvzztgkslisaeqnptmwccavkhrzbngzrlhnrspcdwmsfeauzmavvybayyrttsbldfjxnvcatxbgeywlcwzibcdfslbuvdddpedneirjswzhczmupwnvvpnjlrsmcyhdrarbhxdaelxrecjpjweuetbaokthqdaxjxlqywyxfpmqqiribcgcbllalucueazbukcdyunxwqcmvlobspicibrxlasyxunqzmwoybjicastcyslkgiwnutjrjte\nxkntqqhffguzbqljyahoncepegihjtlqbafmmontaynpccrfaodowdsicdgyqwxycutujwtmwciabsdirbfzkdnmayhhnqkhqhczjsnjlapsysffwqkacrjjsculcpcrjhjzwyhmxtcaquljgtchnxphkoexyaybfgfogqcqalkgbvqvcjeedskdpysczelrreuffndrujjnicffqchfdwsostqqdblkffdrgktjbecnozpzhiiavmgcwriglxizwxzxvqoexugkovhkjwfnpogznmdzittoeumlqetplftesmqutgvmjkvyvuvouyrjlpwkitqjarkdhwrisjsavnlecrwyzpyeqcqheiljvghgrtuzjbaxourtghtkznxdnugbhsaknhemkwhdjiibljtjxnnvxztokddzzjcugeprrphnlpusevwwycqlwlekhuoxpnhxcryhsltxurwcbcsxxrgkdqgcqheqtumrvzfszbrfqftsrdjwqyagsejbafoxjilmhdnmgpewnuvgmlonmrnihjbyyjmgymvzztgkslisaeqnptmwccavkhrzbngzrlhnrspcdwmsfeauzmavvybayyrttsbldfjxnvcatxbgeywlcwzibcdfslbuvdddpedneirjswzhczmupwnvvpnjlrsmcyhdrarbhxdaelxrecjpjweuetbaokthqdaxjxlqywyxfpmqqiribcgcbllalucueazbukcdyunxwqcmvlobspicibrxlasyxunqzmwoybjicastcyslkgiwnutjrjte\n",
+      "output": "800\n"
+    },
+    {
+      "input": "1\ncoding\nxcxoxdxixnxgx\n",
+      "output": "6\n"
+    },
+    {
+      "input": "1\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n",
+      "output": "30\n"
+    },
+    {
+      "input": "6\nabccaaaaac\nbaaacac\nacc\nccbcaababc\nbccc\nc\nab\nbbbccabbcaaa\nacababccc\nababcbacbbab\nccbcbaabaacb\nabbc\n",
+      "output": "6\n2\n1\n2\n6\n3\n"
+    },
+    {
+      "input": "4\nababbbacacaccccabaaabacbccacbcacaabacbbababaaabbabacccbbbcbbbaabbcccabaaababcabbaacccbabacaacbabbcaabbbcbaacacacccacaaabcabccbaaabbacaaaababcbcccbcbbccaccaabaaabcaccbbabbccbcbaaaaccbbabcbbbcaccbbbbc\nccbabcbaccbbccaaccbccacabacabaccacaacabbaabcbcbcabbacababbbbcbbaaaabcbacbbaccaacccbacacbaaacbaccaccbbbbbcaacbcaccaacbcbbbabacaabbabcccbacbcbac\nbcbcbbccaabaababaaaccaccbabacbbbaacacabcababbabbccababbbccabcccabacabbabccbcbcaccbcccaaaaaacacaacccbabbabcaaaabcbabbbcbbccabcbacaacabbcacbcbcbbccababaaaabccbcbcaaccaccbbcacbbabacaaabcbbbbccbacccaacccabbbabacacaabaababcaabccbcaacbbcccbc\nacaacacccbcbbbbccaacbbbacabacbbbabcacbaaaacaabcacaacacababcbabbbbcaacaaacbabbabbaabbcbccabbcccaabbcacbacbabbaacbbbaacabccbcccaaccbabcbbaacccbcaaababbaabbcaabaccbabcccbcc\nbcbcccbbabcbcabbcacccabacabbcbcccaaaacaaaccbabcbcbbbabcccacaccbabbbabbbcbcbcccbbccbacabbccbaaabaabbabacbccbaabbbcbaabbbbcacacbcccbabacabcabbbacccbbcababcbaabcbcacabcbabacbbacbcbbcccbcbbcbbcabbbaba\ncacbcbcaaacbbaacbbbbaacacababbccaabcbcaabbabcaababaccacaaaccaaabcbabaaaaacaaabbbbbcbbacaaabcabcabaabaacccaacacabac\naaacabccbaabccbabbcbcbcbbbbacbacaaccabaccacacabcbbbabcaccacacbabacccbabbcbcbbbcacbbbababcbbbcbaaaaccababcacbbcaccabbcbccbcaabccccacbcbbbabbacbcbbbbcbcccccaccaacaacacaaabbbc\ncbbcbabcbbbaabcbaacbbbcbcbcbbcacccccccccbbcbacaaccbbacccccbcccbcacaaabcbbbabaacbcbbbbbaccabbacabcbcaaaccabaaacbcacbccbcbccbcacbaabbcbcbbaabcbaacbabbbaaccaccbacbaabbb\n",
+      "output": "113\n139\n95\n120\n"
+    },
+    {
+      "input": "1\ndbcecabdebeeadbeccdeeeeacdecedebbecabdedbbbbabaeaaecaeeccbbcbbdeddccbceebabcdbcadedecabcddcdbbaeaccbeccceeccdcddadeeeeaddeeeceaebabbceedcccdebdabbdeebedcabdbebdeeadaeeabaabebdbaddcaebedeaededeeecdddeedeaaccbbbeaabcbcdedbdcaecbcecdddeadbabdeadebbbcadecadbbadacdeebdcecdbacbccebaeddbcacadcabcceacddbeee\neeebddcaeccbacdacacbddeabeccbcabdcecdbeedcadabbdacedacbbbedaedbabdaedddcecbceacdbdedcbcbaaebbbccaaedeedddceeededeaedebeacddabdbebaabaeeadaeedbebdbacdebeedbbadbedcccdeecbbabeaeceeeddaeeeedaddcdcceecccebccaeabbdcddcbacededacbdcbabeecbccddedbbcbbcceeaceaaeababbbbdedbacebbedecedcaeeeedccebdaeebedbacecbd\n",
+      "output": "177\n"
+    },
+    {
+      "input": "3\ndaacddcadbcddcdddadddbababadbadbadbacdcdadbddbadabadbdacabcddccaccbdddbdbcadadaabcbdcdaabbcaabbdddadcabbbdaaadccacaadcdabdbaaacbbbcaadbcacbcaccbaaddccdabbdddddddcdacdbccdbcccbbbdadccaadaadbadccccddabbddccdcbbddbbacdadaabdbdaddddccdcbdbbdbbcaddddaacbacddcdcacdbbcdcbddbbbdaabbdacbbdaadbbaccbcadcadabcbdbbcadabbccdcccbacbbbddcdbdbdaabbdbbbadadbaacccdabcbadccabacbcdddadbddddbdacbacbcbbbcdddbbddcccabdcdbbbccddadacbdbccabbbcadbddbcabbcdddbacadbadaccadddbbacdcbbcacacdcbaabddcbcbdbbdccbdbbccdcddddadbbbdddacaadccbabacdaababcbcbddadcbcababbdbdaadabdcaaccabaadbbabbacacccdcdbcddbcdbbcaadcccadcdadddcbddacdcbccbdbbabcaccdcaabbcaacdbdbddbdccabdacccdbcbdbcbdddcdadacabdbdaddcccacbdbbdbaccdbbdcbadcacbdcbabbaaccdcdcbaadccccdbbddacbbddcbbdbcbaabccdccdccdacacccabbbcacddadaccccbacddbbddccddcdcbcdacbadaccdcccacbc\ncacaddbaacaccbadcdabaddbbadbbccbcddacaccaabbbcdcdacbcdacaaddcbaacadbadddabbccadbbadacbcbdaccaddcbbbbcabaacdbadadcabcddcbabacaccbcccdbccbcbaaaccabcbdbccaddcaacacaabbabdcbaddcbaababbdccacddcaaccbabadddbcabbaacbdacdbbacbbcbadbadacadbccdbbccacbacbdcadabddbddcabcdddaadcbabbacaaabbdbbcccccbadbcbccdbaccdbbbdaacdaadccbcbdaabccbdbabbbcadccbbbcabbdcaccacabbaaddbababcacbcccdaaccdbbaddcbddaabdaacbcaabacbddddbcbcaabacaabccbcbdcdaaabbbcddacdbadcbabccacbddbcbdcdddccdbddbaddcdcaddddcaaccaabddabbdbbcaddbadcbdbbcbbccdabbdccdcaadccbbbaddcdabaddbbbcbcbabbbdacdbdbdccdcdcaccaaadacdcabbabbddddcaabcdadbddbddddcbbdaddbcadbacbddddbdadabaadaacacbcdbbccaaacddcacdaaccbcbbadcbacbbdadddabaccddcacaadabbdbbacabbcdcbdcbacdddbcbababddcddbccbcdccbccdaabcdbcccaabcbddaccacaccadaabbabbdadddbcbacddbadadbcabcbbaacbaacbaccbaaccddd\nkqsdsbjbqhykltvqjcteftelbnqntzhfkahxttmgqhxkwyjqbkptejdxunkvhgybydexyxcveuvcxqqqqarzkrvjehkibevgozjrgzunvdxcadsmwslqxywjnvxzdsslgywftouuywhpauyacswcqtpexzbluaosrzcracujwalhwtbnysplyswbsyfrfqtclaipqtksduqnbsqfcdnphbzkxbidxlcaidbrnvfzgcdsyzquiixwsmlemgnmuoqpmxgzhzlmjybytgycmwiaavqhceoxfauetsplhrgdnohfcewylhixaakhzttewdnednftycimpxoqvqpqngpggqaslqjzekhqcadirmdkrkyryyqmfzpmboydqcpjocueboniqexqoxhtvcjvxlesovynumcincyyqtxjypjbjputpqbcwjbxjkwdbasdnlkulbwjmvevkrwbdluxdjaeekcrpyrwcqxklbuixsahxiaitytqyksgketedojovzwoyukvcjmobdjrffbxtpjyrftptdkujwocgxxeeyusgnzfoayqmlgauhnojkwuudasuqbgczyxsbtfjqedgnrdtsmjigjsodrnheqpsfdolyjmipvwbvxukbmnnuczvmrokfdbszefntllauwdyldnktwyccyzvfzojivgtocdefgqazennqzoolrnnvsluqyunqcoahybutvsvpgeqamnawckktvztjdobyyhotckbzamuwbixdpyaknntlcnewfrktgiduvvnqbmekyjvstbkwwilkjetgxj\nxcjnrkclnsbtjjyylvzafzvbhwedooidpaoafqopsvwefgzijlqdtfyiiduxfdyjtrouitgeuisemlosszrhhwhwrgmqrnsrdvcwygeutjvlbvqqvdkbhntcetdygsodjwygpaauegsliaaaleoubnolwqrhcjnsazrjcgnxfvlvvhpnvwqvrugdzaldhljeaujqgyvryshkqgbauxqapvkpnwtgypqsrjobyigfklgukaudjcqhqbiohptytfmfobzsrrorzoihcllewqzvcmyyluqeimzakkcwbqpzdzsoxdehekxoiafglyvgovrxwsxbaulmwjabjbgkeogaybccxohfgxtzbnhwlxyvakpuuvrsrtwiebntaxgsmlesymctatmxligsmjfpxlxxqookdbkkuzekjqkcbpjsasikwlkcyxjrtlzyyffalplxbevodaybcenpxwpdwtvkubpxnjqijhbidkrjnybjuhrrnjanvnyzihsqqyrxerecylntxacuzinjrjgcdqnfjzluxfmvghundmvkiqsyjlummjgznrvjrnernzkoiplqgsckqjidgwwjhtatvcrhwczyrgdfkayxhplvoyplsflostogdnsaprvogfxrstzcobnqffckjupclbjgzwmzjwpycnelnibdsztwmwiwqokysjtmahdkneugnribvhuqrprivamwoutkuixygwjtogebariihmuzslpuowqzdaiozaglcjuolznalgrwadhezynnnpttolrbepnbgjlffynmovbjtyjo\nabaaaaaaabaabbabbaaabbbbabbabbbaaabbaabbbbbaaabaabaaabbabaabaaabbbbbbbabbbbaaaabbabababbaaabbaabbabbbbabbbabaaaabababbaabbabbabbabbabaabbaaaabbaabbaaabaaabbabaabaaaabbbbbbbbababbbabbbaaaaabbbbbaabbaaabbaaabbaabbbbaabbabbababaabaabbbbaaaaabaaaaaaaabaabbbbabbbbabbaababbaababbababbabbbabbabbbbbabbaabbbabababbaabbabbabaaaabaabbaaabbabbbaababaabaababaaabababbaabbbaaabbbbbaaababaaaaaaabaabbbbbaabaababbbbaaaaaaabbbbaababababbbabaaabbaaabbaabbaabbbbbaaabbbbbaaaabbaaaabbabbbbbaaababbaabbaabbbaaabaaaaabaaababbbababaabbbaaaaaaabbabaabbbaaabaaaaabbabbaaaaaabbababbaababaaababaaaaabbaaaaaabbabaabbabaaaaaabbbbbaaababbababaaababbbaaabbbaabbbabbbbbbababababbbabaaaababbbbabbbbababbbbaaababbbbbabbaabbbbaabbabbabbbaabababaababbababaaaabbaabbababbaaaaababbabbbbabbbaabbabababbabbbbabbaaaabaaababbaaababaabaaaabb\nbbbabaabbbababbbabbbaabaaabbaaabbabaaaabbbaaabbbbbabbbbaaaababbbbaaaaabbbabababababbbaaaaabbabbbbaabbaaaabaabaabbbbababbaabaababaaaabbbaababbbabaabbbbaabbbbabbbbbbaabbabbbabaabababbbaabbbbaaabbabababaabbbbbbabaabaaabbabbabbaabaaaababaaaabbabbbbaaabababbabaaaaababbaabbaaaabbbaaaaabbaabbaababbbbabaaabbaaaaaaaabbbbbabbababbaabaaabbbaaabbbbbbbbabbbbaaaaababbaaabbabaabababaaabbabbabbaaabbbabaaabbbbbbaaabbbaaaabbababbbbabbbbabbbbabbabaaaaabaaabababaaaaaaaabbabbbbbabbaaababaababbbabbbbbaaabbbaabaabaaaabaaabababbbbbabbaabaaaaababaaabaaaaaabbbbabaaabbaaabbabbbbbbbababbaababbaaabbbabbabbabbbaaaaaaabbaabbaabaabbbabaaabbabbbaabaaaaabaaaababbbaaabbababaabaababaabbaababbababbaaaababbabaabaaaabbaaabbaabaaaaabbbababaabbaababaabbaaabbabbaaabaaabaabbbbaabaaababbaaabaaaaaababaabbaababbaababbbbbbbabbbabaabbab\n",
+      "output": "521\n258\n635\n"
+    }
+  ]
+}
