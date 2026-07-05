@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Wordmark } from "@/components/brand/Wordmark";
 import { NavLinks } from "@/components/shared/nav-links";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
-import { Button } from "@/components/ui/button";
+import { UserMenu } from "@/components/auth/user-menu";
 
 export function Header() {
   return (
@@ -12,12 +12,9 @@ export function Header() {
           <Wordmark className="text-xl" />
         </Link>
         <NavLinks />
-        <div className="flex shrink-0 items-center gap-1">
+        <div className="flex shrink-0 items-center gap-2">
           <ThemeToggle />
-          {/* placeholder until Phase 3 auth */}
-          <Button size="sm" className="hidden sm:inline-flex">
-            Sign in
-          </Button>
+          <UserMenu />
         </div>
       </div>
     </header>

@@ -50,4 +50,4 @@ NEXT_PUBLIC_SUPABASE_URL · NEXT_PUBLIC_SUPABASE_ANON_KEY ·
 SUPABASE_SERVICE_ROLE_KEY (server only) · SENTRY_DSN (Phase 6)
 
 ## Current phase
-Phase 2 complete: public pages built (landing + hero path, pathways grid, roadmap, topic pages, problems list + read-only problem pages, all static+ISR); YouTube URLs 132/141 verified via web research (9 honest TODOs) — next: push to deploy, then Phase 3: auth + onboarding + Your Plan   ← update this line as you progress
+Phase 3 complete: Supabase auth (email + Google button), middleware-protected routes, 5-step onboarding with diagnostic + plan preview, lib/plan generatePlan v1 (pure, 10 unit tests), dashboard shell + profile; trigger verified. Bala manual: enable Google provider + Site URL in Supabase dashboard — next: Phase 4, coding workspace + judge   ← update this line as you progress

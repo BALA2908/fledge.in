@@ -241,6 +241,33 @@ export async function getProblem(slug: string): Promise<ProblemDetail | null> {
   return (data as ProblemDetail | null) ?? null;
 }
 
+export type DiagnosticMcq = {
+  slug: string;
+  module_slug: string;
+  mcq: {
+    question_md: string;
+    options: string[];
+    correct_index: number;
+    explanation_md: string;
+  };
+};
+
+/** Diagnostic MCQs for a pathway (2 per module), for the onboarding check. */
+export async function getDiagnosticMcqs(
+  pathwaySlug: string
+): Promise<DiagnosticMcq[]> {
+  const supabase = createClient();
+  const { data, error } = await supabase
+    .from("problems_public")
+    .select("slug, module_slug, mcq")
+    .eq("kind", "mcq")
+    .eq("diagnostic", true)
+    .contains("pathway_slugs", [pathwaySlug])
+    .order("slug");
+  if (error) throw new Error(`getDiagnosticMcqs(${pathwaySlug}): ${error.message}`);
+  return (data ?? []).filter((d) => d.module_slug && d.mcq) as DiagnosticMcq[];
+}
+
 export async function getCodingProblems(): Promise<ProblemListItem[]> {
   const supabase = createClient();
   const { data, error } = await supabase
