@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { HeroPath } from "@/components/home/hero-path";
 import { MarginNote, PenUnderline } from "@/components/notebook/margin-note";
 import { Reveal } from "@/components/shared/reveal";
-import { getPathways } from "@/lib/content";
+import { getCodingProblems, getPathways } from "@/lib/content";
 
 export const revalidate = 3600;
 
@@ -69,7 +69,11 @@ const steps = [
 ];
 
 export default async function HomePage() {
-  const pathways = await getPathways();
+  const [pathways, problems] = await Promise.all([
+    getPathways(),
+    getCodingProblems(),
+  ]);
+  const topicTotal = pathways.reduce((n, p) => n + p.topicCount, 0);
 
   return (
     <div>
@@ -225,7 +229,9 @@ export default async function HomePage() {
                   The maps so far
                 </h2>
                 <p className="mt-2 text-muted-foreground">
-                  Start where you are. Every topic has an honest time estimate.
+                  {topicTotal} topics and {problems.length} practice problems,
+                  each with an honest time estimate — finishable in one
+                  semester of evenings.
                 </p>
               </div>
               <Link

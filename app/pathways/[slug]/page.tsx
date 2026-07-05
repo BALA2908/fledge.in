@@ -6,6 +6,20 @@ import { getPathway, getPathways } from "@/lib/content";
 
 export const revalidate = 3600;
 
+// Capability milestones (§2A motivation pass): what you can DO once you
+// pass a module — rendered as handwritten green checkpoints on the spine.
+const MILESTONES: Record<string, Record<string, string>> = {
+  "java-fullstack": {
+    "core-java-oop": "you can write real Java now —",
+    "jdbc-mysql": "you can talk to a database —",
+    "rest-apis-spring-boot": "you can ship a working API —",
+    "fullstack-mini-project": "you have a project to show —",
+  },
+  dsa: {
+    "getting-started": "you can read a problem like an interviewer —",
+  },
+};
+
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
@@ -66,7 +80,11 @@ export default async function PathwayPage({ params }: Props) {
           <div className="mb-6 hidden sm:block" aria-hidden="true">
             <MarginNote>start at 1, no skipping around —</MarginNote>
           </div>
-          <Roadmap pathwaySlug={pathway.slug} modules={pathway.modules} />
+          <Roadmap
+            pathwaySlug={pathway.slug}
+            modules={pathway.modules}
+            milestones={MILESTONES[pathway.slug]}
+          />
         </div>
       </div>
     </div>

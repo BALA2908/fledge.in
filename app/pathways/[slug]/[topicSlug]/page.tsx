@@ -165,13 +165,26 @@ export default async function TopicPage({ params }: Props) {
               {topic.next ? (
                 <Link
                   href={`/pathways/${topic.pathway.slug}/${topic.next.slug}`}
-                  className="group flex min-w-0 items-center gap-2 text-right text-sm text-muted-foreground hover:text-primary"
+                  className="group flex min-w-0 items-center gap-2 rounded-md border border-ballpoint/40 px-3 py-2 text-right text-sm font-medium text-primary transition-colors hover:border-ballpoint hover:bg-accent"
                 >
-                  <span className="truncate">{topic.next.title}</span>
-                  <ArrowRight className="size-4 shrink-0" aria-hidden="true" />
+                  <span className="truncate">
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+                      next up ·{" "}
+                    </span>
+                    {topic.next.title}
+                  </span>
+                  <ArrowRight
+                    className="size-4 shrink-0 transition-transform group-hover:translate-x-0.5"
+                    aria-hidden="true"
+                  />
                 </Link>
               ) : (
-                <span />
+                <Link
+                  href={`/pathways/${topic.pathway.slug}`}
+                  className="rounded-md border border-verdict/40 px-3 py-2 text-sm font-medium text-verdict"
+                >
+                  Path complete — back to the map
+                </Link>
               )}
             </nav>
           </div>

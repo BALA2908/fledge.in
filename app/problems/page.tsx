@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ProblemsExplorer } from "@/components/problems/problems-explorer";
 import { getCodingProblems, getPathways } from "@/lib/content";
 
@@ -29,7 +30,29 @@ export default async function ProblemsPage() {
         </p>
       </header>
 
-      <div className="mt-10">
+      <div className="mt-8">
+        <Link
+          href="/problems/canteen-token-pairs"
+          className="group flex items-center justify-between gap-3 rounded-lg border border-dashed border-ballpoint/40 bg-accent/40 px-4 py-3 transition-colors hover:border-ballpoint"
+        >
+          <span>
+            <span className="block font-hand text-xl">
+              first time on an online judge? start here —
+            </span>
+            <span className="mt-0.5 block text-sm text-muted-foreground">
+              Canteen Token Pairs · easy · a gentle first verdict
+            </span>
+          </span>
+          <span
+            aria-hidden="true"
+            className="font-mono text-sm text-primary transition-transform group-hover:translate-x-1"
+          >
+            →
+          </span>
+        </Link>
+      </div>
+
+      <div className="mt-8">
         <ProblemsExplorer
           problems={problems}
           pathways={pathways.map((p) => ({ slug: p.slug, title: p.title }))}

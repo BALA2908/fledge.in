@@ -23,9 +23,12 @@ import type { RoadmapModule } from "@/lib/content";
 export function Roadmap({
   pathwaySlug,
   modules,
+  milestones = {},
 }: {
   pathwaySlug: string;
   modules: RoadmapModule[];
+  /** module slug → handwritten capability note shown once you pass it */
+  milestones?: Record<string, string>;
 }) {
   const reduced = useReducedMotion();
   const [open, setOpen] = useState<string | null>(modules[0]?.slug ?? null);
@@ -93,6 +96,35 @@ export function Roadmap({
                   <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
                     {module.description}
                   </p>
+                )}
+
+                {milestones[module.slug] && (
+                  <motion.p
+                    initial={reduced ? false : { opacity: 0, x: -6 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.3, ease: "easeOut", delay: 0.35 }}
+                    className="mt-3 flex items-center gap-2 font-hand text-lg text-verdict [transform:rotate(-1deg)]"
+                  >
+                    <svg
+                      viewBox="0 0 20 20"
+                      className="size-4 shrink-0"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M3 11 l5 5 l9 -12"
+                        stroke="currentColor"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <span>
+                      <span className="sr-only">Milestone: </span>
+                      {milestones[module.slug]}
+                    </span>
+                  </motion.p>
                 )}
 
                 {isOpen && (

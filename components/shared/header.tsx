@@ -1,14 +1,8 @@
 import Link from "next/link";
 import { Wordmark } from "@/components/brand/Wordmark";
+import { NavLinks } from "@/components/shared/nav-links";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { Button } from "@/components/ui/button";
-
-const nav = [
-  { href: "/pathways", label: "Pathways" },
-  { href: "/problems", label: "Problems" },
-  { href: "/speak", label: "Speak" },
-  { href: "/dashboard", label: "Dashboard" },
-];
 
 export function Header() {
   return (
@@ -17,17 +11,7 @@ export function Header() {
         <Link href="/" aria-label="Fledge home" className="shrink-0">
           <Wordmark className="text-xl" />
         </Link>
-        <nav className="ml-auto flex items-center gap-0.5 overflow-x-auto sm:gap-1">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-md px-2 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground sm:px-3"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <NavLinks />
         <div className="flex shrink-0 items-center gap-1">
           <ThemeToggle />
           {/* placeholder until Phase 3 auth */}

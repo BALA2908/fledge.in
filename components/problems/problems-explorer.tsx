@@ -60,22 +60,28 @@ export function ProblemsExplorer({
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <div role="group" aria-label="Filter by difficulty" className="flex gap-1.5">
-            {DIFFICULTIES.map((d) => (
-              <button
-                key={d}
-                type="button"
-                onClick={() => setDifficulty(d)}
-                aria-pressed={difficulty === d}
-                className={cn(
-                  "rounded-full border px-3 py-1 font-mono text-xs transition-colors",
-                  difficulty === d
-                    ? "border-ballpoint bg-accent text-accent-foreground"
-                    : "border-rule text-muted-foreground hover:border-ballpoint/50"
-                )}
-              >
-                {d}
-              </button>
-            ))}
+            {DIFFICULTIES.map((d) => {
+              const count =
+                d === "all"
+                  ? problems.length
+                  : problems.filter((p) => p.difficulty === d).length;
+              return (
+                <button
+                  key={d}
+                  type="button"
+                  onClick={() => setDifficulty(d)}
+                  aria-pressed={difficulty === d}
+                  className={cn(
+                    "rounded-full border px-3 py-1 font-mono text-xs transition-colors",
+                    difficulty === d
+                      ? "border-ballpoint bg-accent text-accent-foreground"
+                      : "border-rule text-muted-foreground hover:border-ballpoint/50"
+                  )}
+                >
+                  {d} <span className="opacity-60">{count}</span>
+                </button>
+              );
+            })}
           </div>
           <select
             value={pathway}
