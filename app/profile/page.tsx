@@ -37,7 +37,7 @@ export default async function ProfilePage() {
   ];
 
   return (
-    <div className="bg-ruled">
+    <div>
       <div className="mx-auto max-w-xl px-4 py-10">
         <header className="margin-rule pl-8 sm:pl-12">
           <h1 className="text-3xl font-bold tracking-tight">Profile</h1>

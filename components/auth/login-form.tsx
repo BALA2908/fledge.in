@@ -59,6 +59,15 @@ export function LoginForm() {
 
   return (
     <div className="space-y-4">
+      {next && (
+        <p className="rounded-md bg-accent/70 px-3 py-2 text-sm text-accent-foreground">
+          {next.startsWith("/dashboard")
+            ? "Your dashboard is personal — sign in and it opens."
+            : next.startsWith("/onboarding")
+              ? "Sign in first, then we'll set up your plan."
+              : "Sign in and you'll land right where you were headed."}
+        </p>
+      )}
       <GoogleButton next={next || undefined} />
       <div className="flex items-center gap-3" aria-hidden="true">
         <span className="h-px flex-1 bg-rule" />

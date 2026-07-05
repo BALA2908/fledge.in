@@ -69,7 +69,7 @@ export default async function DashboardPage() {
   const thisWeek = plan?.weeks[0];
 
   return (
-    <div className="bg-ruled">
+    <div>
       <div className="mx-auto max-w-4xl px-4 py-10">
         <header className="margin-rule pl-8 sm:pl-12">
           <p aria-hidden="true" className="mb-1 -rotate-2 font-hand text-xl text-margin/80">

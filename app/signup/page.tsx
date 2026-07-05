@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function SignupPage() {
   return (
-    <div className="bg-ruled">
+    <div>
       <div className="mx-auto flex min-h-[70dvh] max-w-md flex-col justify-center px-4 py-12">
         <div className="rounded-lg border border-rule bg-card p-6 shadow-sm sm:p-8">
           <p aria-hidden="true" className="-rotate-2 font-hand text-xl text-margin/80">

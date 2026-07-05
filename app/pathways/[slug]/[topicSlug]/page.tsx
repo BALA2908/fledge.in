@@ -42,7 +42,7 @@ export default async function TopicPage({ params }: Props) {
   const problems = await getProblemsForTopic(topic.slug);
 
   return (
-    <div className="bg-ruled">
+    <div>
       <div className="mx-auto max-w-4xl px-4 py-10">
         {/* breadcrumb */}
         <nav aria-label="Breadcrumb" className="font-mono text-xs text-muted-foreground">

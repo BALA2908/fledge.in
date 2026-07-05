@@ -30,7 +30,7 @@ export default async function ProblemPage({ params }: Props) {
   if (!problem || problem.kind !== "coding") notFound();
 
   return (
-    <div className="bg-ruled">
+    <div>
       <div className="mx-auto max-w-3xl px-4 py-10">
         <nav aria-label="Breadcrumb" className="font-mono text-xs text-muted-foreground">
           <Link href="/problems" className="hover:text-primary">

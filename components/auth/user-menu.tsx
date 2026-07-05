@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import type { User } from "@supabase/supabase-js";
 import { LayoutDashboard, LogOut, UserRound } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -16,6 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { createClient } from "@/lib/supabase/client";
+import { useUser } from "@/components/auth/use-user";
 
 /**
  * Client-side auth widget so public pages stay fully static — the session
@@ -23,30 +22,14 @@ import { createClient } from "@/lib/supabase/client";
  */
 export function UserMenu() {
   const router = useRouter();
-  const [user, setUser] = useState<User | null>(null);
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    const supabase = createClient();
-    supabase.auth.getUser().then(({ data }) => {
-      setUser(data.user ?? null);
-      setReady(true);
-    });
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-    });
-    return () => subscription.unsubscribe();
-  }, []);
+  const { user, ready } = useUser();
 
   // Reserve the space to avoid layout shift while checking.
-  if (!ready)
-    return <span aria-hidden="true" className="hidden h-8 w-16 sm:block" />;
+  if (!ready) return <span aria-hidden="true" className="h-8 w-16" />;
 
   if (!user)
     return (
-      <Button asChild size="sm" className="hidden sm:inline-flex">
+      <Button asChild size="sm">
         <Link href="/login">Sign in</Link>
       </Button>
     );

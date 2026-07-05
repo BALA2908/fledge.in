@@ -149,42 +149,37 @@ export default async function HomePage() {
               className="absolute -top-2 left-1/2 z-10 size-4 -translate-x-1/2 rounded-full border border-rule bg-margin/90 shadow-sm"
               aria-hidden="true"
             />
-            <article className="relative rounded-lg border border-rule bg-card bg-ruled p-6 pt-8 shadow-sm sm:p-10">
-              <div
-                className="absolute -left-2 top-24 hidden -rotate-6 sm:block"
-                aria-hidden="true"
-              >
-                <MarginNote>this part was hard —</MarginNote>
+            <article className="relative rounded-lg border border-rule bg-card p-6 pt-9 shadow-sm sm:p-10 sm:pt-10">
+              <div className="flex items-start justify-between gap-4">
+                <h2 className="text-2xl font-semibold">A note from Bala</h2>
+                <div className="hidden shrink-0 rotate-3 sm:block" aria-hidden="true">
+                  <MarginNote>read this twice —</MarginNote>
+                </div>
               </div>
-              <h2 className="text-2xl font-semibold">A note from Bala</h2>
               {/* Draft per PLAN.md §2B — Bala: edit until it sounds like you. */}
-              <div className="mt-5 space-y-4 leading-relaxed sm:pl-6">
+              <div className="mt-5 max-w-prose space-y-4 leading-relaxed">
                 <p>
-                  I studied at a college most recruiters have never heard of.
-                  No product company ever visited. In final year, friends from
-                  bigger colleges posted offer letters; I collected rejection
-                  mails and stopped opening LinkedIn. There were weeks I
-                  didn&apos;t want to leave my room.
+                  My college never made it to any recruiter&apos;s list. Final
+                  year: my feed filled with offer letters. My inbox filled with
+                  rejections. I stopped opening both.
                 </p>
                 <p>
-                  What changed things wasn&apos;t luck or talent. It was a map.
-                  I picked one path and stopped jumping between ten tutorials.
-                  I built small projects. I practiced problems daily. I applied
-                  off-campus everywhere, failed the same company&apos;s test
-                  more than once, and kept walking.
+                  What saved me wasn&apos;t talent. It was a map. One path
+                  instead of ten tutorials. One problem solved every day, even
+                  the bad days. One company&apos;s test failed twice — cleared
+                  the third time.
                 </p>
                 <p>
-                  Today I&apos;m a software engineer working on AI systems.
-                  I&apos;m not special. I just had a direction and refused to
-                  stop.
+                  I&apos;m a software engineer now. Not because I&apos;m
+                  special — because I had a direction and refused to stop
+                  walking.
                 </p>
-                <p>
-                  This site is that map — in plain English, with
-                  everything I wish someone had handed me in second year.
+                <p className="font-medium">
+                  This is that map. Take it, and walk faster than I did.
                 </p>
               </div>
-              <p className="mt-6 font-hand text-2xl sm:pl-6">— Bala</p>
-              <p className="text-sm text-muted-foreground sm:pl-6">
+              <p className="mt-6 font-hand text-2xl">— Bala</p>
+              <p className="text-sm text-muted-foreground">
                 Software engineer · from a college you haven&apos;t heard of
               </p>
             </article>

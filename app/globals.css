@@ -62,23 +62,26 @@
  * warnings). No gradients, no glassmorphism.
  */
 :root {
-  --background: #fcfbf7; /* page */
-  --foreground: #1c1e26; /* text ink */
-  --card: #ffffff;
-  --card-foreground: #1c1e26;
-  --popover: #ffffff;
-  --popover-foreground: #1c1e26;
+  /* Softer paper: warm, low-glare — closer to a real notebook page than
+     a white screen. (July 2026 feedback: the bright light theme read
+     backwards; text should never sit on loud rule lines.) */
+  --background: #f3f0e7; /* page — warm paper, not bright white */
+  --foreground: #23252d; /* text ink */
+  --card: #faf8f2; /* a sheet lying on the desk — slightly lighter */
+  --card-foreground: #23252d;
+  --popover: #faf8f2;
+  --popover-foreground: #23252d;
   --primary: #2547c9; /* ballpoint blue — the one accent */
-  --primary-foreground: #fcfbf7;
-  --secondary: #f2f0e9;
-  --secondary-foreground: #1c1e26;
-  --muted: #f2f0e9;
-  --muted-foreground: #5c6070;
-  --accent: #eef1fb; /* faint blue-ink wash for hover states */
+  --primary-foreground: #faf8f2;
+  --secondary: #eae6da;
+  --secondary-foreground: #23252d;
+  --muted: #eae6da;
+  --muted-foreground: #595e6b;
+  --accent: #e7ebf8; /* faint blue-ink wash for hover states */
   --accent-foreground: #2547c9;
-  --destructive: #d64545; /* margin red — red-pen moments only */
-  --border: #e3e7ef; /* ruled line */
-  --input: #e3e7ef;
+  --destructive: #c94040; /* margin red — red-pen moments only */
+  --border: #ddd8ca; /* ruled line — warm, quiet */
+  --input: #d5cfc0;
   --ring: #2547c9;
   --chart-1: #2547c9;
   --chart-2: #2e9e5b;
@@ -86,16 +89,16 @@
   --chart-4: #5c6070;
   --chart-5: #1c1e26;
   --radius: 0.5rem;
-  --sidebar: #fcfbf7;
-  --sidebar-foreground: #1c1e26;
+  --sidebar: #f3f0e7;
+  --sidebar-foreground: #23252d;
   --sidebar-primary: #2547c9;
-  --sidebar-primary-foreground: #fcfbf7;
-  --sidebar-accent: #eef1fb;
+  --sidebar-primary-foreground: #faf8f2;
+  --sidebar-accent: #e7ebf8;
   --sidebar-accent-foreground: #2547c9;
-  --sidebar-border: #e3e7ef;
+  --sidebar-border: #ddd8ca;
   --sidebar-ring: #2547c9;
-  --rule: #e3e7ef;
-  --margin: #d64545;
+  --rule: #ddd8ca;
+  --margin: #c94040;
   --ballpoint: #2547c9;
   --verdict: #2e9e5b;
   --code-surface: #14161c; /* code always feels like an IDE, both themes */
@@ -190,14 +193,16 @@
 }
 
 @layer utilities {
-  /* Faint ruled lines, like a notebook page. Line every 2rem. */
+  /* Faint ruled lines, like a notebook page. Line every 2rem.
+     Deliberately whisper-quiet: décor for heros and headers only —
+     never behind dense reading text. */
   .bg-ruled {
     background-image: repeating-linear-gradient(
       to bottom,
       transparent 0,
       transparent calc(2rem - 1px),
-      var(--rule) calc(2rem - 1px),
-      var(--rule) 2rem
+      color-mix(in srgb, var(--rule) 45%, transparent) calc(2rem - 1px),
+      color-mix(in srgb, var(--rule) 45%, transparent) 2rem
     );
   }
   /* The red double margin on the left of a content page. */

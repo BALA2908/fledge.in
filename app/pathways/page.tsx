@@ -41,7 +41,7 @@ export default async function PathwaysPage() {
               <Reveal key={p.slug} delay={i * 0.06}>
                 <Link
                   href={`/pathways/${p.slug}`}
-                  className="group flex h-full flex-col rounded-lg border border-rule bg-card bg-ruled p-6 shadow-sm transition-colors hover:border-ballpoint/50 sm:p-8"
+                  className="group flex h-full flex-col rounded-lg border border-rule bg-card p-6 shadow-sm transition-colors hover:border-ballpoint/50 sm:p-8"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <h2 className="text-2xl font-semibold transition-colors group-hover:text-primary">

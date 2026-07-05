@@ -50,7 +50,7 @@ export default async function PathwayPage({ params }: Props) {
   );
 
   return (
-    <div className="bg-ruled">
+    <div>
       <div className="mx-auto max-w-4xl px-4 py-12">
         <header className="margin-rule pl-8 sm:pl-12">
           <p aria-hidden="true" className="mb-2 -rotate-2 font-hand text-xl text-margin/80">

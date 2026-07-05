@@ -24,7 +24,7 @@ export default async function OnboardingPage() {
   }
 
   return (
-    <div className="bg-ruled">
+    <div>
       <div className="mx-auto max-w-2xl px-4 py-10">
         <OnboardingWizard pathways={details} diagnostics={diagnostics} />
       </div>

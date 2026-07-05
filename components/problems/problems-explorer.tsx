@@ -40,6 +40,16 @@ export function ProblemsExplorer({
     });
   }, [problems, query, difficulty, pathway, tag]);
 
+  const filtersActive =
+    query.trim() !== "" || difficulty !== "all" || pathway !== "all" || tag !== "all";
+
+  function resetFilters() {
+    setQuery("");
+    setDifficulty("all");
+    setPathway("all");
+    setTag("all");
+  }
+
   return (
     <div>
       {/* controls */}
@@ -109,6 +119,15 @@ export function ProblemsExplorer({
               </option>
             ))}
           </select>
+          {filtersActive && (
+            <button
+              type="button"
+              onClick={resetFilters}
+              className="rounded-full px-3 py-1 font-mono text-xs text-margin underline-offset-4 transition-colors hover:underline"
+            >
+              ✕ reset filters
+            </button>
+          )}
         </div>
       </div>
 
@@ -123,9 +142,15 @@ export function ProblemsExplorer({
             nothing matches that —
           </p>
           <p className="mt-2 text-sm text-muted-foreground">
-            Loosen a filter or clear the search. The problem you want is in
-            here somewhere.
+            The problem you want is in here somewhere.
           </p>
+          <button
+            type="button"
+            onClick={resetFilters}
+            className="mt-4 rounded-md border border-ballpoint/40 px-4 py-2 text-sm font-medium text-primary transition-colors hover:border-ballpoint hover:bg-accent"
+          >
+            Reset all filters
+          </button>
         </div>
       ) : (
         <ul className="mt-4 divide-y divide-rule rounded-lg border border-rule bg-card">

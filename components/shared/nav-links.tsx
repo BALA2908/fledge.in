@@ -2,21 +2,30 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useUser } from "@/components/auth/use-user";
 import { cn } from "@/lib/utils";
 
 const nav = [
   { href: "/pathways", label: "Pathways" },
   { href: "/problems", label: "Problems" },
   { href: "/speak", label: "Speak" },
-  { href: "/dashboard", label: "Dashboard" },
+  { href: "/dashboard", label: "Dashboard", authed: true },
 ];
 
-/** Header nav with a pen-underline on the section you're in. */
+/**
+ * Header nav with a pen-underline on the section you're in.
+ * Dashboard only shows once you're signed in — a guest tapping it and a
+ * guest tapping "Sign in" used to land on the same page, which read as
+ * a bug rather than a feature.
+ */
 export function NavLinks() {
   const pathname = usePathname();
+  const { user } = useUser();
   return (
     <nav className="ml-auto flex items-center gap-0.5 overflow-x-auto sm:gap-1">
-      {nav.map((item) => {
+      {nav
+        .filter((item) => !item.authed || user)
+        .map((item) => {
         const active =
           pathname === item.href || pathname.startsWith(item.href + "/");
         return (
