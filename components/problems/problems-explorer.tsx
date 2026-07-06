@@ -1,14 +1,18 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { CheckCircle2, Search } from "lucide-react";
+import { CheckCircle2, CircleDashed, CircleDot, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { DifficultyBadge } from "@/components/shared/difficulty-badge";
+import { useUser } from "@/components/auth/use-user";
+import { createClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 import type { ProblemListItem } from "@/lib/content";
 
 const DIFFICULTIES = ["all", "easy", "medium", "hard"] as const;
+
+type Status = "solved" | "attempted";
 
 export function ProblemsExplorer({
   problems,
@@ -17,11 +21,33 @@ export function ProblemsExplorer({
   problems: ProblemListItem[];
   pathways: { slug: string; title: string }[];
 }) {
+  const { user } = useUser();
   const [query, setQuery] = useState("");
   const [difficulty, setDifficulty] =
     useState<(typeof DIFFICULTIES)[number]>("all");
   const [pathway, setPathway] = useState<string>("all");
   const [tag, setTag] = useState<string>("all");
+  const [statuses, setStatuses] = useState<Record<string, Status>>({});
+
+  // Real solved/attempted status once signed in (RLS: own rows only).
+  useEffect(() => {
+    if (!user) {
+      setStatuses({});
+      return;
+    }
+    const supabase = createClient();
+    supabase
+      .from("submissions")
+      .select("problem_id, verdict")
+      .then(({ data }) => {
+        const next: Record<string, Status> = {};
+        for (const row of data ?? []) {
+          if (row.verdict === "accepted") next[row.problem_id] = "solved";
+          else if (!next[row.problem_id]) next[row.problem_id] = "attempted";
+        }
+        setStatuses(next);
+      });
+  }, [user]);
 
   const allTags = useMemo(
     () => [...new Set(problems.flatMap((p) => p.tags))].sort(),
@@ -160,11 +186,22 @@ export function ProblemsExplorer({
                 href={`/problems/${p.slug}`}
                 className="group flex items-center gap-3 px-4 py-3 transition-colors hover:bg-accent"
               >
-                {/* solved-status placeholder until Phase 3 auth */}
-                <CheckCircle2
-                  aria-hidden="true"
-                  className="size-4 shrink-0 text-rule"
-                />
+                {statuses[p.id] === "solved" ? (
+                  <CheckCircle2
+                    aria-label="Solved"
+                    className="size-4 shrink-0 text-verdict"
+                  />
+                ) : statuses[p.id] === "attempted" ? (
+                  <CircleDot
+                    aria-label="Attempted"
+                    className="size-4 shrink-0 text-ballpoint"
+                  />
+                ) : (
+                  <CircleDashed
+                    aria-hidden="true"
+                    className="size-4 shrink-0 text-rule"
+                  />
+                )}
                 <span className="min-w-0 flex-1">
                   <span className="block truncate text-sm font-medium group-hover:text-primary">
                     {p.title}

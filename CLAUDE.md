@@ -50,4 +50,4 @@ NEXT_PUBLIC_SUPABASE_URL · NEXT_PUBLIC_SUPABASE_ANON_KEY ·
 SUPABASE_SERVICE_ROLE_KEY (server only) · SENTRY_DSN (Phase 6)
 
 ## Current phase
-Phase 3 complete: Supabase auth (email + Google button), middleware-protected routes, 5-step onboarding with diagnostic + plan preview, lib/plan generatePlan v1 (pure, 10 unit tests), dashboard shell + profile; trigger verified. Bala manual: enable Google provider + Site URL in Supabase dashboard — next: Phase 4, coding workspace + judge   ← update this line as you progress
+Phase 4 code complete + tested (judge lib 15 tests, Monaco workspace, /api/run + /api/submit, MCQ cards, solved status) BUT BLOCKED on execution backend: public emkc.org Piston went whitelist-only 2026-02-15 (401). runJudge reads PISTON_URL env — needs a self-hosted Piston instance (or approved endpoint) to go live. Bala decision pending on backend host — next: stand up Piston, then Phase 5   ← update this line as you progress

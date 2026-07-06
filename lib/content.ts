@@ -81,6 +81,7 @@ export type TopicDetail = {
 };
 
 export type ProblemListItem = {
+  id: string;
   slug: string;
   title: string;
   difficulty: "easy" | "medium" | "hard";
@@ -210,7 +211,7 @@ export async function getProblemsForTopic(
   const supabase = createClient();
   const { data, error } = await supabase
     .from("problems_public")
-    .select("slug, title, difficulty, kind, tags, topic_slugs, pathway_slugs")
+    .select("id, slug, title, difficulty, kind, tags, topic_slugs, pathway_slugs")
     .contains("topic_slugs", [topicSlug])
     .eq("kind", "coding")
     .order("difficulty");
@@ -224,6 +225,13 @@ export type ProblemDetail = ProblemListItem & {
   output_format_md: string | null;
   constraints_md: string | null;
   sample_tests: { input: string; output: string }[] | null;
+  starter_code: Record<string, string> | null;
+  mcq: {
+    question_md: string;
+    options: string[];
+    correct_index: number;
+    explanation_md: string;
+  } | null;
   hints: string[];
   time_limit_ms: number;
 };
@@ -233,7 +241,7 @@ export async function getProblem(slug: string): Promise<ProblemDetail | null> {
   const { data, error } = await supabase
     .from("problems_public")
     .select(
-      "slug, title, difficulty, kind, tags, topic_slugs, pathway_slugs, statement_md, input_format_md, output_format_md, constraints_md, sample_tests, hints, time_limit_ms"
+      "id, slug, title, difficulty, kind, tags, topic_slugs, pathway_slugs, statement_md, input_format_md, output_format_md, constraints_md, sample_tests, starter_code, mcq, hints, time_limit_ms"
     )
     .eq("slug", slug)
     .maybeSingle();
@@ -272,7 +280,7 @@ export async function getCodingProblems(): Promise<ProblemListItem[]> {
   const supabase = createClient();
   const { data, error } = await supabase
     .from("problems_public")
-    .select("slug, title, difficulty, kind, tags, topic_slugs, pathway_slugs")
+    .select("id, slug, title, difficulty, kind, tags, topic_slugs, pathway_slugs")
     .eq("kind", "coding")
     .order("title");
   if (error) throw new Error(`getCodingProblems: ${error.message}`);
