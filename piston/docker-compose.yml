@@ -1,0 +1,23 @@
+# Self-hosted Piston — the code-execution engine for Fledge's judge.
+# The public emkc.org API went whitelist-only (2026-02-15), so we run our own.
+#
+#   docker compose up -d
+#   ./install-runtimes.sh        # installs the 4 languages
+#
+# Piston needs --privileged: it sandboxes each run with isolate/nsjail
+# (cgroups + namespaces), which requires elevated container permissions.
+services:
+  piston:
+    image: ghcr.io/engineer-man/piston:latest
+    container_name: fledge-piston
+    restart: unless-stopped
+    privileged: true
+    ports:
+      - "2000:2000"
+    volumes:
+      - piston-packages:/piston/packages
+    tmpfs:
+      - /tmp:exec,size=256M
+
+volumes:
+  piston-packages:
