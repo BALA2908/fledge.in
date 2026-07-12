@@ -1,6 +1,6 @@
 /**
  * Judge language registry — the four supported languages mapped to Piston
- * runtimes. Versions are PINNED (checked against GET /runtimes on
+ * runtimes. Versions are PINNED to our self-hosted instance (confirmed live
  * 2026-07-06) so a Piston upgrade never silently changes behaviour.
  */
 
@@ -8,7 +8,7 @@ export const LANGUAGES = {
   python: {
     label: "Python",
     piston: "python",
-    version: "3.10.0",
+    version: "3.12.0",
     file: "main.py",
     monaco: "python",
   },
@@ -30,7 +30,7 @@ export const LANGUAGES = {
   javascript: {
     label: "JavaScript",
     piston: "javascript",
-    version: "18.15.0",
+    version: "20.11.1",
     file: "main.js",
     monaco: "javascript",
   },
@@ -55,3 +55,12 @@ export const PISTON_EXECUTE_URL = `${PISTON_BASE}/execute`;
 
 /** Code size cap (PLAN.md §3): reject anything bigger before it leaves the browser. */
 export const MAX_CODE_BYTES = 64 * 1024;
+
+/**
+ * Piston enforces a max run_timeout (our instance: 3000ms). A problem's
+ * declared time_limit_ms is clamped to this. Safe: every reference solution
+ * runs in well under 200ms, and the brute-force cases that SHOULD time out
+ * blow past 3s as surely as they blow past 4–5s. Raise the container's
+ * limit AND this env together if you ever need longer runs.
+ */
+export const PISTON_MAX_RUN_MS = Number(process.env.PISTON_MAX_RUN_MS ?? 3000);

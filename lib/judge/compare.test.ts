@@ -115,4 +115,37 @@ describe("judgeOutcome", () => {
     );
     expect(o.verdict).toBe("accepted");
   });
+
+  it("maps a compile failure surfaced in the RUN stage to CE for compiled langs", () => {
+    // Our Piston build reports javac errors under run (no compile stage).
+    const o = judgeOutcome(
+      {
+        run: {
+          code: 1,
+          stdout: "",
+          stderr: "Main.java:1: error: <identifier> expected\n1 error\nerror: compilation failed\n",
+        },
+      },
+      groups,
+      { compiled: true }
+    );
+    expect(o.verdict).toBe("compile_error");
+  });
+
+  it("a genuine runtime crash (no compiler signature) stays RE for compiled langs", () => {
+    const o = judgeOutcome(
+      { run: { code: 1, stdout: "", stderr: "Exception in thread \"main\" java.lang.NullPointerException" } },
+      groups,
+      { compiled: true }
+    );
+    expect(o.verdict).toBe("runtime_error");
+  });
+
+  it("interpreted-language errors stay RE (no compiled flag)", () => {
+    const o = judgeOutcome(
+      { run: { code: 1, stdout: "", stderr: "Traceback ... error: bad" } },
+      groups
+    );
+    expect(o.verdict).toBe("runtime_error");
+  });
 });

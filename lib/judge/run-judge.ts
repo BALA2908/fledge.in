@@ -1,4 +1,9 @@
-import { LANGUAGES, PISTON_EXECUTE_URL, type LanguageKey } from "./languages";
+import {
+  LANGUAGES,
+  PISTON_EXECUTE_URL,
+  PISTON_MAX_RUN_MS,
+  type LanguageKey,
+} from "./languages";
 import { mergeTests, type TestCase } from "./compare";
 import { judgeOutcome, type JudgeOutcome, type PistonResponse } from "./verdict";
 
@@ -24,6 +29,7 @@ export async function runJudge({
 }): Promise<RunJudgeResult> {
   const config = LANGUAGES[language];
   const { stdin, expectedGroups } = mergeTests(tests);
+  const runTimeout = Math.min(timeLimitMs, PISTON_MAX_RUN_MS);
 
   let response: Response;
   try {
@@ -35,11 +41,12 @@ export async function runJudge({
         version: config.version,
         files: [{ name: config.file, content: code }],
         stdin,
-        run_timeout: timeLimitMs,
-        compile_timeout: 15000,
+        run_timeout: runTimeout,
+        // Piston caps compile_timeout at 10s; stay at the ceiling.
+        compile_timeout: 10000,
       }),
       // The judge call itself should never hang a serverless function.
-      signal: AbortSignal.timeout(timeLimitMs + 25000),
+      signal: AbortSignal.timeout(runTimeout + 25000),
     });
   } catch {
     return {
@@ -67,7 +74,8 @@ export async function runJudge({
   const piston = (await response.json()) as PistonResponse & {
     run?: { wall_time?: number; cpu_time?: number };
   };
-  const outcome = judgeOutcome(piston, expectedGroups);
+  const compiled = language === "java" || language === "cpp";
+  const outcome = judgeOutcome(piston, expectedGroups, { compiled });
   const runtimeMs =
     typeof piston.run?.wall_time === "number"
       ? Math.round(piston.run.wall_time)
