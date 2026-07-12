@@ -11,6 +11,7 @@ export const LANGUAGES = {
     version: "3.12.0",
     file: "main.py",
     monaco: "python",
+    judge0: 71, // Python 3.8.1 (Judge0 CE)
   },
   java: {
     label: "Java",
@@ -19,6 +20,7 @@ export const LANGUAGES = {
     // Piston runs the file as-is; our starter code uses `public class Main`.
     file: "Main.java",
     monaco: "java",
+    judge0: 62, // OpenJDK 13 (Judge0 CE) — also expects `public class Main`
   },
   cpp: {
     label: "C++",
@@ -26,6 +28,7 @@ export const LANGUAGES = {
     version: "10.2.0",
     file: "main.cpp",
     monaco: "cpp",
+    judge0: 54, // GCC 9.2 (Judge0 CE), C++17-capable
   },
   javascript: {
     label: "JavaScript",
@@ -33,8 +36,25 @@ export const LANGUAGES = {
     version: "20.11.1",
     file: "main.js",
     monaco: "javascript",
+    judge0: 63, // Node.js 12 (Judge0 CE)
   },
 } as const;
+
+/**
+ * Which execution backend to use. Auto-picks judge0 when a RapidAPI key is
+ * present, else piston. Override explicitly with JUDGE_BACKEND.
+ */
+export type JudgeBackend = "piston" | "judge0";
+export const JUDGE_BACKEND: JudgeBackend =
+  (process.env.JUDGE_BACKEND as JudgeBackend | undefined) ??
+  (process.env.JUDGE0_KEY ? "judge0" : "piston");
+
+// Judge0 (RapidAPI CE by default). Language IDs can be overridden per
+// language via env if your instance ships newer runtimes.
+export const JUDGE0_URL =
+  process.env.JUDGE0_URL?.replace(/\/$/, "") ?? "https://judge0-ce.p.rapidapi.com";
+export const JUDGE0_KEY = process.env.JUDGE0_KEY ?? "";
+export const JUDGE0_HOST = process.env.JUDGE0_HOST ?? "judge0-ce.p.rapidapi.com";
 
 export type LanguageKey = keyof typeof LANGUAGES;
 

@@ -1,4 +1,5 @@
 import {
+  JUDGE_BACKEND,
   LANGUAGES,
   PISTON_EXECUTE_URL,
   PISTON_MAX_RUN_MS,
@@ -9,24 +10,36 @@ import { judgeOutcome, type JudgeOutcome, type PistonResponse } from "./verdict"
 
 /**
  * Executes a submission against a set of multi-test files with exactly ONE
- * Piston call (PLAN.md §3). Server-side only.
+ * backend call (PLAN.md §3). Server-side only. Dispatches to the configured
+ * backend (Piston or Judge0); both share the merge/compare/verdict pipeline.
  */
+
+export type RunJudgeArgs = {
+  language: LanguageKey;
+  code: string;
+  tests: TestCase[];
+  timeLimitMs: number;
+};
 
 export type RunJudgeResult =
   | ({ ok: true; runtimeMs: number | null } & JudgeOutcome)
   | { ok: false; status: number; message: string };
 
-export async function runJudge({
+export async function runJudge(args: RunJudgeArgs): Promise<RunJudgeResult> {
+  if (JUDGE_BACKEND === "judge0") {
+    // Imported lazily so the Piston path has zero dependency on it.
+    const { runJudge0 } = await import("./judge0");
+    return runJudge0(args);
+  }
+  return runPiston(args);
+}
+
+async function runPiston({
   language,
   code,
   tests,
   timeLimitMs,
-}: {
-  language: LanguageKey;
-  code: string;
-  tests: TestCase[];
-  timeLimitMs: number;
-}): Promise<RunJudgeResult> {
+}: RunJudgeArgs): Promise<RunJudgeResult> {
   const config = LANGUAGES[language];
   const { stdin, expectedGroups } = mergeTests(tests);
   const runTimeout = Math.min(timeLimitMs, PISTON_MAX_RUN_MS);
