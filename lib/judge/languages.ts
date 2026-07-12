@@ -84,3 +84,10 @@ export const MAX_CODE_BYTES = 64 * 1024;
  * limit AND this env together if you ever need longer runs.
  */
 export const PISTON_MAX_RUN_MS = Number(process.env.PISTON_MAX_RUN_MS ?? 3000);
+
+/**
+ * Optional shared secret. When set, runJudge sends it as an
+ * `Authorization: Bearer <secret>` header so only our backend can reach a
+ * self-hosted Piston that's fronted by a proxy checking that header.
+ */
+export const PISTON_SECRET = process.env.PISTON_SECRET ?? "";

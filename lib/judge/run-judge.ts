@@ -3,6 +3,7 @@ import {
   LANGUAGES,
   PISTON_EXECUTE_URL,
   PISTON_MAX_RUN_MS,
+  PISTON_SECRET,
   type LanguageKey,
 } from "./languages";
 import { mergeTests, type TestCase } from "./compare";
@@ -44,11 +45,14 @@ async function runPiston({
   const { stdin, expectedGroups } = mergeTests(tests);
   const runTimeout = Math.min(timeLimitMs, PISTON_MAX_RUN_MS);
 
+  const headers: Record<string, string> = { "Content-Type": "application/json" };
+  if (PISTON_SECRET) headers.Authorization = `Bearer ${PISTON_SECRET}`;
+
   let response: Response;
   try {
     response = await fetch(PISTON_EXECUTE_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers,
       body: JSON.stringify({
         language: config.piston,
         version: config.version,
