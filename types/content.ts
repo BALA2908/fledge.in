@@ -107,8 +107,22 @@ export const problemSchema = z.discriminatedUnion("kind", [
 ]);
 
 // ---------------------------------------------------------------------------
+// Speaking prompt JSON (content/speaking/*.json) — PLAN.md §4 + Phase 6
+// ---------------------------------------------------------------------------
+export const speakingPromptSchema = z.object({
+  slug: slugSchema,
+  kind: z.enum(["hr_question", "reading_passage"]),
+  title: z.string().min(1),
+  prompt_md: z.string().min(1),
+  tips: z.array(z.string()).default([]),
+  sort: z.number().int().default(0),
+  is_published: z.boolean().default(true),
+});
+
+// ---------------------------------------------------------------------------
 // Inferred TS types
 // ---------------------------------------------------------------------------
+export type SpeakingPromptContent = z.infer<typeof speakingPromptSchema>;
 export type ResourceContent = z.infer<typeof resourceSchema>;
 export type TopicContent = z.infer<typeof topicSchema>;
 export type ModuleContent = z.infer<typeof moduleSchema>;

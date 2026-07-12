@@ -1,0 +1,392 @@
+[
+  {
+    "slug": "tell-me-about-yourself",
+    "kind": "hr_question",
+    "title": "Tell me about yourself",
+    "prompt_md": "This is the first question in almost every interview, and it sets the tone. Don't recite your resume line by line. Use **Present → Past → Future**: start with where you are now (final-year CSE student, comfortable in Java), one line on what got you here (a project or skill you built), then where you want to go (the kind of role you're sitting for). Keep it to about 60 seconds. Say it in English — this is the panel's language, and a clean intro here buys you confidence for the rest of the round.",
+    "tips": [
+      "Skip your school marks and hometown — start from what you're doing now.",
+      "The panel is checking whether you can talk about yourself clearly, not your life story.",
+      "Practice it aloud till it fits 60 seconds without sounding memorised."
+    ],
+    "sort": 0,
+    "is_published": true
+  },
+  {
+    "slug": "walk-me-through-your-resume",
+    "kind": "hr_question",
+    "title": "Walk me through your resume",
+    "prompt_md": "Here the panel has your resume open and wants you to narrate it — not read it back. Go **most recent first** and use **Anchor → Highlight → Link**: name each item, give one line on what you actually did, then link it to the job you're sitting for. Spend most of your time on the two things you're proudest of and wave past the rest. Aim for about 90 seconds. Talking through your own work in English is exactly what your first week on the job asks of you, so treat this as practice, not a test.",
+    "tips": [
+      "Don't repeat what's already printed — add the story behind each line.",
+      "If a project is on the page, be ready to go three follow-ups deep on it.",
+      "Land on the item most relevant to this role, not the oldest one."
+    ],
+    "sort": 1,
+    "is_published": true
+  },
+  {
+    "slug": "tell-me-about-your-educational-background",
+    "kind": "hr_question",
+    "title": "Tell me about your educational background",
+    "prompt_md": "They want a quick picture of your education — degree, branch, and what stuck. Use **What → Why → So what**: what you studied (B.E. in ECE), why that stream still built useful skills, and one thing it gave you that matters here (say, a solid grip on C from first-year labs). Keep it to about 45 seconds. If your college isn't a big name, don't shrink — talk about what you did there, not the campus brand. Panels hire the student, not the college gate. Own it in plain English and move on.",
+    "tips": [
+      "A lesser-known college is not a weakness — never open with an apology for it.",
+      "Tie your branch to the role, even if they don't match on paper.",
+      "Keep it short; this is a warm-up, not the main event."
+    ],
+    "sort": 2,
+    "is_published": true
+  },
+  {
+    "slug": "what-do-you-do-outside-academics",
+    "kind": "hr_question",
+    "title": "What do you do outside academics?",
+    "prompt_md": "A softer question, usually to see the person behind the marks. Use **Interest → Habit → What it says about you**: name something real (cricket, sketching, weekend coding), show it's a genuine habit and not a one-time thing, then let it hint at a trait — discipline, curiosity, teamwork. Keep it honest; a made-up hobby falls apart in one follow-up. About 30–40 seconds is plenty. Answering this smoothly in English shows you can hold an easy conversation, which is half of what any workplace runs on.",
+    "tips": [
+      "Pick something you can talk about for two minutes if they dig in.",
+      "'Reading and listening to music' is what everyone says — be more specific.",
+      "This is where they check culture fit, so let your personality show."
+    ],
+    "sort": 3,
+    "is_published": true
+  },
+  {
+    "slug": "how-would-your-friends-describe-you",
+    "kind": "hr_question",
+    "title": "How would your friends describe you?",
+    "prompt_md": "This is your strengths question in disguise — but coming from someone else's mouth, so it needs proof. Use **Trait → Moment → Proof**: pick two or three words friends actually use (dependable, calm under pressure), then one small moment that shows it (you're the one the group calls the night before a deadline). Don't list ten adjectives — nobody believes a wall of praise. Keep it to 40 seconds. The panel is checking self-awareness and whether you can speak about yourself in warm, plain English without either boasting or mumbling.",
+    "tips": [
+      "Two or three traits with proof beats ten with none.",
+      "Avoid words you can't back with an example.",
+      "Pick traits that quietly match the job — a support role wants patience, a dev role wants curiosity."
+    ],
+    "sort": 4,
+    "is_published": true
+  },
+  {
+    "slug": "what-is-your-greatest-strength",
+    "kind": "hr_question",
+    "title": "What is your greatest strength?",
+    "prompt_md": "Pick one strength that matters for the role and prove it. Use **Claim → Example → Result**: name the strength (I break big problems into small steps), give one concrete moment (our project stalled, so I split it into three modules and took the hardest one), and the result (we shipped on time). One strength told well beats five listed flat. Keep it to about 60 seconds. Saying this in English, with a clear example, uses the same muscle a standup or a client call needs — so this drill pays off twice.",
+    "tips": [
+      "One strength with a story lands harder than a list.",
+      "Choose a strength the job description actually asks for.",
+      "End on the result — that's the part they remember."
+    ],
+    "sort": 5,
+    "is_published": true
+  },
+  {
+    "slug": "what-is-your-biggest-weakness",
+    "kind": "hr_question",
+    "title": "What is your biggest weakness?",
+    "prompt_md": "The trap here is a fake weakness ('I'm a perfectionist'). Panels have heard it a thousand times. Use **Weakness → Impact → Fix**: name a real, non-fatal one (I used to over-plan and start late), admit its small cost honestly, then show the fix you're already working on (now I get a rough version down first and improve it). Never pick a weakness that's core to the job. Keep it to 45 seconds. Answering an uncomfortable question calmly in English is exactly what the panel is testing — not whether you're flawless.",
+    "tips": [
+      "'I'm a perfectionist' is an instant red flag — they've heard it too often.",
+      "Show the fix in progress; a weakness with no action reads as no self-awareness.",
+      "Never name a weakness that's central to the role you want."
+    ],
+    "sort": 6,
+    "is_published": true
+  },
+  {
+    "slug": "a-skill-youre-proud-of",
+    "kind": "hr_question",
+    "title": "Tell me about a skill you're proud of",
+    "prompt_md": "This lets you pick your own ground, so choose a skill the role rewards. Use **Skill → How you built it → Where it showed up**: name it (writing clean, readable code), a line on how you got good (rewriting old assignments until they were tidy), and one place it paid off (a teammate could pick up my module without asking me). Keep it to about 50 seconds. Talking about how you learned something, in clear English, tells the panel you can keep learning on the job — which matters more than the skill itself.",
+    "tips": [
+      "Pick a skill you can demo or discuss deeply if asked.",
+      "Include how you built it — panels value learners over naturals.",
+      "Match the skill to what the team does day to day."
+    ],
+    "sort": 7,
+    "is_published": true
+  },
+  {
+    "slug": "what-makes-you-different",
+    "kind": "hr_question",
+    "title": "What makes you different from other candidates?",
+    "prompt_md": "Everyone in the queue has similar marks and a similar resume, so don't repeat those. Use **Combination → Proof → Fit**: name a mix that's yours (I code, and I can explain it to non-tech people), back it with a moment (I presented our project to the management panel and they got it), and tie it to their need. Don't run down other candidates — stand on your own ground. Keep it to 45 seconds. This is a confidence question; saying it steadily in English, without arrogance, is exactly the balance the panel wants to see.",
+    "tips": [
+      "Never put down other candidates — it reads as insecurity.",
+      "A rare *combination* of ordinary skills is often your real edge.",
+      "Back the claim with one specific moment, not a slogan."
+    ],
+    "sort": 8,
+    "is_published": true
+  },
+  {
+    "slug": "how-do-you-handle-criticism",
+    "kind": "hr_question",
+    "title": "How do you handle criticism?",
+    "prompt_md": "They want to know if you can take correction without going quiet or defensive. Use **Situation → Response → Change**: a time you got real feedback (a senior said my code had no comments), how you took it (asked what good looked like instead of arguing), and what changed after (I started documenting as I wrote). Pick genuine feedback, not a humble-brag. Keep it to 45 seconds. Staying calm while someone points out a flaw — and saying so clearly in English — is a daily reality at work, so this one's worth rehearsing.",
+    "tips": [
+      "Show you listened first and reacted second.",
+      "Pick feedback you actually acted on, with a visible change.",
+      "Don't sound wounded — the panel is checking maturity, not the mistake."
+    ],
+    "sort": 9,
+    "is_published": true
+  },
+  {
+    "slug": "why-should-we-hire-you",
+    "kind": "hr_question",
+    "title": "Why should we hire you?",
+    "prompt_md": "This is your closing pitch, so be direct. Use **Their need → Your match → Proof**: state what the role needs (someone who picks up Java fast and works well in a team), show you fit (I've built two projects in Java and led one), and give a quick proof point. Don't beg and don't oversell — speak like you'd be an easy yes. Keep it to about 45 seconds. Making a clear, confident case for yourself in English is a skill you'll use in every appraisal and client meeting, so treat this as the real thing.",
+    "tips": [
+      "Answer their need, not a generic 'I'm hardworking'.",
+      "Confidence, not desperation — you're offering value, not asking a favour.",
+      "Have one proof point ready so it doesn't sound like a claim."
+    ],
+    "sort": 10,
+    "is_published": true
+  },
+  {
+    "slug": "why-do-you-want-to-work-here",
+    "kind": "hr_question",
+    "title": "Why do you want to work here?",
+    "prompt_md": "This checks whether you actually looked them up or applied to everyone. Use **Research → Reason → Fit**: one real thing you learned about them (they build payment systems used across India), why that pulls you (I want to work on software real people depend on), and how you fit. Never say 'good company, good package' — that fits any firm. Keep it to 40 seconds. Speaking specifically, in English, about why *this* place shows you can prepare and communicate — two things every team quietly values.",
+    "tips": [
+      "Do 15 minutes of homework on them before the interview — it shows instantly.",
+      "Avoid answers that would fit any company on earth.",
+      "Salary is a real reason, but never make it your headline here."
+    ],
+    "sort": 11,
+    "is_published": true
+  },
+  {
+    "slug": "why-did-you-choose-software",
+    "kind": "hr_question",
+    "title": "Why did you choose software?",
+    "prompt_md": "They want the honest reason you're here, not a movie line. Use **Spark → Effort → Direction**: what first pulled you in (my first working program felt like magic), the effort that proved it wasn't a phase (I kept building small tools after class), and where you're headed now. Keep it real — 'good salary' alone sounds thin. About 40 seconds. Explaining your own motivation clearly in English tells the panel you've thought this choice through, and that you can put a reason into words — which is most of what technical discussion is.",
+    "tips": [
+      "A genuine small story beats a grand mission statement.",
+      "Show effort you put in unpaid and unasked — that proves real interest.",
+      "Money can be part of it, but it can't be the whole answer."
+    ],
+    "sort": 12,
+    "is_published": true
+  },
+  {
+    "slug": "what-do-you-know-about-our-company",
+    "kind": "hr_question",
+    "title": "What do you know about our company?",
+    "prompt_md": "A straight test of whether you prepared. Use **Facts → What stood out → Why it matters to you**: two or three real facts (what they build, roughly how big, a recent product or client), one thing that genuinely caught your eye, and why it connects to you. Don't recite their whole About page. Keep it to 40 seconds. If you blank here, it reads as 'I applied everywhere' — so a few honest, specific lines in clear English put you ahead of most of the queue.",
+    "tips": [
+      "Two or three real facts beat a memorised paragraph.",
+      "Mention something recent — a product, a client, a news line — to show fresh reading.",
+      "Connect one fact to why you applied, so it's about fit, not trivia."
+    ],
+    "sort": 13,
+    "is_published": true
+  },
+  {
+    "slug": "what-motivates-you",
+    "kind": "hr_question",
+    "title": "What motivates you?",
+    "prompt_md": "They're checking what keeps you going when work gets dull, because a lot of it will. Use **Driver → Example → Pattern**: name what actually pushes you (seeing something I built get used), one moment it showed (a junior cleared a topic from my notes), and that it's a repeating pattern, not a one-off. Skip the flat 'I'm passionate' — show it instead. Keep it to 40 seconds. Naming your own drivers plainly in English signals self-awareness, and that's a trait teams lean on more than raw talent.",
+    "tips": [
+      "Show motivation with a moment; 'I'm passionate' proves nothing.",
+      "Pick a driver that survives boring days, not just exciting ones.",
+      "Keep it work-relatable — link it to the kind of job you're after."
+    ],
+    "sort": 14,
+    "is_published": true
+  },
+  {
+    "slug": "tell-me-about-your-final-year-project",
+    "kind": "hr_question",
+    "title": "Tell me about your final-year project",
+    "prompt_md": "Your project is home ground — own it. Use **Context → Role → Tech → Result**: the problem you solved (attendance was still on paper), your exact role (I built the backend and the database), the tech and why (Spring Boot, because the team knew Java), and the outcome (marking dropped to seconds). Say *I* for your part and *we* for the team, honestly. Keep it to about 90 seconds. Explaining your own build clearly in English is the single most useful interview skill — every follow-up round grows from how well you tell this.",
+    "tips": [
+      "Be honest about your part — say 'I' for your work, 'we' for the team's.",
+      "Know your project cold; expect three or four follow-up questions.",
+      "Lead with the problem it solved, not the list of technologies."
+    ],
+    "sort": 15,
+    "is_published": true
+  },
+  {
+    "slug": "explain-a-technical-concept-simply",
+    "kind": "hr_question",
+    "title": "Explain a technical concept in simple terms",
+    "prompt_md": "They pick a concept (say, an API or a database index) to see if you truly get it — you can only simplify what you understand. Use **Plain definition → Everyday analogy → Quick example**: one clean sentence of what it is, a real-world comparison (an API is like a waiter carrying your order to the kitchen), then a concrete case. Don't hide behind jargon. Keep it to about 60 seconds. Turning something technical into plain English is exactly what you'll do for clients and managers, so this is a real on-the-job skill, not a party trick.",
+    "tips": [
+      "If you can't explain it simply, the panel guesses you don't fully get it.",
+      "One good analogy is worth a paragraph of textbook lines.",
+      "Check in — 'does that make sense?' — like you would with a real listener."
+    ],
+    "sort": 16,
+    "is_published": true
+  },
+  {
+    "slug": "hardest-bug-you-fixed",
+    "kind": "hr_question",
+    "title": "What's the hardest bug you've fixed?",
+    "prompt_md": "This shows how you think when things break, which is most of real work. Use **STAR**: the situation (the app crashed only on some phones), the task (find it before the demo), the action (how you narrowed it down, step by step), and the result (a null value nobody had checked). Focus on your *method*, not just the fix. Keep it to about 75 seconds. Walking a listener through your debugging out loud, in English, is exactly what a senior asks you to do at your desk — so the narration matters as much as the fix.",
+    "tips": [
+      "The panel cares about your method more than the bug itself.",
+      "Show how you isolated the cause, step by step — don't jump to the answer.",
+      "End with what you changed so it wouldn't happen again."
+    ],
+    "sort": 17,
+    "is_published": true
+  },
+  {
+    "slug": "what-would-you-change-about-your-project",
+    "kind": "hr_question",
+    "title": "If you rebuilt your project today, what would you change?",
+    "prompt_md": "This checks whether you can look back at your own work honestly — seniors do this constantly. Use **What → Why → What you learned**: one thing you'd change (I'd add proper error handling), why the first version missed it (we rushed the deadline), and what the gap taught you. Don't say 'nothing, it was perfect' — that reads as no growth. Keep it to 50 seconds. Critiquing your own build calmly in English shows maturity and that you keep raising your own bar, which is exactly what a team wants from a fresher.",
+    "tips": [
+      "'Nothing, it was perfect' signals you've stopped learning — avoid it.",
+      "Pick a real, specific change, not a vague 'make it better'.",
+      "Frame it as a lesson, not a regret."
+    ],
+    "sort": 18,
+    "is_published": true
+  },
+  {
+    "slug": "why-did-you-choose-that-tech-stack",
+    "kind": "hr_question",
+    "title": "Why did you choose that tech stack?",
+    "prompt_md": "Panels ask this to check whether you chose your tools or just followed a tutorial. Use **Options → Choice → Trade-off**: what you considered (Firebase or a SQL database), what you picked and why (SQL, because our data had clear relations), and one honest trade-off you accepted (slower to set up, but cleaner queries). 'It was in the tutorial' is a weak answer. Keep it to 45 seconds. Defending a technical decision in plain English — downside included — is how design discussions run at work, so this drill maps straight onto the job.",
+    "tips": [
+      "'The tutorial used it' shows you didn't decide — always give a real reason.",
+      "Naming a trade-off makes you sound experienced, not unsure.",
+      "You don't need the 'best' stack — you need a defensible one."
+    ],
+    "sort": 19,
+    "is_published": true
+  },
+  {
+    "slug": "a-time-you-failed",
+    "kind": "hr_question",
+    "title": "Tell me about a time you failed",
+    "prompt_md": "The trap is claiming you've never failed — that reads as either dishonest or untested. Use **STAR**: the situation (I took on the whole UI alone), the task, the action that fell short (I underestimated it and missed the internal deadline), and the result — what you did next and learned. Own it without drowning in it; land on the lesson. Keep it to about 75 seconds. Talking about a failure steadily in English, without excuses, is a maturity test — the panel is watching how you handle the hard question as much as the story itself.",
+    "tips": [
+      "'I've never failed' is the worst possible answer — everyone has.",
+      "Own your part fully; don't blame teammates or circumstances.",
+      "Spend the most time on what you learned and changed."
+    ],
+    "sort": 20,
+    "is_published": true
+  },
+  {
+    "slug": "a-conflict-in-your-team",
+    "kind": "hr_question",
+    "title": "Describe a conflict in your team",
+    "prompt_md": "They want to see whether you can disagree without a fight — teams live or die on this. Use **STAR**: the situation (two of us wanted different database designs), the task (ship one, keep the team together), the action (I suggested we list pros and cons instead of arguing), and the result (we picked one and moved on). Never paint yourself as the only sensible one. Keep it to about 75 seconds. Handling disagreement calmly, and describing it fairly in English, is precisely the workplace skill this question checks — so keep the tone as level as the story.",
+    "tips": [
+      "Show respect for the other person's view, even if you disagreed.",
+      "Focus on how it was resolved, not who was right.",
+      "Never describe a conflict where you lost your temper."
+    ],
+    "sort": 21,
+    "is_published": true
+  },
+  {
+    "slug": "a-tight-deadline",
+    "kind": "hr_question",
+    "title": "Tell me about a time you met a tight deadline",
+    "prompt_md": "This checks how you work under pressure without falling apart. Use **STAR**: the situation (three days to a demo, half the code left), the task, the action (how you prioritised, cut scope, and split work), and the result (delivered the core features on time). Show planning, not just staying up all night — panics don't scale. Keep it to about 70 seconds. Describing how you stayed organised under pressure, in clear English, is what a lead wants to hear before trusting you with a real release, so make the *method* the hero.",
+    "tips": [
+      "Show planning and prioritising, not just 'I worked all night'.",
+      "Be honest about what you cut — nobody finishes everything under pressure.",
+      "End on delivery, plus one thing you'd set up earlier next time."
+    ],
+    "sort": 22,
+    "is_published": true
+  },
+  {
+    "slug": "a-time-you-took-the-lead",
+    "kind": "hr_question",
+    "title": "Tell me about a time you took the lead",
+    "prompt_md": "You don't need a title to have led — this is about stepping up. Use **STAR**: the situation (our group project had no direction), the task, the action (I split the work and set a simple weekly check-in), and the result (we finished, and on time). If you weren't the official lead, say so — informal initiative counts. Keep it to about 70 seconds. Narrating how you moved a group forward, in English, tells the panel you can take ownership, which is the exact trait that turns a fresher into someone worth promoting.",
+    "tips": [
+      "Leadership without a title still counts — organising a group is enough.",
+      "Say 'we' for the win, 'I' for the initiative you took.",
+      "Show the effect: what happened because you stepped up?"
+    ],
+    "sort": 23,
+    "is_published": true
+  },
+  {
+    "slug": "a-time-you-learned-something-fast",
+    "kind": "hr_question",
+    "title": "Tell me about a time you learned something fast",
+    "prompt_md": "Freshers get hired on potential, so this matters — they need to know you can pick things up. Use **STAR**: the situation (the project needed a library I'd never touched), the task, the action (how you learned it — docs, a small test build, asking a senior), and the result (shipped the feature in a week). Show your *learning method*, since that's what repeats on the job. Keep it to about 65 seconds. Explaining how you teach yourself, in English, reassures the panel you'll survive the parts of the job nobody trained you for.",
+    "tips": [
+      "The panel is buying your learning speed — make the method clear.",
+      "Pick something genuinely new to you, not a small tweak.",
+      "Show the result worked, so it's learning that paid off."
+    ],
+    "sort": 24,
+    "is_published": true
+  },
+  {
+    "slug": "a-time-you-disagreed-with-a-senior",
+    "kind": "hr_question",
+    "title": "Tell me about a time you disagreed with someone senior",
+    "prompt_md": "This checks whether you can push back with respect — staying silent and blindly obeying are both wrong answers. Use **STAR**: the situation (a senior wanted a shortcut I felt would break later), the task, the action (I raised it with a reason, not just 'I don't like it'), and the result — whichever way it went, and what you took from it. Show you can accept a 'no' gracefully too. Keep it to about 70 seconds. Voicing a disagreement politely and clearly in English is a delicate real-work skill, and it's exactly what the panel is measuring here.",
+    "tips": [
+      "Bring a reason, not just a feeling — logic or data, not 'I didn't like it'.",
+      "Show you'd accept the final call even if it went against you.",
+      "Never make the senior sound foolish in your story."
+    ],
+    "sort": 25,
+    "is_published": true
+  },
+  {
+    "slug": "a-mistake-you-made",
+    "kind": "hr_question",
+    "title": "Tell me about a mistake you made",
+    "prompt_md": "Close cousin of the failure question, but this is about owning a specific slip. Use **STAR**: the situation (I pushed code without testing one case), the task, the action (how you caught it, fixed it, and told the team early), and the result (a check or habit you added). The gold here is that you *owned it fast* — hiding a mistake is the real red flag. Keep it to about 65 seconds. Admitting an error plainly in English, without spiralling, shows the panel you'll be honest when something breaks on the job — worth more than never breaking anything.",
+    "tips": [
+      "Owning it quickly matters more than the mistake being small.",
+      "Show you told someone early — hiding errors is the real problem.",
+      "End with the safeguard you added so it won't repeat."
+    ],
+    "sort": 26,
+    "is_published": true
+  },
+  {
+    "slug": "where-do-you-see-yourself-in-five-years",
+    "kind": "hr_question",
+    "title": "Where do you see yourself in five years?",
+    "prompt_md": "They're checking ambition and whether you'll stick around a while — not asking for a fixed prophecy. Use **Grow → Contribute → Stay open**: how you want to grow (from writing features to owning a module), what you'd give back (mentoring the next batch of freshers), and honesty that the exact path may shift. Don't say 'in your chair, sir' or 'running my own startup' — one's a joke, the other says you'll leave. Keep it to 45 seconds. A grounded answer in clear English signals you plan ahead, which quietly reassures the panel you're a safe bet.",
+    "tips": [
+      "Show growth *with them* — hint that you plan to stay and rise.",
+      "Avoid 'my own startup' — it tells them you'll leave soon.",
+      "Ambitious but realistic beats a grand five-year prophecy."
+    ],
+    "sort": 27,
+    "is_published": true
+  },
+  {
+    "slug": "do-you-have-any-questions-for-us",
+    "kind": "hr_question",
+    "title": "Do you have any questions for us?",
+    "prompt_md": "Never say 'no, you covered everything' — silence here reads as no interest. Always carry two or three real questions. Use **Role → Team → Growth**: something about the day-to-day (what does a first-year hire actually build?), the team (how do reviews and mentoring work?), and your growth (what does doing well in year one look like?). Skip salary and leave policy for now. Keep each question short. Asking sharp questions in English flips the room — you sound like a colleague weighing a decision, not just a candidate hoping to pass.",
+    "tips": [
+      "'No questions' is a wasted chance — always prepare two or three.",
+      "Ask about the work and growth, not perks, at this stage.",
+      "Good questions make you the one evaluating them too — that impression sticks."
+    ],
+    "sort": 28,
+    "is_published": true
+  },
+  {
+    "slug": "salary-and-relocation",
+    "kind": "hr_question",
+    "title": "What are your salary expectations, and can you relocate?",
+    "prompt_md": "For a fresher this is usually a fit check, not a hard negotiation. Use **Research → Range → Flexibility**: show you know the rough band for the role and city, give a reasonable range rather than one rigid number, and signal openness (for a first role, I care most about learning and the team). On relocation, be honest but positive — if you can move, say so plainly; if there's a real constraint, say that calmly too. Keep it to 40 seconds. Handling money and logistics questions steadily in English keeps you composed for the round that trips up nervous freshers.",
+    "tips": [
+      "Give a researched range, not one rigid number — and don't hide behind 'as per company norms' if you can help it.",
+      "For a first job, weight learning and role over squeezing the package.",
+      "Be honest on relocation; a false yes unravels at the offer stage."
+    ],
+    "sort": 29,
+    "is_published": true
+  }
+]

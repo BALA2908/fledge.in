@@ -1,0 +1,183 @@
+[
+  {
+    "slug": "first-day-at-a-job",
+    "kind": "reading_passage",
+    "title": "Your first day",
+    "prompt_md": "Your first day at a new job feels big, and that's normal. Nobody expects you to know everything yet. Show up on time, keep a notebook, and write down names and small tasks. When someone explains a tool, listen fully. If you forget a step, just ask again. Everyone on the team was new once. Be curious, be kind, and let the rest come with practice.",
+    "tips": [
+      "Read at a calm, steady pace — this one is meant to feel easy.",
+      "Take a full breath at each full stop; don't rush the short sentences."
+    ],
+    "sort": 0,
+    "is_published": true
+  },
+  {
+    "slug": "asking-good-questions",
+    "kind": "reading_passage",
+    "title": "Asking good questions",
+    "prompt_md": "A good question saves hours. Before you ask, try it once yourself and note what you expected and what actually happened. Then share that. Say I tried this, I saw this error, here is my guess. Now the other person can help you fast. Asking well is a skill, not a weakness. The people who ask clear questions are often the ones who grow the quickest.",
+    "tips": [
+      "Slow down slightly on 'expected' and 'actually' so each syllable lands.",
+      "Keep an even rhythm — short sentences read best when you don't hurry them."
+    ],
+    "sort": 1,
+    "is_published": true
+  },
+  {
+    "slug": "what-a-database-does",
+    "kind": "reading_passage",
+    "title": "What a database does",
+    "prompt_md": "A database is where an app keeps its information so nothing gets lost. Think of a huge, tidy table where every row is one record, like one student or one order. When you save your profile, it lands in a row. When you log in, the app looks up your row and checks it. Databases store, find, and update data quickly, even when millions of records sit inside.",
+    "tips": [
+      "'Database' has three clear beats — da-ta-base. Don't swallow the middle.",
+      "Pause after each full stop so the examples have room to breathe."
+    ],
+    "sort": 2,
+    "is_published": true
+  },
+  {
+    "slug": "teamwork",
+    "kind": "reading_passage",
+    "title": "How teamwork actually works",
+    "prompt_md": "Good teamwork isn't about being the smartest person in the room. It's about making the whole team faster. Share what you know, ask when you're stuck, and give credit freely. When a task is done, tell the others so nobody waits. Small habits like clear updates and kept promises build trust. And trust is what turns a group of strangers into a team that ships real work.",
+    "tips": [
+      "Hit the contractions naturally — 'isn't', 'you're' — the way you'd say them aloud.",
+      "Let the last sentence land slowly; it's the point of the whole passage."
+    ],
+    "sort": 3,
+    "is_published": true
+  },
+  {
+    "slug": "what-is-an-api",
+    "kind": "reading_passage",
+    "title": "What an API really is",
+    "prompt_md": "An API is a way for two programs to talk to each other. Picture a waiter at a restaurant. You don't walk into the kitchen; you tell the waiter what you want, and food comes back. The API is that waiter. Your app asks for the weather or a payment, and another system sends the answer back in a neat format. You never see the kitchen, and you don't need to.",
+    "tips": [
+      "Say the letters clearly: A-P-I, three separate sounds, not 'appy'.",
+      "The waiter image is the heart of it — read those lines a touch slower."
+    ],
+    "sort": 4,
+    "is_published": true
+  },
+  {
+    "slug": "time-management",
+    "kind": "reading_passage",
+    "title": "Managing your time",
+    "prompt_md": "Time management is really attention management. You have the same hours as everyone else; the trick is choosing what to do first. Each morning, pick the two tasks that matter most and start there, before email and messages pull you away. Work in focused blocks, then take a short break. Don't chase a perfect schedule. A simple plan you actually follow beats a beautiful one you ignore by noon.",
+    "tips": [
+      "Watch the semicolon in the second sentence — pause there, don't stop fully.",
+      "'Schedule' trips a lot of people; practise it once before the full read."
+    ],
+    "sort": 5,
+    "is_published": true
+  },
+  {
+    "slug": "version-control",
+    "kind": "reading_passage",
+    "title": "Why version control helps",
+    "prompt_md": "Version control is a safety net for your code. A tool like Git saves a snapshot every time you finish a piece of work, so you can always go back if something breaks. You write a short message describing the change, and that history tells the story of your project. When you work with others, everyone can edit the same code without writing over each other. Once you trust it, you'll code with far less fear.",
+    "tips": [
+      "This one runs longer — plan a breath at each comma in the middle sentences.",
+      "Keep 'version control' crisp; don't blur it into one word."
+    ],
+    "sort": 6,
+    "is_published": true
+  },
+  {
+    "slug": "debugging-mindset",
+    "kind": "reading_passage",
+    "title": "The debugging mindset",
+    "prompt_md": "Debugging isn't a sign that you're bad at coding. Every engineer, at every level, spends real time hunting bugs. The mindset that helps is calm curiosity. Don't guess wildly; read the error message slowly, because it usually points near the problem. Check your assumptions one by one. Add a print statement, see what the value actually is, and compare it to what you expected. Most bugs are a small, honest mistake hiding in plain sight, waiting for patient eyes.",
+    "tips": [
+      "'Curiosity' and 'assumptions' are the tricky words — say them slowly, in beats.",
+      "Don't race the last sentence; the list of steps before it needs space."
+    ],
+    "sort": 7,
+    "is_published": true
+  },
+  {
+    "slug": "workplace-communication",
+    "kind": "reading_passage",
+    "title": "Communicating clearly at work",
+    "prompt_md": "Strong communication at work is less about big words and more about being clear. When you send an update, lead with the point, then add the details. If a task will be late, say so early, along with the new date and the reason. People respect honesty far more than a silent surprise. In meetings, speak in short sentences and pause so others can follow. The engineer who explains an idea simply is often trusted more than the one who sounds impressive but leaves everyone confused.",
+    "tips": [
+      "'Communication' is five beats — com-mu-ni-ca-tion. Practise it once first.",
+      "The final sentence is long; take a breath at the comma before 'is often trusted'."
+    ],
+    "sort": 8,
+    "is_published": true
+  },
+  {
+    "slug": "what-is-an-algorithm",
+    "kind": "reading_passage",
+    "title": "What an algorithm is",
+    "prompt_md": "An algorithm is just a clear set of steps to solve a problem. A recipe is an algorithm; so are the directions to a friend's house. In programming, we care about steps that a computer can follow exactly, with no confusion about what comes next. Two algorithms can reach the same answer, yet one finishes in a second while the other takes an hour. That difference is why we study them. Learning to think in careful, ordered steps will help you long after you forget any single language.",
+    "tips": [
+      "'Algorithm' is the star word here — al-go-rithm, four clean beats.",
+      "Slow down on 'a second while the other takes an hour' so the contrast is heard."
+    ],
+    "sort": 9,
+    "is_published": true
+  },
+  {
+    "slug": "learning-from-failure",
+    "kind": "reading_passage",
+    "title": "Learning from failure",
+    "prompt_md": "Failure feels heavy in the moment, and pretending it doesn't is dishonest. A rejected application or a failed test can sting for days. But a failure you study becomes a lesson, and a lesson repeated becomes a skill. After a setback, ask one calm question: what exactly went wrong, and what will I do differently next time? Write the answer down. The people who eventually get the offer are rarely the ones who never failed. They're the ones who failed, learned, and simply refused to stop walking.",
+    "tips": [
+      "Read the opening line gently — the feeling is named, then the passage moves forward.",
+      "Let the colon do its job: a slightly longer pause before the two questions."
+    ],
+    "sort": 10,
+    "is_published": true
+  },
+  {
+    "slug": "how-the-internet-sends-a-request",
+    "kind": "reading_passage",
+    "title": "How the internet sends a request",
+    "prompt_md": "When you open a website, a lot happens in under a second. Your browser first turns the site's name into a numeric address, the way a phone book turns a name into a number. Then it sends a request across many machines to the server that holds the page. The server reads your request, gathers the right data, and sends a response back in small packets. Your browser collects those packets, puts them in order, and paints the page on your screen. All of it travels thousands of kilometres and returns before you finish blinking.",
+    "tips": [
+      "'Numeric' and 'kilometres' are the multi-syllable ones — take them slowly.",
+      "This is a long passage; breathe at each full stop and don't chase the finish."
+    ],
+    "sort": 11,
+    "is_published": true
+  },
+  {
+    "slug": "giving-a-demo",
+    "kind": "reading_passage",
+    "title": "Giving a good demo",
+    "prompt_md": "Giving a demo is a skill you can practise, not a talent you're born with. Before you present, decide the one thing you want people to remember, and build everything around it. Open by saying what the project does and who it helps, in plain words, before you show a single screen. Move slowly, narrate what you're clicking, and don't panic if something breaks, because a calm recovery often impresses more than a flawless run. End by repeating your main point and inviting questions. A clear, confident demo can turn ordinary work into something people genuinely remember.",
+    "tips": [
+      "Long sentences here — plan your breaths at the commas, not mid-phrase.",
+      "'Genuinely' and 'confident' deserve full, unhurried syllables."
+    ],
+    "sort": 12,
+    "is_published": true
+  },
+  {
+    "slug": "cloud-in-plain-words",
+    "kind": "reading_passage",
+    "title": "The cloud, in plain words",
+    "prompt_md": "The cloud sounds mysterious, but the idea is simple. Instead of buying and maintaining your own expensive servers, you rent computing power from a company that owns enormous data centres. When your app suddenly gets a thousand new visitors, you can request more machines in minutes, and release them when the rush is over, paying only for what you use. This flexibility is why a small team can now run a service that reaches the whole country. Behind the friendly word cloud sit real buildings, thousands of computers, and a great deal of careful engineering.",
+    "tips": [
+      "'Mysterious' and 'enormous' are the stretch words — say them in slow beats.",
+      "The third sentence is long; take a breath after 'in minutes' and after 'over'."
+    ],
+    "sort": 13,
+    "is_published": true
+  },
+  {
+    "slug": "why-testing-matters",
+    "kind": "reading_passage",
+    "title": "Why testing matters",
+    "prompt_md": "Testing is how you prove your code does what you promised, not just what you hoped. When you write an automated test, you describe the expected result for a given input, and the computer checks it for you every time the code changes. This matters because software grows complicated quickly, and a fix in one corner can quietly break something far away. Good tests catch that breakage in seconds, long before a real user ever notices. They also let you change code with confidence, because a green result tells you the important behaviour still holds. Slow at first, testing soon becomes the habit that separates fragile projects from dependable, professional ones.",
+    "tips": [
+      "This is the hardest read — 'automated', 'complicated', 'behaviour' all need slow beats.",
+      "Breathe at every full stop; there are six sentences, so pace yourself across them.",
+      "Land the final sentence steadily — 'dependable, professional ones' is the payoff."
+    ],
+    "sort": 14,
+    "is_published": true
+  }
+]

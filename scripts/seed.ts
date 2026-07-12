@@ -16,8 +16,10 @@ import { createAdminClient } from "../lib/supabase/admin";
 import {
   pathwaySchema,
   problemSchema,
+  speakingPromptSchema,
   type PathwayContent,
   type ProblemContent,
+  type SpeakingPromptContent,
 } from "../types/content";
 
 const CONTENT_DIR = join(process.cwd(), "content");
@@ -184,14 +186,34 @@ async function seedProblem(
   if (error) fail(`upsert problem "${problem.slug}": ${error.message}`);
 }
 
+async function seedSpeakingPrompt(
+  supabase: ReturnType<typeof createAdminClient>,
+  prompt: SpeakingPromptContent
+) {
+  const { error } = await supabase.from("speaking_prompts").upsert(
+    {
+      slug: prompt.slug,
+      kind: prompt.kind,
+      title: prompt.title,
+      prompt_md: prompt.prompt_md,
+      tips: prompt.tips,
+      sort: prompt.sort,
+      is_published: prompt.is_published,
+    },
+    { onConflict: "slug" }
+  );
+  if (error) fail(`upsert speaking prompt "${prompt.slug}": ${error.message}`);
+}
+
 async function main() {
   const supabase = createAdminClient();
 
   const pathwayFiles = walkJsonFiles(join(CONTENT_DIR, "pathways"));
   const problemFiles = walkJsonFiles(join(CONTENT_DIR, "problems"));
+  const speakingFiles = walkJsonFiles(join(CONTENT_DIR, "speaking"));
 
   console.log(
-    `Seeding ${pathwayFiles.length} pathway file(s), ${problemFiles.length} problem file(s)…`
+    `Seeding ${pathwayFiles.length} pathway file(s), ${problemFiles.length} problem file(s), ${speakingFiles.length} speaking file(s)…`
   );
 
   // Validate everything first — no partial writes on a broken content set.
@@ -203,6 +225,21 @@ async function main() {
     file: f,
     data: loadAndValidate(f, problemSchema),
   }));
+  // Speaking files are ARRAYS of prompts.
+  const speakingPrompts = speakingFiles.flatMap((f) => {
+    const raw = JSON.parse(readFileSync(f, "utf-8"));
+    if (!Array.isArray(raw)) fail(`${relative(process.cwd(), f)} must be a JSON array of prompts`);
+    return (raw as unknown[]).map((entry) => {
+      const parsed = speakingPromptSchema.safeParse(entry);
+      if (!parsed.success)
+        fail(
+          `${relative(process.cwd(), f)} has an invalid prompt:\n${parsed.error.issues
+            .map((i) => `  at ${i.path.join(".") || "(root)"}: ${i.message}`)
+            .join("\n")}`
+        );
+      return { file: f, data: parsed.data };
+    });
+  });
 
   const slugCounts = new Map<string, number>();
   for (const { data } of problems) {
@@ -212,6 +249,12 @@ async function main() {
     if (count > 1) fail(`duplicate problem slug "${slug}" appears in ${count} files`);
   }
 
+  const speakingSlugs = new Map<string, number>();
+  for (const { data } of speakingPrompts)
+    speakingSlugs.set(data.slug, (speakingSlugs.get(data.slug) ?? 0) + 1);
+  for (const [slug, count] of speakingSlugs)
+    if (count > 1) fail(`duplicate speaking prompt slug "${slug}" appears ${count} times`);
+
   for (const { file, data } of pathways) {
     await seedPathway(supabase, data);
     console.log(`✅ pathway ${data.slug} (${relative(process.cwd(), file)})`);
@@ -220,6 +263,11 @@ async function main() {
     await seedProblem(supabase, data);
     console.log(`✅ problem ${data.slug} (${relative(process.cwd(), file)})`);
   }
+  for (const { data } of speakingPrompts) {
+    await seedSpeakingPrompt(supabase, data);
+  }
+  if (speakingPrompts.length > 0)
+    console.log(`✅ ${speakingPrompts.length} speaking prompts`);
 
   console.log("\nDone. Seeding is idempotent — run it again any time.");
 }

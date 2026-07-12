@@ -26,6 +26,39 @@ export type DashboardStats = {
   }[];
 };
 
+export type SpeakingStats = {
+  sessionsThisWeek: number;
+  avgWpm: number | null;
+  /** filler counts oldest→newest (last 10 sessions) for a trend sparkline */
+  fillerTrend: number[];
+  totalSessions: number;
+};
+
+export async function getSpeakingStats(
+  supabase: SupabaseClient,
+  userId: string
+): Promise<SpeakingStats> {
+  const { data } = await supabase
+    .from("speaking_sessions")
+    .select("wpm, filler_count, created_at")
+    .eq("user_id", userId)
+    .order("created_at", { ascending: false })
+    .limit(50);
+  const rows = data ?? [];
+  const weekAgo = Date.now() - 7 * 86_400_000;
+  const sessionsThisWeek = rows.filter(
+    (r) => new Date(r.created_at as string).getTime() >= weekAgo
+  ).length;
+  const wpms = rows.map((r) => Number(r.wpm)).filter((n) => n > 0);
+  const avgWpm =
+    wpms.length > 0 ? Math.round(wpms.reduce((a, b) => a + b, 0) / wpms.length) : null;
+  const fillerTrend = rows
+    .slice(0, 10)
+    .map((r) => Number(r.filler_count) || 0)
+    .reverse();
+  return { sessionsThisWeek, avgWpm, fillerTrend, totalSessions: rows.length };
+}
+
 export async function getCompletedTopicSlugs(
   supabase: SupabaseClient,
   userId: string

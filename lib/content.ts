@@ -252,6 +252,41 @@ export async function getProblem(slug: string): Promise<ProblemDetail | null> {
   return (data as ProblemDetail | null) ?? null;
 }
 
+export type SpeakingPrompt = {
+  id: string;
+  slug: string;
+  kind: "hr_question" | "reading_passage";
+  title: string;
+  prompt_md: string;
+  tips: string[];
+  sort: number;
+};
+
+export async function getSpeakingPrompts(): Promise<SpeakingPrompt[]> {
+  const supabase = createClient();
+  const { data, error } = await supabase
+    .from("speaking_prompts")
+    .select("id, slug, kind, title, prompt_md, tips, sort")
+    .eq("is_published", true)
+    .order("sort");
+  if (error) throw new Error(`getSpeakingPrompts: ${error.message}`);
+  return (data ?? []) as SpeakingPrompt[];
+}
+
+export async function getSpeakingPrompt(
+  slug: string
+): Promise<SpeakingPrompt | null> {
+  const supabase = createClient();
+  const { data, error } = await supabase
+    .from("speaking_prompts")
+    .select("id, slug, kind, title, prompt_md, tips, sort")
+    .eq("slug", slug)
+    .eq("is_published", true)
+    .maybeSingle();
+  if (error) throw new Error(`getSpeakingPrompt(${slug}): ${error.message}`);
+  return (data as SpeakingPrompt | null) ?? null;
+}
+
 export type DiagnosticMcq = {
   slug: string;
   module_slug: string;

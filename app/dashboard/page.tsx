@@ -3,7 +3,11 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getPathway } from "@/lib/content";
-import { getCompletedTopicSlugs, getDashboardStats } from "@/lib/progress";
+import {
+  getCompletedTopicSlugs,
+  getDashboardStats,
+  getSpeakingStats,
+} from "@/lib/progress";
 import { generatePlan } from "@/lib/plan/generate-plan";
 import { derivePaceFactor, paceReason, weekStatus } from "@/lib/plan/adapt";
 import type { CompanyType, Track } from "@/lib/plan/types";
@@ -41,10 +45,11 @@ export default async function DashboardPage() {
   ]);
   if (!planRow) redirect("/onboarding");
 
-  const [pathway, completedTopicSlugs, stats] = await Promise.all([
+  const [pathway, completedTopicSlugs, stats, speaking] = await Promise.all([
     getPathway(planRow.pathway_slug),
     getCompletedTopicSlugs(supabase, user.id),
     getDashboardStats(supabase, user.id),
+    getSpeakingStats(supabase, user.id),
   ]);
   const firstName =
     (profile?.full_name as string | null)?.split(/\s+/)[0] ?? "there";
@@ -206,6 +211,46 @@ export default async function DashboardPage() {
                     : `${stats.acceptancePct}% acceptance · ${stats.attemptedTotal} attempted`}
                 </p>
               </section>
+
+              {/* speaking */}
+              <section className="rounded-lg border border-rule bg-card p-5">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-sm font-semibold">Speaking</h2>
+                  <Link
+                    href="/speak"
+                    className="font-mono text-[11px] text-primary underline-offset-4 hover:underline"
+                  >
+                    practice →
+                  </Link>
+                </div>
+                {speaking.totalSessions === 0 ? (
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    <Link href="/speak" className="text-primary underline-offset-4 hover:underline">
+                      Say your first answer out loud →
+                    </Link>
+                  </p>
+                ) : (
+                  <div className="mt-3 flex items-end justify-between gap-3">
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <p className="font-mono text-xl font-semibold">
+                          {speaking.sessionsThisWeek}
+                        </p>
+                        <p className="text-[11px] text-muted-foreground">this week</p>
+                      </div>
+                      <div>
+                        <p className="font-mono text-xl font-semibold">
+                          {speaking.avgWpm ?? "—"}
+                        </p>
+                        <p className="text-[11px] text-muted-foreground">avg wpm</p>
+                      </div>
+                    </div>
+                    {speaking.fillerTrend.length > 1 && (
+                      <FillerTrend trend={speaking.fillerTrend} />
+                    )}
+                  </div>
+                )}
+              </section>
             </div>
           </div>
 
@@ -262,6 +307,25 @@ export default async function DashboardPage() {
           </section>
         </div>
       </div>
+    </div>
+  );
+}
+
+/** Tiny filler-count sparkline (lower is better) — static SVG. */
+function FillerTrend({ trend }: { trend: number[] }) {
+  const w = 88;
+  const h = 34;
+  const max = Math.max(1, ...trend);
+  const step = trend.length > 1 ? w / (trend.length - 1) : w;
+  const pts = trend
+    .map((v, i) => `${(i * step).toFixed(1)},${(h - (v / max) * (h - 4) - 2).toFixed(1)}`)
+    .join(" ");
+  return (
+    <div className="text-right">
+      <svg viewBox={`0 0 ${w} ${h}`} className="h-8 w-24 text-ballpoint" aria-hidden="true">
+        <polyline points={pts} fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      <p className="text-[11px] text-muted-foreground">filler trend</p>
     </div>
   );
 }
