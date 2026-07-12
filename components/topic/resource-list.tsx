@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   BookOpen,
   ExternalLink,
@@ -8,6 +8,8 @@ import {
   GraduationCap,
   PlayCircle,
 } from "lucide-react";
+import { useUser } from "@/components/auth/use-user";
+import { createClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 import type { TopicResource } from "@/lib/content";
 
@@ -23,19 +25,51 @@ const BRIDGE_LANGS = [
   { value: "hindi", label: "हिन्दी" },
 ] as const;
 
+type FormatPref = "video_first" | "reading_first" | "mixed";
+
+const isVideo = (r: TopicResource) => r.type === "video" || r.type === "course";
+
+/** Stable sort that floats videos or reading to the top per the pref. */
+function orderByFormat(list: TopicResource[], pref: FormatPref): TopicResource[] {
+  if (pref === "mixed") return list;
+  const weight = (r: TopicResource) => {
+    const v = isVideo(r);
+    return pref === "video_first" ? (v ? 0 : 1) : v ? 1 : 0;
+  };
+  return [...list].sort((a, b) => weight(a) - weight(b) || a.sort - b.sort);
+}
+
 /**
  * English-first (July 2026 decision): English resources lead and are the
  * default. Tamil/Hindi links stay as a quiet fallback behind a
  * "prefer your mother tongue?" toggle — demoted, never deleted.
+ * Within each language, order by the signed-in user's format preference
+ * (video-first / reading-first); the chips still override language.
  */
 export function ResourceList({ resources }: { resources: TopicResource[] }) {
+  const { user } = useUser();
+  const [formatPref, setFormatPref] = useState<FormatPref>("mixed");
+
+  useEffect(() => {
+    if (!user) return;
+    const supabase = createClient();
+    supabase
+      .from("profiles")
+      .select("format_pref")
+      .eq("id", user.id)
+      .maybeSingle()
+      .then(({ data }) => {
+        if (data?.format_pref) setFormatPref(data.format_pref as FormatPref);
+      });
+  }, [user]);
+
   const english = useMemo(
-    () => resources.filter((r) => r.language === "english"),
-    [resources]
+    () => orderByFormat(resources.filter((r) => r.language === "english"), formatPref),
+    [resources, formatPref]
   );
   const bridge = useMemo(
-    () => resources.filter((r) => r.language !== "english"),
-    [resources]
+    () => orderByFormat(resources.filter((r) => r.language !== "english"), formatPref),
+    [resources, formatPref]
   );
 
   // If a topic has no English resource yet, don't hide everything.

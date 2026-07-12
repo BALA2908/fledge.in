@@ -638,9 +638,11 @@ export function OnboardingWizard({ pathways, diagnostics }: Props) {
                       <li key={i}>
                         {item.kind === "topic"
                           ? `📖 ${item.title} (~${item.estMinutes}m)`
-                          : item.kind === "practice"
-                            ? `⌨ ${item.count} ${item.difficulty} problem${item.count > 1 ? "s" : ""}`
-                            : `🎙 ${item.count} speaking sessions`}
+                          : item.kind === "revise"
+                            ? `🔁 Revise ${item.topicTitle} (~${item.estMinutes}m)`
+                            : item.kind === "practice"
+                              ? `⌨ ${item.count} ${item.difficulty} problem${item.count > 1 ? "s" : ""}`
+                              : `🎙 ${item.count} speaking sessions`}
                       </li>
                     ))}
                   </ul>

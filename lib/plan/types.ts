@@ -43,6 +43,8 @@ export type PlanInput = {
   completedTopicSlugs: string[];
   /** diagnostic score per module slug (0–100), for reasons like "tested out · 85%" */
   diagnosticScores?: Record<string, number>;
+  /** topic quiz score per topic slug (0–100); <60 injects a revise item */
+  topicQuizScores?: Record<string, number>;
   /** ISO date used as "now" — injectable so tests are deterministic */
   today: string;
 };
@@ -62,7 +64,14 @@ export type PlanItem =
       count: number;
       reason: string;
     }
-  | { kind: "speaking"; count: number; reason: string };
+  | { kind: "speaking"; count: number; reason: string }
+  | {
+      kind: "revise";
+      topicSlug: string;
+      topicTitle: string;
+      estMinutes: number;
+      reason: string;
+    };
 
 export type PlanWeek = {
   /** 1-based week number */

@@ -32,6 +32,8 @@ export function generatePlan(input: PlanInput): GeneratedPlan {
     title: string;
     moduleSlug: string;
     estMinutes: number;
+    /** true when this is a revise pass inserted after a weak topic quiz */
+    revise?: boolean;
   }[] = [];
 
   for (const mod of input.pathway.modules) {
@@ -59,6 +61,18 @@ export function generatePlan(input: PlanInput): GeneratedPlan {
         moduleSlug: mod.slug,
         estMinutes: topic.estMinutes,
       });
+      // A weak topic quiz (<60%) buys a revise pass before moving on:
+      // one deep resource re-watch (~30m) plus 2 targeted problems.
+      const quiz = input.topicQuizScores?.[topic.slug];
+      if (quiz !== undefined && quiz < 60) {
+        remaining.push({
+          slug: topic.slug,
+          title: topic.title,
+          moduleSlug: mod.slug,
+          estMinutes: 45,
+          revise: true,
+        });
+      }
     }
   }
 
@@ -132,14 +146,24 @@ export function generatePlan(input: PlanInput): GeneratedPlan {
       const topic = remaining[cursor];
       if (items.length > 0 && planned + topic.estMinutes > capacityMinutesPerWeek)
         break;
-      items.push({
-        kind: "topic",
-        slug: topic.slug,
-        title: topic.title,
-        moduleSlug: topic.moduleSlug,
-        estMinutes: topic.estMinutes,
-        reason: `Next in the ${input.pathway.title} order.`,
-      });
+      if (topic.revise) {
+        items.push({
+          kind: "revise",
+          topicSlug: topic.slug,
+          topicTitle: topic.title,
+          estMinutes: topic.estMinutes,
+          reason: `Your quiz on ${topic.title} came in under 60% — one deep re-watch and 2 problems before moving on.`,
+        });
+      } else {
+        items.push({
+          kind: "topic",
+          slug: topic.slug,
+          title: topic.title,
+          moduleSlug: topic.moduleSlug,
+          estMinutes: topic.estMinutes,
+          reason: `Next in the ${input.pathway.title} order.`,
+        });
+      }
       planned += topic.estMinutes;
       cursor++;
     }

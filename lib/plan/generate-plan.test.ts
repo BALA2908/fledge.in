@@ -137,4 +137,24 @@ describe("generatePlan", () => {
         expect(item.reason.length).toBeGreaterThan(5);
     }
   });
+
+  it("injects a revise item after a topic scored under 60%", () => {
+    const plan = generatePlan({ ...base, topicQuizScores: { a1: 45 } });
+    const revise = plan.weeks
+      .flatMap((w) => w.items)
+      .find((i) => i.kind === "revise");
+    expect(revise).toBeDefined();
+    if (revise?.kind === "revise") {
+      expect(revise.topicSlug).toBe("a1");
+      expect(revise.reason).toMatch(/60%/);
+    }
+  });
+
+  it("does NOT inject a revise item when the quiz score is 60% or above", () => {
+    const plan = generatePlan({ ...base, topicQuizScores: { a1: 75 } });
+    const revise = plan.weeks
+      .flatMap((w) => w.items)
+      .find((i) => i.kind === "revise");
+    expect(revise).toBeUndefined();
+  });
 });

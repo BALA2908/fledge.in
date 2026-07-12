@@ -27,6 +27,7 @@ export type PathwayCard = {
 };
 
 export type RoadmapTopic = {
+  id: string;
   slug: string;
   title: string;
   est_minutes: number;
@@ -72,6 +73,7 @@ export type TopicDetail = {
   tips: string[];
   est_minutes: number;
   is_core: boolean;
+  id: string;
   resources: TopicResource[];
   module: { slug: string; title: string };
   pathway: { slug: string; title: string };
@@ -130,7 +132,7 @@ export async function getPathway(slug: string): Promise<PathwayDetail | null> {
     .select(
       `slug, title, tagline, description, outcomes,
        modules(slug, title, description, est_hours, sort,
-         topics(slug, title, est_minutes, is_core, sort))`
+         topics(id, slug, title, est_minutes, is_core, sort))`
     )
     .eq("slug", slug)
     .maybeSingle();
@@ -176,13 +178,14 @@ export async function getTopic(
   const supabase = createClient();
   const { data, error } = await supabase
     .from("topics")
-    .select("slug, title, summary_md, tips, est_minutes, is_core, resources(*)")
+    .select("id, slug, title, summary_md, tips, est_minutes, is_core, resources(*)")
     .eq("slug", topicSlug)
     .maybeSingle();
   if (error) throw new Error(`getTopic(${topicSlug}): ${error.message}`);
   if (!data) return null;
 
   return {
+    id: data.id,
     slug: data.slug,
     title: data.title,
     summary_md: data.summary_md,

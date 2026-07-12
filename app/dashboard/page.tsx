@@ -3,8 +3,15 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getPathway } from "@/lib/content";
+import { getCompletedTopicSlugs, getDashboardStats } from "@/lib/progress";
 import { generatePlan } from "@/lib/plan/generate-plan";
+import { derivePaceFactor, paceReason, weekStatus } from "@/lib/plan/adapt";
 import type { CompanyType, Track } from "@/lib/plan/types";
+import { WeekChecklist } from "@/components/dashboard/week-checklist";
+import { AdjustPlanBanner } from "@/components/dashboard/adjust-plan-banner";
+import { SolvedDonut, ActivityHeatmap } from "@/components/dashboard/stat-charts";
+import { VerdictBadge } from "@/components/workspace/verdict-badge";
+import type { Verdict } from "@/lib/judge/verdict";
 
 export const dynamic = "force-dynamic";
 
@@ -12,6 +19,8 @@ export const metadata: Metadata = {
   title: "Dashboard",
   description: "Your week's plan, progress, and streak.",
 };
+
+const BUFFER = 0.85;
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -30,14 +39,33 @@ export default async function DashboardPage() {
       .limit(1)
       .maybeSingle(),
   ]);
-
   if (!planRow) redirect("/onboarding");
 
-  const pathway = await getPathway(planRow.pathway_slug);
+  const [pathway, completedTopicSlugs, stats] = await Promise.all([
+    getPathway(planRow.pathway_slug),
+    getCompletedTopicSlugs(supabase, user.id),
+    getDashboardStats(supabase, user.id),
+  ]);
   const firstName =
     (profile?.full_name as string | null)?.split(/\s+/)[0] ?? "there";
 
-  // The schedule is derived, never stored (§2C) — recompute on every load.
+  // Minutes of learning done, all-time and this week, from completed topics.
+  const topicMinutes = new Map<string, number>();
+  for (const m of pathway?.modules ?? [])
+    for (const t of m.topics) topicMinutes.set(t.slug, t.est_minutes);
+  const doneMinutesAllTime = completedTopicSlugs.reduce(
+    (n, slug) => n + (topicMinutes.get(slug) ?? 0),
+    0
+  );
+
+  // Derived pace (§2C: never stored) — behind for a week ⇒ lighter weeks.
+  const planStart = new Date(planRow.updated_at ?? Date.now());
+  const weeksElapsed = Math.floor(
+    (Date.now() - planStart.getTime()) / (7 * 86_400_000)
+  );
+  const baselineCap = (planRow.hours_per_week ?? 6) * 60 * BUFFER;
+  const paceFactor = derivePaceFactor(doneMinutesAllTime, baselineCap, weeksElapsed);
+
   const plan = pathway
     ? generatePlan({
         pathway: {
@@ -59,18 +87,43 @@ export default async function DashboardPage() {
         targetDate: planRow.target_date ?? new Date().toISOString().slice(0, 10),
         hoursPerWeek: planRow.hours_per_week ?? 6,
         track: (planRow.track ?? "full") as Track,
-        paceFactor: Number(planRow.pace_factor ?? 1),
+        paceFactor,
         skippedModules: planRow.skipped_modules ?? [],
-        completedTopicSlugs: [], // Phase 5 wires topic_progress in
+        completedTopicSlugs,
         today: new Date().toISOString().slice(0, 10),
       })
     : null;
 
   const thisWeek = plan?.weeks[0];
 
+  // This week's status from learning minutes done since the week started.
+  const weekStart = new Date();
+  weekStart.setDate(weekStart.getDate() - 7);
+  const status = thisWeek
+    ? weekStatus(
+        // Approximation: minutes of topics completed in the last 7 days.
+        // (We don't store per-topic completion time yet, so use all-time
+        // done vs planned when weeksElapsed is 0, else the pace signal.)
+        weeksElapsed === 0 ? doneMinutesAllTime : paceFactor * thisWeek.plannedMinutes,
+        thisWeek.plannedMinutes
+      )
+    : "on_track";
+
+  const pathwayProgressPct =
+    pathway && pathway.modules.length > 0
+      ? Math.round(
+          (completedTopicSlugs.length /
+            Math.max(
+              1,
+              pathway.modules.reduce((n, m) => n + m.topics.length, 0)
+            )) *
+            100
+        )
+      : 0;
+
   return (
     <div>
-      <div className="mx-auto max-w-4xl px-4 py-10">
+      <div className="mx-auto max-w-5xl px-4 py-10">
         <header className="margin-rule pl-8 sm:pl-12">
           <p aria-hidden="true" className="mb-1 -rotate-2 font-hand text-xl text-margin/80">
             this week —
@@ -85,120 +138,128 @@ export default async function DashboardPage() {
           )}
         </header>
 
-        <div className="mt-8 grid gap-5 lg:grid-cols-[1.4fr_1fr]">
-          {/* this week */}
-          <section className="rounded-lg border border-rule bg-card p-5 sm:p-6">
-            <h2 className="text-lg font-semibold">Week 1 of {plan?.totalWeeks ?? "—"}</h2>
+        <div className="mt-8 space-y-5">
+          {plan && status !== "on_track" && (
+            <AdjustPlanBanner
+              status={status}
+              reason={paceReason(status, paceFactor)}
+              pathwaySlug={planRow.pathway_slug}
+              options={!plan.fit.fits ? plan.fit.options : []}
+            />
+          )}
+
+          <div className="grid gap-5 lg:grid-cols-[1.5fr_1fr]">
             {thisWeek ? (
-              <>
-                <p className="mt-1 font-mono text-xs text-muted-foreground">
-                  {thisWeek.reason}
-                </p>
-                <ul className="mt-4 space-y-2">
-                  {thisWeek.items.map((item, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start justify-between gap-3 rounded-md border border-rule p-3 text-sm"
-                    >
-                      <span className="min-w-0">
-                        {item.kind === "topic" ? (
-                          <Link
-                            href={`/pathways/${planRow.pathway_slug}/${item.slug}`}
-                            className="font-medium hover:text-primary"
-                          >
-                            {item.title}
-                          </Link>
-                        ) : item.kind === "practice" ? (
-                          <Link href="/problems" className="font-medium hover:text-primary">
-                            {item.count} {item.difficulty} problem
-                            {item.count > 1 ? "s" : ""}
-                          </Link>
-                        ) : (
-                          <span className="font-medium">
-                            {item.count} speaking sessions
-                          </span>
-                        )}
-                        <span className="mt-0.5 block text-xs text-muted-foreground">
-                          {item.reason}
-                        </span>
-                      </span>
-                      {item.kind === "topic" && (
-                        <span className="shrink-0 font-mono text-[11px] text-muted-foreground">
-                          ~{item.estMinutes}m
-                        </span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </>
+              <WeekChecklist
+                week={thisWeek}
+                pathwaySlug={planRow.pathway_slug}
+                completedTopicSlugs={completedTopicSlugs}
+              />
             ) : (
-              <p className="mt-2 text-sm text-muted-foreground">
-                Plan loading hit a snag — refresh, or rebuild it in{" "}
-                <Link href="/onboarding" className="text-primary underline-offset-4 hover:underline">
-                  onboarding
-                </Link>
-                .
-              </p>
+              <section className="rounded-lg border border-verdict/40 bg-verdict/5 p-6">
+                <p className="font-hand text-2xl text-verdict">
+                  path complete —
+                </p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  You&apos;ve cleared every topic on this plan. Pick another
+                  path or keep grinding problems.
+                </p>
+              </section>
             )}
+
+            <div className="space-y-5">
+              {/* pathway progress */}
+              <section className="rounded-lg border border-rule bg-card p-5">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-sm font-semibold">
+                    {pathway?.title ?? planRow.pathway_slug}
+                  </h2>
+                  <span className="font-mono text-xs text-muted-foreground">
+                    {pathwayProgressPct}%
+                  </span>
+                </div>
+                <div className="mt-2 h-2 overflow-hidden rounded-full bg-secondary">
+                  <div
+                    className="h-full rounded-full bg-verdict transition-all"
+                    style={{ width: `${pathwayProgressPct}%` }}
+                  />
+                </div>
+                <p className="mt-2 font-mono text-[11px] text-muted-foreground">
+                  {completedTopicSlugs.length} topics done · target{" "}
+                  {planRow.target_date}
+                </p>
+                <Link
+                  href={`/pathways/${planRow.pathway_slug}`}
+                  className="mt-3 inline-block text-xs font-medium text-primary underline-offset-4 hover:underline"
+                >
+                  Open the roadmap →
+                </Link>
+              </section>
+
+              {/* solved donut */}
+              <section className="rounded-lg border border-rule bg-card p-5">
+                <h2 className="text-sm font-semibold">Problems solved</h2>
+                <SolvedDonut solved={stats.solvedByDifficulty} />
+                <p className="text-center font-mono text-[11px] text-muted-foreground">
+                  {stats.acceptancePct === null
+                    ? "no submissions yet"
+                    : `${stats.acceptancePct}% acceptance · ${stats.attemptedTotal} attempted`}
+                </p>
+              </section>
+            </div>
+          </div>
+
+          {/* streak + heatmap */}
+          <section className="rounded-lg border border-rule bg-card p-5">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <h2 className="text-sm font-semibold">Your last 26 weeks</h2>
+              <div className="flex gap-4 font-mono text-xs">
+                <span className="flex items-center gap-1.5">
+                  <span aria-hidden="true">🔥</span>
+                  <span className="font-semibold">{stats.currentStreak}</span>
+                  <span className="text-muted-foreground">day streak</span>
+                </span>
+                <span className="text-muted-foreground">
+                  best {stats.bestStreak}
+                </span>
+              </div>
+            </div>
+            <div className="mt-4">
+              <ActivityHeatmap heatmap={stats.heatmap} />
+            </div>
           </section>
 
-          {/* the inputs + placeholder stats */}
-          <div className="space-y-5">
-            <section className="rounded-lg border border-rule bg-card p-5">
-              <h2 className="text-sm font-semibold">Your plan inputs</h2>
-              <dl className="mt-3 space-y-1.5 text-sm">
-                <div className="flex justify-between gap-3">
-                  <dt className="text-muted-foreground">Path</dt>
-                  <dd className="font-medium">{pathway?.title ?? planRow.pathway_slug}</dd>
-                </div>
-                <div className="flex justify-between gap-3">
-                  <dt className="text-muted-foreground">Target date</dt>
-                  <dd className="font-mono text-xs">{planRow.target_date}</dd>
-                </div>
-                <div className="flex justify-between gap-3">
-                  <dt className="text-muted-foreground">Hours / week</dt>
-                  <dd className="font-mono text-xs">{planRow.hours_per_week}</dd>
-                </div>
-                <div className="flex justify-between gap-3">
-                  <dt className="text-muted-foreground">Track</dt>
-                  <dd className="font-mono text-xs">{planRow.track}</dd>
-                </div>
-                {(planRow.skipped_modules ?? []).length > 0 && (
-                  <div className="flex justify-between gap-3">
-                    <dt className="text-muted-foreground">Tested out of</dt>
-                    <dd className="font-mono text-xs">
-                      {(planRow.skipped_modules ?? []).length} modules
-                    </dd>
-                  </div>
-                )}
-              </dl>
-              <Link
-                href="/onboarding"
-                className="mt-3 inline-block text-xs font-medium text-primary underline-offset-4 hover:underline"
-              >
-                Adjust the plan →
-              </Link>
-            </section>
-
-            <section className="rounded-lg border border-rule bg-card p-5">
-              <h2 className="text-sm font-semibold">Progress</h2>
-              <div className="mt-3 grid grid-cols-3 gap-2 text-center">
-                {[
-                  ["0", "topics done"],
-                  ["0", "solved"],
-                  ["0", "day streak"],
-                ].map(([n, label]) => (
-                  <div key={label} className="rounded-md border border-rule p-2">
-                    <p className="font-mono text-xl font-semibold">{n}</p>
-                    <p className="text-[11px] text-muted-foreground">{label}</p>
-                  </div>
-                ))}
-              </div>
-              <p className="mt-3 font-hand text-lg text-muted-foreground">
-                zeros are just day one —
+          {/* recent submissions */}
+          <section className="rounded-lg border border-rule bg-card p-5">
+            <h2 className="text-sm font-semibold">Recent submissions</h2>
+            {stats.recent.length === 0 ? (
+              <p className="mt-3 text-sm text-muted-foreground">
+                Nothing yet.{" "}
+                <Link href="/problems/canteen-token-pairs" className="text-primary underline-offset-4 hover:underline">
+                  Solve your first problem →
+                </Link>
               </p>
-            </section>
-          </div>
+            ) : (
+              <ul className="mt-3 divide-y divide-rule">
+                {stats.recent.map((s, i) => (
+                  <li key={i} className="flex items-center justify-between gap-3 py-2">
+                    <Link
+                      href={`/problems/${s.problemSlug}`}
+                      className="min-w-0 truncate text-sm font-medium hover:text-primary"
+                    >
+                      {s.problemTitle}
+                    </Link>
+                    <span className="flex shrink-0 items-center gap-2">
+                      <VerdictBadge verdict={s.verdict as Verdict} />
+                      <span className="font-mono text-[11px] text-muted-foreground">
+                        {new Date(s.createdAt).toLocaleDateString()}
+                      </span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
         </div>
       </div>
     </div>

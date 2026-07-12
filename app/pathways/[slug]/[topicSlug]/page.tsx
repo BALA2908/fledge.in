@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Markdown } from "@/components/notebook/markdown";
 import { MarginNote, PenUnderline } from "@/components/notebook/margin-note";
 import { ResourceList } from "@/components/topic/resource-list";
+import { MarkTopicDone } from "@/components/progress/mark-topic-done";
 import { DifficultyBadge } from "@/components/shared/difficulty-badge";
 import { getPathway, getPathways, getProblemsForTopic, getTopic } from "@/lib/content";
 
@@ -97,6 +98,10 @@ export default async function TopicPage({ params }: Props) {
                 <Markdown>{topic.summary_md}</Markdown>
               </div>
             )}
+
+            <div className="mt-8">
+              <MarkTopicDone topicId={topic.id} topicTitle={topic.title} />
+            </div>
 
             {/* resources */}
             <section className="mt-10">
